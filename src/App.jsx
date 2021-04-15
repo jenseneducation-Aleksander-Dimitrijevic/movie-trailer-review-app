@@ -6,6 +6,7 @@ import { Movies } from "./views/Movies/Movies";
 import { Series } from "./views/Series/Series";
 import { Kids } from "./views/Kids/Kids";
 import { Documentary } from "./views/Documentary/Documentary";
+import { Footer } from "./components/Footer/Footer";
 import { NotFound } from "./views/NotFound/NotFound";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
@@ -31,6 +32,7 @@ export const App = () => {
         <Route path="*" component={NotFound} />
         <GlobalStyle />
       </Switch>
+      <Footer />
     </Router>
   );
 };
