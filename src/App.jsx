@@ -10,27 +10,20 @@ import { Footer } from "./components/Footer/Footer";
 import { NotFound } from "./views/NotFound/NotFound";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
-
-const appRoutes = {
-  home: "/",
-  movies: "/movies",
-  series: "/series",
-  kids: "/kids",
-  documentary: "/documentary",
-};
+import { AppRoutes } from "./components/AppRoutes/AppRoutes";
 
 export const App = () => {
   return (
     <Router>
+      <GlobalStyle />
       <NavBar />
       <Switch>
-        <Route exact path={appRoutes.home} component={Home} />
-        <Route path={appRoutes.movies} component={Movies} />
-        <Route path={appRoutes.series} component={Series} />
-        <Route path={appRoutes.kids} component={Kids} />
-        <Route path={appRoutes.documentary} component={Documentary} />
+        <Route exact path={AppRoutes.home} component={Home} />
+        <Route path={AppRoutes.movies} component={Movies} />
+        <Route path={AppRoutes.series} component={Series} />
+        <Route path={AppRoutes.kids} component={Kids} />
+        <Route path={AppRoutes.documentary} component={Documentary} />
         <Route path="*" component={NotFound} />
-        <GlobalStyle />
       </Switch>
       <Footer />
     </Router>
