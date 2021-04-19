@@ -5,8 +5,9 @@ export const GlobalStyle = createGlobalStyle`
     padding:0;
     margin:0;
     box-sizing:border-box;
+    
 }
 body {
-   font-family:"Montserrat", "Helvetica", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 `;
