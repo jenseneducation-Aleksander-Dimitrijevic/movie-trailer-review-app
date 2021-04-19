@@ -8,7 +8,7 @@ export const NavBarContainer = styled.div`
   justify-content: center;
 
   .active {
-    color: ${color.deepBlue};
+    color: ${color.orange};
   }
 
   ul {
