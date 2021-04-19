@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { NavBar } from "./components/NavBar/NavBar";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 import { Home } from "./views/Home/Home";
 import { Movies } from "./views/Movies/Movies";
 import { Series } from "./views/Series/Series";
@@ -17,6 +18,7 @@ export const App = () => {
     <Router>
       <GlobalStyle />
       <NavBar />
+      <SearchBar />
       <Switch>
         <Route exact path={AppRoutes.home} component={Home} />
         <Route path={AppRoutes.movies} component={Movies} />

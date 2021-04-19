@@ -1,4 +1,4 @@
-export const ColorsGlobal = [
+export const ColorsGlobal = 
   {
     orange: "#f26077;",
     limeGreen: "#5cad8a;",
@@ -10,5 +10,4 @@ export const ColorsGlobal = [
     lightBlue: "#bed0de;",
     skyBlue: "#a0cef0;",
     purpleGray: "#576d84;",
-  },
-];
+  };
