@@ -6,6 +6,9 @@ export const NavLink = styled(Link)``;
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 70px;
+  background: ${color.deepBlue};
 
   .active {
     color: ${color.orange};
@@ -13,6 +16,7 @@ export const NavBarContainer = styled.div`
 
   ul {
     li {
+      list-style: none;
       a {
         text-decoration: none;
 
