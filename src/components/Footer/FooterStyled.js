@@ -29,14 +29,18 @@ export const FooterContainer = styled.footer`
     letter-spacing: 0.03em;
     color: ${color.white};
     width: 100%;
-    padding: 0 0 36px;
+    padding: 0 0 26px;
 
     @media screen and (min-width: 767px) {
       font-size: 15px;
     }
 
     @media screen and (min-width: 767px) {
-      max-width: 70%;
+      max-width: 85%;
+    }
+
+    @media screen and (min-width: 1024px) {
+      max-width: 50%;
     }
   }
 

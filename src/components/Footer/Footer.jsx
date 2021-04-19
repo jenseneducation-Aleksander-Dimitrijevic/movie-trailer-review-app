@@ -64,10 +64,10 @@ export const Footer = () => {
       </div>
       <div className="lower">
         <p className="copy">
-          © Playpilot AB (Org nr. 556946-8530), Valhallavägen 66, 114 27
+          © Watchy AB (Org nr. 12345678-1234), Valhallavägen 123, 123 45
           Stockholm, Sverige
           <br />
-          <span>v2.20.5 (f7ffbd3)</span>
+          <span>v1.10.2 (f3ffce3)</span>
         </p>
       </div>
     </FooterContainer>
