@@ -109,4 +109,10 @@ export const NavBarContainer = styled.div`
       }
     }
   }
+
+  .searchbar {
+    position: absolute;
+    top: 3.9em;
+    left: 0;
+  }
 `;

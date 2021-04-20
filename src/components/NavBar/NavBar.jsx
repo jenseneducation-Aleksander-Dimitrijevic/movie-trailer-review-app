@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 import { NavBarData } from "./NavBarData";
 import { NavBarContainer, NavLink } from "./NavBarStyled";
@@ -45,6 +46,9 @@ export const NavBar = () => {
       <section>
         <button className="login-btn">Log in</button>
         <button className="create-btn">Create a free account</button>
+      </section>
+      <section className="searchbar">
+        <SearchBar />
       </section>
     </NavBarContainer>
   );
