@@ -68,7 +68,7 @@ export const NavBarContainer = styled.div`
 
   section {
     position: relative;
-    margin-left: 10em;
+    right: -9.5em;
     .login-btn {
       height: 25px;
       width: 80px;
