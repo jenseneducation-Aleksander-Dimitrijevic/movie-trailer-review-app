@@ -19,7 +19,7 @@ export const SearchBar = () => {
     <QueryClientProvider client={queryClient}>
       <SearchBarContainer>
         <input
-          className={toggleSearchBar ? "input-big" : "input-small"}
+          className="searchInput"
           type="text"
           value={keyword}
           placeholder="Search for all movies, actors, reviews etc."
@@ -37,7 +37,7 @@ export const SearchBar = () => {
         >
           Close
         </button>
-        <SearchInput useQuery={useQuery} />
+        <SearchInput useQuery={useQuery} toggleSearchBar={toggleSearchBar} />
       </SearchBarContainer>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

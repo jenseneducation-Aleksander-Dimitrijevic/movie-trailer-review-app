@@ -2,17 +2,8 @@ import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const SearchBarContainer = styled.div`
-  .input-small {
+  .searchInput {
     height: 55px;
-    width: 100vw;
-    background: ${color.darkBlue};
-    border: none;
-    outline: none;
-    transition: all 0.4s ease-in-out;
-  }
-
-  .input-big {
-    height: 400px;
     width: 100vw;
     background: ${color.darkBlue};
     border: none;
@@ -49,9 +40,59 @@ export const SearchBarContainer = styled.div`
 `;
 
 export const SearchInputContainer = styled.div`
-  section {
-    h1 {
-      color: red;
+  .input-big {
+    height: 400px;
+    width: 100vw;
+    background: ${color.deepBlue};
+    border: none;
+    outline: none;
+    padding: 2.5em;
+    margin-left: -9.5em;
+    transition: all 0.4s ease-in-out;
+    overflow: scroll;
+  }
+
+  .input-small {
+    display: none;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: ${color.white};
+    border-bottom: 1px solid #465a6f;
+    padding-bottom: 0.6em;
+    margin-bottom: 0.6em;
+    width: 37.5em;
+  }
+
+  aside {
+    display: inline-block;
+    width: 35em;
+    margin-left: 1em;
+    h5 {
+      color: ${color.white};
+      letter-spacing: 0.3px;
     }
+  }
+
+  .title-text {
+    font-size: 1.1rem;
+  }
+
+  .release-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.4px;
+  }
+
+  .overview-text {
+    color: ${color.grayBlue};
+  }
+
+  img {
+    width: 80px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 `;
