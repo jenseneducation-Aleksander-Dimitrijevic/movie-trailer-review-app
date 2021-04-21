@@ -4,7 +4,7 @@ import { NavBarData } from "./NavBarData";
 import { NavBarContainer, NavLink } from "./NavBarStyled";
 import { FaPlayCircle } from "react-icons/fa";
 
-export const NavBar = () => {
+export const NavBar = ({ setLogin, setSignup }) => {
   const [arrowUp, setArrowUp] = useState(false);
 
   const arrowTurn = () => setArrowUp(!arrowUp);
@@ -31,7 +31,9 @@ export const NavBar = () => {
         </ul>
       ))}
       <section>
-        <button className="login-btn">Log in</button>
+        <button className="login-btn" onClick={() => setLogin(true)}>
+          Log in
+        </button>
         <button className="create-btn">Create a free account</button>
       </section>
     </NavBarContainer>
