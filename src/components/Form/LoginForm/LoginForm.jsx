@@ -1,7 +1,7 @@
 import { FormContainer } from "../FormStyles";
 import { FaGoogle } from "react-icons/fa";
 import CloseButton from "../CloseButton/CloseButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginForm({ setLogin, login }) {
   const [input, setInput] = useState({
@@ -9,9 +9,14 @@ export default function LoginForm({ setLogin, login }) {
     password: "",
   });
 
+  useEffect(() => {
+    !login && setInput({ email: "", password: "" });
+  }, [login]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(input);
+    setInput({ email: "", password: "" });
   };
 
   return (
