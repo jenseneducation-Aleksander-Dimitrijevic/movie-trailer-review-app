@@ -1,10 +1,21 @@
 import { FormContainer } from "../FormStyles";
 import { FaGoogle } from "react-icons/fa";
 import CloseButton from "../CloseButton/CloseButton";
+import { useState } from "react";
 
 export default function LoginForm({ setLogin, login }) {
+  const [input, setInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(input);
+  };
+
   return (
-    <FormContainer className={login ? "show" : ""}>
+    <FormContainer className={login ? "show" : "hide"} onSubmit={handleSubmit}>
       <CloseButton setLogin={setLogin} />
       <header className="header">
         <h1 className="header-title">Registrera dig/fortsätt med</h1>
@@ -12,14 +23,32 @@ export default function LoginForm({ setLogin, login }) {
           <FaGoogle className="icons-google icons-content" />
         </section>
       </header>
-      <form className="form">
+      <main className="form-content">
         <header className="form-header">
           <h1 className="form-title">Logga in med e-postadress</h1>
         </header>
-        <input type="email" className="form-field" placeholder="E-post" />
-        <input type="password" className="form-field" placeholder="Lösenord" />
+        <div className="form-row">
+          {/* <label className="form-label">E-post</label> */}
+          <input
+            type="email"
+            className="form-field"
+            value={input.email}
+            onChange={(e) => setInput({ ...input, email: e.target.value })}
+            placeholder="E-post"
+          />
+        </div>
+        <div className="form-row">
+          {/* <label className="form-label">Lösenord</label> */}
+          <input
+            type="password"
+            className="form-field"
+            value={input.password}
+            onChange={(e) => setInput({ ...input, password: e.target.value })}
+            placeholder="Lösenord"
+          />
+        </div>
         <button className="form-submit">Logga in</button>
-      </form>
+      </main>
     </FormContainer>
   );
 }

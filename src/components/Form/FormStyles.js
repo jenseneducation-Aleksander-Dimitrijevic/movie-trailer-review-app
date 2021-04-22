@@ -1,20 +1,44 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
-export const FormContainer = styled.div`
-  width: 100%;
-  max-width: 380px;
-  border-radius: 5px;
-  background: ${color.deepBlue};
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  transform: translateY(20px);
-
-  &.show {
+const slideUp = keyframes`
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+`;
+
+const slideDown = keyframes`
+  30% {
+    transform: translateY(-20px);
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+  }
+`;
+
+export const FormContainer = styled.form`
+  width: 100%;
+  border-radius: 5px;
+  background: ${color.deepBlue};
+  position: relative;
+
+  &.show {
+    animation: 0.3s ${slideUp} ease;
+  }
+
+  &.hide {
+    animation: 0.3s ${slideDown} ease;
   }
 
   .header {
@@ -48,59 +72,76 @@ export const FormContainer = styled.div`
       }
     }
   }
-  .form {
+  .form-content {
     padding: 1.25rem 1.5rem;
-    &-header {
+  }
+  .form-header {
+    margin: 0 0 2rem;
+  }
+  .form-title {
+    color: ${color.white};
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .form-row {
+    position: relative;
+    &:nth-of-type(1) {
       margin: 0 0 2rem;
     }
-    &-title {
-      color: ${color.white};
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
+
+    &.focus {
+      .form-label {
+        transform: translateY(-20px);
+        color: ${color.lightBlue};
+      }
     }
-    &-field {
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      position: absolute;
+      bottom: 10px;
+      color: ${color.white};
+      transition: all 0.2s ease;
+    }
+
+    .form-field {
       width: 100%;
       border: none;
       background: transparent;
       outline: none;
       border-bottom: 1px solid ${color.purpleGray};
-      padding: 0 0 10px;
+      padding: 0 0 5px;
       color: ${color.white};
       transition: all 0.3s ease;
-      &:nth-of-type(1) {
-        margin: 0 0 2rem;
-      }
-      &::placeholder {
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        color: ${color.white};
-      }
       &:focus {
         border-color: ${color.orange};
       }
     }
-    &-submit {
-      display: block;
-      width: 100%;
-      height: 45px;
-      text-transform: uppercase;
-      color: ${color.white};
-      margin: 2rem 0 0;
-      font-size: 1rem;
-      font-weight: 600;
-      border: none;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      border-radius: 5px;
-      background: ${color.orange};
-      transition: all 0.3s ease;
+  }
 
-      @media screen and (min-width: 1024px) {
-        &:hover {
-          background: ${color.lightBlue};
-        }
+  .form-submit {
+    display: block;
+    width: 100%;
+    height: 45px;
+    text-transform: uppercase;
+    color: ${color.white};
+    margin: 2rem 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    border-radius: 5px;
+    background: ${color.orange};
+    transition: all 0.3s ease;
+
+    @media screen and (min-width: 1024px) {
+      &:hover {
+        background: ${color.lightBlue};
       }
     }
   }
