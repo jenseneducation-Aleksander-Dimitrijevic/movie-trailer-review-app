@@ -17,6 +17,11 @@ export const FormContainer = styled.form`
     border-radius: 5px 5px 0 0;
     background: ${color.darkGray};
     color: ${color.white};
+
+    &.footer {
+      border-radius: 0 0 5px 5px;
+    }
+
     &-title {
       text-align: center;
       color: ${color.white};
@@ -26,6 +31,8 @@ export const FormContainer = styled.form`
     }
     .icons {
       margin: 1.5rem 0 0;
+      display: flex;
+      gap: 20px;
       &-content {
         padding: 10px;
         border-radius: 5px;
@@ -34,7 +41,14 @@ export const FormContainer = styled.form`
       }
       &-logo {
         font-size: 60px;
+      }
+
+      &-primary {
         background: ${color.darkBlue};
+      }
+
+      &-light-theme {
+        background: ${color.purpleGray};
       }
     }
   }

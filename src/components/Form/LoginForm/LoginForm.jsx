@@ -8,7 +8,6 @@ export default function LoginForm({ setLogin, login }) {
     email: "",
     password: "",
   });
-
   useEffect(() => {
     !login && setInput({ email: "", password: "" });
   }, [login]);
@@ -25,7 +24,7 @@ export default function LoginForm({ setLogin, login }) {
       <header className="account">
         <h1 className="account-title">Registrera dig/fortsätt med</h1>
         <section className="icons">
-          <FaGoogle className="icons-logo icons-content" />
+          <FaGoogle className="icons-logo icons-content icons-primary" />
         </section>
       </header>
       <main className="form-content">
