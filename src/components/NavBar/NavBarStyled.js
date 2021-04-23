@@ -68,7 +68,7 @@ export const NavBarContainer = styled.div`
 
   section {
     position: relative;
-    margin-left: 10em;
+    right: -9.5em;
     .login-btn {
       height: 25px;
       width: 80px;
@@ -108,5 +108,11 @@ export const NavBarContainer = styled.div`
         opacity: 0.8;
       }
     }
+  }
+
+  .searchbar {
+    position: absolute;
+    top: 3.9em;
+    left: 0;
   }
 `;
