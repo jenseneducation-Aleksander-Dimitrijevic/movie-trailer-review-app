@@ -9,22 +9,16 @@ import { Kids } from "./views/Kids/Kids";
 import { Documentary } from "./views/Documentary/Documentary";
 import { Footer } from "./components/Footer/Footer";
 import { NotFound } from "./views/NotFound/NotFound";
-import Modal from "./components/Modal/Modal";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
-import { useState } from "react";
 
 export const App = () => {
-  const [login, setLogin] = useState(false);
-  const [signup, setSignup] = useState(false);
-
   return (
     <Router>
       <GlobalStyle />
-      <NavBar setLogin={setLogin} setSignup={setSignup} />
+      <NavBar />
       <SearchBar />
-      <Modal login={login} setLogin={setLogin} signup={signup} />
       <Switch>
         <Route exact path={AppRoutes.home} component={Home} />
         <Route path={AppRoutes.movies} component={Movies} />
