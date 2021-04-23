@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const SearchBarContainer = styled.div`
@@ -9,6 +9,13 @@ export const SearchBarContainer = styled.div`
     border: none;
     outline: none;
     transition: all 0.4s ease-in-out;
+    padding-left: 6em;
+    font-size: 0.9rem;
+
+    &::placeholder {
+      color: ${color.grayBlue};
+      font-weight: bold;
+    }
   }
 
   .showButton {
@@ -39,17 +46,33 @@ export const SearchBarContainer = styled.div`
   }
 `;
 
+const dropDownSearchBar = keyframes`
+ 0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+`;
+
 export const SearchInputContainer = styled.div`
   .input-big {
-    height: 400px;
     width: 100vw;
+    animation: ${dropDownSearchBar} 2s ease-in-out;
     background: ${color.deepBlue};
     border: none;
     outline: none;
     padding: 2.5em;
     margin-left: -9.5em;
-    transition: all 0.4s ease-in-out;
-    overflow: scroll;
+    height: 400px;
+    overflow-y: scroll;
+    box-shadow: -15px 20px 20px -15px #111;
   }
 
   .input-small {
@@ -74,6 +97,14 @@ export const SearchInputContainer = styled.div`
     h5 {
       color: ${color.white};
       letter-spacing: 0.3px;
+    }
+
+    h6 {
+      font-size: 0.7rem;
+      color: ${color.white};
+      span {
+        color: ${color.skyBlue};
+      }
     }
   }
 

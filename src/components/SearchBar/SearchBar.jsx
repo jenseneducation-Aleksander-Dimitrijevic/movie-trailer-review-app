@@ -18,6 +18,16 @@ export const SearchBar = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <SearchBarContainer>
+        <VscSearch
+          style={{
+            background: "transparent",
+            fontSize: "1.3rem",
+            color: "#9daebf",
+            position: "absolute",
+            left: "2em",
+            top: "0.8em",
+          }}
+        />
         <input
           className="searchInput"
           type="text"
