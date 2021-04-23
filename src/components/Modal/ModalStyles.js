@@ -1,4 +1,17 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideUp = keyframes`
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+`;
 
 export const ModalContainer = styled.div`
   transition: all 0.3s ease;
@@ -18,6 +31,10 @@ export const ModalContainer = styled.div`
   .content {
     width: 380px;
     cursor: default;
+
+    &.show {
+      animation: 0.3s ${slideUp} ease;
+    }
   }
 
   &.show {

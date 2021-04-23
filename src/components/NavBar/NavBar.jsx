@@ -1,13 +1,13 @@
 import { useState } from "react";
-
 import { NavBarData } from "./NavBarData";
 import { NavBarContainer, NavLink } from "./NavBarStyled";
 import { FaPlayCircle } from "react-icons/fa";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/ModalForm";
 
 export const NavBar = () => {
   const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
+  const [signup, setSignup] = useState(false);
 
   const arrowTurn = () => setArrowUp(!arrowUp);
 
@@ -36,9 +36,16 @@ export const NavBar = () => {
         <button className="login-btn" onClick={() => setLogin(true)}>
           Log in
         </button>
-        <button className="create-btn">Create a free account</button>
+        <button className="create-btn" onClick={() => setSignup(true)}>
+          Create a free account
+        </button>
       </section>
-      <Modal login={login} setLogin={setLogin} />
+      <Modal
+        login={login}
+        setLogin={setLogin}
+        signup={signup}
+        setSignup={setSignup}
+      />
     </NavBarContainer>
   );
 };

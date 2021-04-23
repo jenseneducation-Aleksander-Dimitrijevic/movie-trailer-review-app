@@ -1,31 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
-
-const slideUp = keyframes`
-  from {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-`;
-
-const slideDown = keyframes`
-  30% {
-    transform: translateY(-20px);
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-    visibility: hidden;
-  }
-`;
 
 export const FormContainer = styled.form`
   width: 100%;
@@ -33,15 +7,7 @@ export const FormContainer = styled.form`
   background: ${color.deepBlue};
   position: relative;
 
-  &.show {
-    animation: 0.3s ${slideUp} ease;
-  }
-
-  &.hide {
-    animation: 0.3s ${slideDown} ease;
-  }
-
-  .header {
+  .account {
     width: 100%;
     height: 150px;
     display: flex;
@@ -66,7 +32,7 @@ export const FormContainer = styled.form`
         cursor: pointer;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       }
-      &-google {
+      &-logo {
         font-size: 60px;
         background: ${color.darkBlue};
       }

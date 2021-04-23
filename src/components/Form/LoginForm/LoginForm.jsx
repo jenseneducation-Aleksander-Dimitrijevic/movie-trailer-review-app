@@ -20,12 +20,12 @@ export default function LoginForm({ setLogin, login }) {
   };
 
   return (
-    <FormContainer className={login ? "show" : "hide"} onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit}>
       <CloseButton setLogin={setLogin} />
-      <header className="header">
-        <h1 className="header-title">Registrera dig/fortsätt med</h1>
+      <header className="account">
+        <h1 className="account-title">Registrera dig/fortsätt med</h1>
         <section className="icons">
-          <FaGoogle className="icons-google icons-content" />
+          <FaGoogle className="icons-logo icons-content" />
         </section>
       </header>
       <main className="form-content">
@@ -33,7 +33,6 @@ export default function LoginForm({ setLogin, login }) {
           <h1 className="form-title">Logga in med e-postadress</h1>
         </header>
         <div className="form-row">
-          {/* <label className="form-label">E-post</label> */}
           <input
             type="email"
             className="form-field"
@@ -43,7 +42,6 @@ export default function LoginForm({ setLogin, login }) {
           />
         </div>
         <div className="form-row">
-          {/* <label className="form-label">Lösenord</label> */}
           <input
             type="password"
             className="form-field"
