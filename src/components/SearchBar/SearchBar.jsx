@@ -5,6 +5,7 @@ import { SearchInput } from "./SearchInput";
 
 import { SearchBarContainer } from "./SearchBarStyled";
 import { VscSearch } from "react-icons/vsc";
+import { VscClose } from "react-icons/vsc";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,21 @@ export const SearchBar = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <SearchBarContainer>
+        {keyword.length > 0 && (
+          <VscClose
+            style={{
+              background: "transparent",
+              fontSize: "1.5rem",
+              color: "#9daebf",
+              position: "absolute",
+              right: "11.5em",
+              top: "0.5em",
+              cursor: "pointer",
+            }}
+            onClick={(e) => setKeyword("")}
+            className={toggleSearchBar ? "showButton" : "hideButton"}
+          />
+        )}
         <VscSearch
           style={{
             background: "transparent",
@@ -25,7 +41,7 @@ export const SearchBar = () => {
             color: "#9daebf",
             position: "absolute",
             left: "2em",
-            top: "0.8em",
+            top: "0.7em",
           }}
         />
         <input
@@ -47,7 +63,11 @@ export const SearchBar = () => {
         >
           Close
         </button>
-        <SearchInput useQuery={useQuery} toggleSearchBar={toggleSearchBar} />
+        <SearchInput
+          useQuery={useQuery}
+          toggleSearchBar={toggleSearchBar}
+          keyword={keyword}
+        />
       </SearchBarContainer>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

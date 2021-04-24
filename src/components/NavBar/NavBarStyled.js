@@ -60,8 +60,8 @@ export const NavBarContainer = styled.div`
     right: 1.5em;
     color: ${color.white};
     font-size: 1.3rem;
-    @media screen and (min-width: 320px) {
-      display: unset;
+    @media screen and (min-width: 768px) {
+      display: none;
     }
   }
 
@@ -144,7 +144,8 @@ export const HamburgerContainer = styled.nav`
     color: ${color.orange};
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    display: none;
   }
 `;
 
