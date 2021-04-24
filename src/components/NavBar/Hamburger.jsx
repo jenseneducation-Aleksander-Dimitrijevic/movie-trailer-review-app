@@ -13,6 +13,7 @@ export const Hamburger = ({
   NavBarData,
   hamburgerNotVisible,
   showLoginBox,
+  handleSetSignup,
 }) => {
   return (
     <HamburgerContainer>
@@ -57,7 +58,14 @@ export const Hamburger = ({
           >
             Login
           </LoginButton>
-          <CreateButton>Create a free Account</CreateButton>
+          <CreateButton
+            onClick={() => {
+              handleSetSignup();
+              hamburgerNotVisible();
+            }}
+          >
+            Create a free Account
+          </CreateButton>
         </HamburgerButtonContainer>
       </HamburgerList>
     </HamburgerContainer>

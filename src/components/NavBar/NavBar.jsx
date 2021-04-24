@@ -81,6 +81,7 @@ export const NavBar = () => {
         <Hamburger
           NavBarData={NavBarData}
           showLoginBox={showLoginBox}
+          handleSetSignup={handleSetSignup}
           hamburgerNotVisible={hamburgerNotVisible}
         />
       )}
