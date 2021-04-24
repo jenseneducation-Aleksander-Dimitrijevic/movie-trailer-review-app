@@ -11,7 +11,7 @@ import {
   CreateButton,
 } from "./NavBarStyled";
 import { FaPlayCircle } from "react-icons/fa";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/ModalForm";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
@@ -19,11 +19,14 @@ import { AiOutlineClose } from "react-icons/ai";
 export const NavBar = () => {
   const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
+  const [signup, setSignup] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
 
   const hamburgerVisible = () => setShowHamburger(true);
   const hamburgerNotVisible = () => setShowHamburger(false);
   const showLoginBox = () => setLogin(true);
+  const handleSetLogin = () => setLogin(true);
+  const handleSetSignup = () => setSignup(true);
 
   const arrowTurn = () => {
     buttonRef.current.focus();
@@ -59,6 +62,12 @@ export const NavBar = () => {
           </li>
         </ul>
       ))}
+      <Modal
+        login={login}
+        setLogin={setLogin}
+        signup={signup}
+        setSignup={setSignup}
+      />
       {showHamburger ? (
         <span className="hamburger-icon">
           <AiOutlineClose onClick={() => hamburgerNotVisible()} />
@@ -76,13 +85,14 @@ export const NavBar = () => {
         />
       )}
       <NavBarButtonContainer>
-        <LoginButton onClick={() => setLogin(true)}>Log in</LoginButton>
-        <CreateButton>Create a free account</CreateButton>
+        <LoginButton onClick={() => handleSetLogin()}>Log in</LoginButton>
+        <CreateButton onClick={() => handleSetSignup()}>
+          Create a free account
+        </CreateButton>
       </NavBarButtonContainer>
       <section className="searchbar">
         <SearchBar />
       </section>
-      <Modal login={login} setLogin={setLogin} />
     </NavBarContainer>
   );
 };

@@ -8,51 +8,49 @@ export default function LoginForm({ setLogin, login }) {
     email: "",
     password: "",
   });
-
   useEffect(() => {
     !login && setInput({ email: "", password: "" });
   }, [login]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Object.values(input).some((input) => input === "")) return;
     console.log(input);
     setInput({ email: "", password: "" });
   };
 
   return (
-    <FormContainer className={login ? "show" : "hide"} onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit}>
       <CloseButton setLogin={setLogin} />
-      <header className="header">
-        <h1 className="header-title">Registrera dig/fortsätt med</h1>
-        <section className="icons">
-          <FaGoogle className="icons-google icons-content" />
-        </section>
+      <header className="account">
+        <h1 className="account-title">SIGN IN / CONTINUE WITH</h1>
+        <div className="icons">
+          <FaGoogle className="icons-logo icons-content icons-primary" />
+        </div>
       </header>
       <main className="form-content">
         <header className="form-header">
-          <h1 className="form-title">Logga in med e-postadress</h1>
+          <h1 className="form-title">SIGN IN WITH EMAIL</h1>
         </header>
         <div className="form-row">
-          {/* <label className="form-label">E-post</label> */}
           <input
             type="email"
             className="form-field"
             value={input.email}
             onChange={(e) => setInput({ ...input, email: e.target.value })}
-            placeholder="E-post"
+            placeholder="E-mail"
           />
         </div>
         <div className="form-row">
-          {/* <label className="form-label">Lösenord</label> */}
           <input
             type="password"
             className="form-field"
             value={input.password}
             onChange={(e) => setInput({ ...input, password: e.target.value })}
-            placeholder="Lösenord"
+            placeholder="Password"
           />
         </div>
-        <button className="form-submit">Logga in</button>
+        <button className="form-submit">Sign in</button>
       </main>
     </FormContainer>
   );
