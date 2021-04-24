@@ -25,6 +25,8 @@ export const NavBar = () => {
   const hamburgerVisible = () => setShowHamburger(true);
   const hamburgerNotVisible = () => setShowHamburger(false);
   const showLoginBox = () => setLogin(true);
+  const handleSetLogin = () => setLogin(true);
+  const handleSetSignup = () => setSignup(true);
 
   const arrowTurn = () => {
     buttonRef.current.focus();
@@ -60,14 +62,6 @@ export const NavBar = () => {
           </li>
         </ul>
       ))}
-      <section>
-        <button className="login-btn" onClick={() => setLogin(true)}>
-          Log in
-        </button>
-        <button className="create-btn" onClick={() => setSignup(true)}>
-          Create a free account
-        </button>
-      </section>
       <Modal
         login={login}
         setLogin={setLogin}
@@ -91,8 +85,10 @@ export const NavBar = () => {
         />
       )}
       <NavBarButtonContainer>
-        <LoginButton onClick={() => setLogin(true)}>Log in</LoginButton>
-        <CreateButton>Create a free account</CreateButton>
+        <LoginButton onClick={() => handleSetLogin()}>Log in</LoginButton>
+        <CreateButton onClick={() => handleSetSignup()}>
+          Create a free account
+        </CreateButton>
       </NavBarButtonContainer>
       <section className="searchbar">
         <SearchBar />
