@@ -3,7 +3,7 @@ import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const SearchBarContainer = styled.div`
   .searchInput {
-    height: 55px;
+    height: 48.5px;
     width: 100vw;
     background: ${color.darkBlue};
     border: none;
@@ -11,6 +11,8 @@ export const SearchBarContainer = styled.div`
     transition: all 0.4s ease-in-out;
     padding-left: 6em;
     font-size: 0.9rem;
+    font-weight: bold;
+    color: ${color.grayBlue};
 
     &::placeholder {
       color: ${color.grayBlue};
@@ -49,7 +51,7 @@ export const SearchBarContainer = styled.div`
 const dropDownSearchBar = keyframes`
  0% {
     opacity: 0;
-    transform: translateY(-60px);
+    transform: translateY(50px);
   }
   20% {
     opacity: 1;

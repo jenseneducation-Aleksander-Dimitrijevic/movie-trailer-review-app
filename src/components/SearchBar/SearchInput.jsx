@@ -1,7 +1,12 @@
 import { SearchInputContainer } from "./SearchBarStyled";
 import { AiFillStar } from "react-icons/ai";
 
-export const SearchInput = ({ useQuery, toggleSearchBar }) => {
+export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
+  const res = useQuery(["searchedmovies", keyword], () => fetchMovies(keyword));
+  console.log("searching for movies", res);
+
+  const fetchMovies = (keyword) => fetch(`/api/search/${keyword}`);
+
   const { isLoading, error, data } = useQuery("Movies", () =>
     fetch("/api/popular/").then((res) => res.json())
   );
