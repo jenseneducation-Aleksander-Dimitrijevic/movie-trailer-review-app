@@ -58,13 +58,13 @@ export default function SignupForm({ setSignup, signup }) {
       )}
       <footer className="account footer">
         <h1 className="account-title">Registrera dig/fortsätt med</h1>
-        <section className="icons">
+        <div className="icons">
           <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
           <FaRegEnvelope
             className="icons-logo icons-content icons-primary icons-light-theme icons-account"
             onClick={() => setForm(true)}
           />
-        </section>
+        </div>
       </footer>
     </FormContainer>
   );

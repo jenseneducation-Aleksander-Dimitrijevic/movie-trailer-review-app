@@ -24,9 +24,9 @@ export default function LoginForm({ setLogin, login }) {
       <CloseButton setLogin={setLogin} />
       <header className="account">
         <h1 className="account-title">Registrera dig/fortsätt med</h1>
-        <section className="icons">
+        <div className="icons">
           <FaGoogle className="icons-logo icons-content icons-primary" />
-        </section>
+        </div>
       </header>
       <main className="form-content">
         <header className="form-header">
