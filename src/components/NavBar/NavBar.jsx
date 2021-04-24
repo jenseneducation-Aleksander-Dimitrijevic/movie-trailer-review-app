@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { SearchBar } from "../SearchBar/SearchBar";
+
 import { NavBarData } from "./NavBarData";
 import { NavBarContainer, NavLink } from "./NavBarStyled";
 import { FaPlayCircle } from "react-icons/fa";
@@ -9,7 +11,18 @@ export const NavBar = () => {
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
 
-  const arrowTurn = () => setArrowUp(!arrowUp);
+  const arrowTurn = () => {
+    buttonRef.current.focus();
+    setArrowUp(!arrowUp);
+  };
+
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (buttonRef) {
+      console.log("asdsa");
+    }
+  });
 
   return (
     <NavBarContainer>
@@ -17,7 +30,7 @@ export const NavBar = () => {
         <FaPlayCircle className="watchy__logo" />
         <h1>Watchy</h1>
       </span>
-      {NavBarData.map((n) => (
+      {NavBarData.map((n, idx) => (
         <ul key={n.id}>
           <li>
             <NavLink exact to={n.path} activeClassName="active">
@@ -26,6 +39,7 @@ export const NavBar = () => {
             <span
               className={arrowUp ? "arrow-up" : "arrow-down"}
               onClick={() => arrowTurn()}
+              ref={buttonRef}
             >
               {n.icons}
             </span>
@@ -46,6 +60,9 @@ export const NavBar = () => {
         signup={signup}
         setSignup={setSignup}
       />
+      <section className="searchbar">
+        <SearchBar />
+      </section>
     </NavBarContainer>
   );
 };
