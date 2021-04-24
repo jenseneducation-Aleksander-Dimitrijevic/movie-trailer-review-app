@@ -3,6 +3,48 @@ import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const NavLink = styled(Link)``;
+
+export const NavBarButtonContainer = styled.div`
+  position: absolute;
+  right: 3em;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const HamburgerButtonContainer = styled.div`
+  margin-top: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const LoginButton = styled.button`
+  height: 25px;
+  width: 80px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: ${color.white};
+  background: ${color.darkGray};
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  margin-right: 8px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const CreateButton = styled(LoginButton)`
+  width: 180px;
+  background: ${color.orange};
+`;
+
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -12,6 +54,16 @@ export const NavBarContainer = styled.div`
   background: ${color.deepBlue};
   position: fixed;
   padding-left: 15em;
+
+  .hamburger-icon {
+    position: absolute;
+    right: 1.5em;
+    color: ${color.white};
+    font-size: 1.3rem;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 
   .watchy {
     position: absolute;
@@ -38,7 +90,7 @@ export const NavBarContainer = styled.div`
   ul {
     li {
       list-style: none;
-      margin-right: 2em;
+      margin-right: 3.4em;
       font-size: 1.09rem;
       font-weight: bold;
       text-align: center;
@@ -66,47 +118,9 @@ export const NavBarContainer = styled.div`
     }
   }
 
-  section {
-    position: relative;
-    right: -9.5em;
-    .login-btn {
-      height: 25px;
-      width: 80px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      color: ${color.white};
-      background: ${color.darkGray};
-      transition: all 0.4s ease-in-out;
-      cursor: pointer;
-      margin-right: 8px;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    .create-btn {
-      height: 25px;
-      width: 180px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      color: ${color.white};
-      background: ${color.orange};
-      transition: all 0.4s ease-in-out;
-      cursor: pointer;
-      margin-right: 8px;
-
-      &:hover {
-        opacity: 0.8;
-      }
+  @media screen and (max-width: 768px) {
+    ul {
+      display: none;
     }
   }
 
@@ -114,5 +128,47 @@ export const NavBarContainer = styled.div`
     position: absolute;
     top: 3.9em;
     left: 0;
+  }
+`;
+
+export const HamburgerContainer = styled.nav`
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+
+  .active {
+    color: ${color.orange};
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const HamburgerList = styled.section`
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  height: 70vh;
+  width: 100vw;
+  background: ${color.darkBlue};
+  box-shadow: -15px 20px 20px -15px #111;
+
+  ul {
+    border-bottom: 0.1px solid #465a6f;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    padding-top: 0.5em;
+    padding-left: 2.2em;
+    padding-bottom: 1.3em;
+    display: grid;
+    justify-content: flex-start;
+    li {
+      font-size: 0.9rem;
+    }
   }
 `;
