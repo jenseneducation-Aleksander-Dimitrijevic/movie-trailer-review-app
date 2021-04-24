@@ -9,71 +9,90 @@ export default function SignupForm({ setSignup, signup }) {
   const [input, setInput] = useState({
     email: "",
     password: "",
+    fullName: "",
   });
 
   const [form, setForm] = useState(false);
 
   useEffect(() => {
-    !signup && setInput({ email: "", password: "" });
+    !signup && setInput({ email: "", password: "", fullName: "" });
   }, [signup]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(input).some((input) => input === "")) return;
     console.log(input);
-    setInput({ email: "", password: "" });
+    setInput({ email: "", password: "", fullName: "" });
   };
 
   return (
     <FormContainer onSubmit={handleSubmit}>
       <CloseButton setSignup={setSignup} signup={signup} />
-      <header>
-        <Showcase
-          images={images}
-          title="SEARCH LESS, WATCH MORE"
-          subTitle="CREATE A FREE ACCOUNT"
-        />
-      </header>
-      {form && (
-        <main className="form-content">
-          <header className="form-header">
-            <h1 className="form-title">Logga in med e-postadress</h1>
+      {form ? (
+        <div>
+          <header className="account signup">
+            <h1 className="account-title">CONTINUE WITH E-MAIL</h1>
           </header>
-          <div className="form-row">
-            <input
-              type="email"
-              className="form-field"
-              value={input.email}
-              onChange={(e) => setInput({ ...input, email: e.target.value })}
-              placeholder="E-post"
+          <main className="form-content">
+            <div className="form-row">
+              <input
+                type="email"
+                className="form-field"
+                value={input.email}
+                onChange={(e) => setInput({ ...input, email: e.target.value })}
+                placeholder="E-mail"
+              />
+            </div>
+            <div className="form-row">
+              <input
+                type="password"
+                className="form-field"
+                value={input.password}
+                onChange={(e) =>
+                  setInput({ ...input, password: e.target.value })
+                }
+                placeholder="Password"
+              />
+            </div>
+            <div className="form-row">
+              <input
+                type="text"
+                className="form-field"
+                value={input.fullName}
+                onChange={(e) =>
+                  setInput({ ...input, fullName: e.target.value })
+                }
+                placeholder="Fullname"
+              />
+            </div>
+            <button className="form-submit">Create account</button>
+          </main>
+        </div>
+      ) : (
+        <div>
+          <header>
+            <Showcase
+              images={images}
+              title="SEARCH LESS, WATCH MORE"
+              subTitle="CREATE A FREE ACCOUNT"
             />
-          </div>
-          <div className="form-row">
-            <input
-              type="password"
-              className="form-field"
-              value={input.password}
-              onChange={(e) => setInput({ ...input, password: e.target.value })}
-              placeholder="Lösenord"
-            />
-          </div>
-          <button className="form-submit">Logga in</button>
-        </main>
+          </header>
+          <footer className="account footer">
+            <h1 className="account-title">Sign in / continue with</h1>
+            <div className="icons">
+              <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
+              <FaRegEnvelope
+                className="icons-logo icons-content icons-primary icons-light-theme icons-account"
+                onClick={() => setForm(true)}
+              />
+            </div>
+            <div className="agreement">
+              By using our service, you agree to our Terms and Conditions and
+              our Privacy Policy
+            </div>
+          </footer>
+        </div>
       )}
-      <footer className="account footer">
-        <h1 className="account-title">Sign in / continue with</h1>
-        <div className="icons">
-          <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
-          <FaRegEnvelope
-            className="icons-logo icons-content icons-primary icons-light-theme icons-account"
-            onClick={() => setForm(true)}
-          />
-        </div>
-        <div className="agreement">
-          By using our service, you agree to our Terms and Conditions and our
-          Privacy Policy
-        </div>
-      </footer>
     </FormContainer>
   );
 }

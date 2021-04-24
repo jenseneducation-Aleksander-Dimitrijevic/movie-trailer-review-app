@@ -1,15 +1,30 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { Hamburger } from "./Hamburger";
 
 import { NavBarData } from "./NavBarData";
-import { NavBarContainer, NavLink } from "./NavBarStyled";
+import {
+  NavBarContainer,
+  NavLink,
+  NavBarButtonContainer,
+  LoginButton,
+  CreateButton,
+} from "./NavBarStyled";
 import { FaPlayCircle } from "react-icons/fa";
 import Modal from "../Modal/ModalForm";
+
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const NavBar = () => {
   const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
+  const [showHamburger, setShowHamburger] = useState(false);
+
+  const hamburgerVisible = () => setShowHamburger(true);
+  const hamburgerNotVisible = () => setShowHamburger(false);
+  const showLoginBox = () => setLogin(true);
 
   const arrowTurn = () => {
     buttonRef.current.focus();
@@ -18,11 +33,10 @@ export const NavBar = () => {
 
   const buttonRef = useRef(null);
 
-  useEffect(() => {
-    if (buttonRef) {
-      console.log("asdsa");
-    }
-  });
+  // useEffect(() => {
+  //   if (buttonRef) {
+  //   }
+  // });
 
   return (
     <NavBarContainer>
@@ -30,7 +44,7 @@ export const NavBar = () => {
         <FaPlayCircle className="watchy__logo" />
         <h1>Watchy</h1>
       </span>
-      {NavBarData.map((n, idx) => (
+      {NavBarData.map((n) => (
         <ul key={n.id}>
           <li>
             <NavLink exact to={n.path} activeClassName="active">
@@ -60,6 +74,26 @@ export const NavBar = () => {
         signup={signup}
         setSignup={setSignup}
       />
+      {showHamburger ? (
+        <span className="hamburger-icon">
+          <AiOutlineClose onClick={() => hamburgerNotVisible()} />
+        </span>
+      ) : (
+        <span className="hamburger-icon">
+          <GiHamburgerMenu onClick={() => hamburgerVisible()} />
+        </span>
+      )}
+      {showHamburger && (
+        <Hamburger
+          NavBarData={NavBarData}
+          showLoginBox={showLoginBox}
+          hamburgerNotVisible={hamburgerNotVisible}
+        />
+      )}
+      <NavBarButtonContainer>
+        <LoginButton onClick={() => setLogin(true)}>Log in</LoginButton>
+        <CreateButton>Create a free account</CreateButton>
+      </NavBarButtonContainer>
       <section className="searchbar">
         <SearchBar />
       </section>

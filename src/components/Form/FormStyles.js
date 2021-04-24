@@ -17,11 +17,23 @@ export const FormContainer = styled.form`
     background: ${color.darkGray};
     color: ${color.white};
 
+    &.signup {
+      align-items: flex-start;
+      .account-title {
+        font-size: 20px;
+        padding: 20px 0 20px 24px;
+      }
+    }
+
     &.footer {
       border-radius: 0 0 5px 5px;
 
       .account-title {
         text-transform: initial;
+
+        &-large {
+          font-size: 38px;
+        }
       }
 
       .icons {
@@ -85,8 +97,8 @@ export const FormContainer = styled.form`
 
   .form-row {
     position: relative;
-    &:nth-of-type(1) {
-      margin: 0 0 2rem;
+    &:not(:nth-of-type(1)) {
+      margin: 2rem 0 0;
     }
 
     &.focus {
@@ -116,6 +128,7 @@ export const FormContainer = styled.form`
       color: ${color.white};
       transition: all 0.3s ease;
       letter-spacing: 0.03em;
+      font-weight: 800;
       &:focus {
         border-color: ${color.orange};
       }
