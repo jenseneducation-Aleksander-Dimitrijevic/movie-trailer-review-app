@@ -20,20 +20,39 @@ export const ShowcaseContainer = styled.div`
     }
   }
 
-  .image {
-    width: 60%;
-    margin: auto;
-    display: block;
-    padding: 1rem 0;
+  .carousel {
+    margin: 2rem 0;
+    padding: 0 20px;
+    &:active {
+      cursor: grabbing;
+    }
+
+    &.carousel-slider {
+      .control-arrow {
+        width: 40px;
+        height: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: ${color.darkGray};
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        padding: 0;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        &::before {
+          margin: 0;
+        }
+      }
+    }
   }
 
   .label {
     color: ${color.white};
     font-size: 14px;
-    letter-spacing: 0.03em;
-    padding: 10px 0 20px;
+    padding: 30px 0 0;
     width: 90%;
     text-align: center;
     margin: auto;
+    font-weight: 700;
   }
 `;

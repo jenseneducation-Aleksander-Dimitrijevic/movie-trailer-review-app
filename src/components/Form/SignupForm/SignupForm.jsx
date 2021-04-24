@@ -28,7 +28,11 @@ export default function SignupForm({ setSignup, signup }) {
     <FormContainer onSubmit={handleSubmit}>
       <CloseButton setSignup={setSignup} signup={signup} />
       <header>
-        <Showcase images={images} />
+        <Showcase
+          images={images}
+          title="SEARCH LESS, WATCH MORE"
+          subTitle="CREATE A FREE ACCOUNT"
+        />
       </header>
       {form && (
         <main className="form-content">
@@ -57,13 +61,17 @@ export default function SignupForm({ setSignup, signup }) {
         </main>
       )}
       <footer className="account footer">
-        <h1 className="account-title">Registrera dig/fortsätt med</h1>
+        <h1 className="account-title">Sign in / continue with</h1>
         <div className="icons">
           <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
           <FaRegEnvelope
             className="icons-logo icons-content icons-primary icons-light-theme icons-account"
             onClick={() => setForm(true)}
           />
+        </div>
+        <div className="agreement">
+          By using our service, you agree to our Terms and Conditions and our
+          Privacy Policy
         </div>
       </footer>
     </FormContainer>

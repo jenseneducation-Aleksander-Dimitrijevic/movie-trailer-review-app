@@ -23,14 +23,14 @@ export default function LoginForm({ setLogin, login }) {
     <FormContainer onSubmit={handleSubmit}>
       <CloseButton setLogin={setLogin} />
       <header className="account">
-        <h1 className="account-title">Registrera dig/fortsätt med</h1>
+        <h1 className="account-title">SIGN IN / CONTINUE WITH</h1>
         <div className="icons">
           <FaGoogle className="icons-logo icons-content icons-primary" />
         </div>
       </header>
       <main className="form-content">
         <header className="form-header">
-          <h1 className="form-title">Logga in med e-postadress</h1>
+          <h1 className="form-title">SIGN IN WITH EMAIL</h1>
         </header>
         <div className="form-row">
           <input
@@ -38,7 +38,7 @@ export default function LoginForm({ setLogin, login }) {
             className="form-field"
             value={input.email}
             onChange={(e) => setInput({ ...input, email: e.target.value })}
-            placeholder="E-post"
+            placeholder="E-mail"
           />
         </div>
         <div className="form-row">
@@ -47,10 +47,10 @@ export default function LoginForm({ setLogin, login }) {
             className="form-field"
             value={input.password}
             onChange={(e) => setInput({ ...input, password: e.target.value })}
-            placeholder="Lösenord"
+            placeholder="Password"
           />
         </div>
-        <button className="form-submit">Logga in</button>
+        <button className="form-submit">Sign in</button>
       </main>
     </FormContainer>
   );

@@ -9,7 +9,6 @@ export const FormContainer = styled.form`
 
   .account {
     width: 100%;
-    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,18 +19,37 @@ export const FormContainer = styled.form`
 
     &.footer {
       border-radius: 0 0 5px 5px;
+
+      .account-title {
+        text-transform: initial;
+      }
+
+      .icons {
+        padding: 0;
+      }
+
+      .agreement {
+        text-align: center;
+        font-size: 12px;
+        color: ${color.lightBlue};
+        font-weight: 600;
+        line-height: 1.6;
+        margin: 20px auto;
+        width: 90%;
+      }
     }
 
     &-title {
       text-align: center;
       color: ${color.white};
       font-size: 14px;
+      padding: 2rem 0;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
     .icons {
-      margin: 1.5rem 0 0;
       display: flex;
+      padding: 0 0 2rem;
       gap: 20px;
       &-content {
         padding: 10px;
@@ -40,7 +58,7 @@ export const FormContainer = styled.form`
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
       }
       &-logo {
-        font-size: 60px;
+        font-size: 50px;
       }
 
       &-primary {
@@ -97,8 +115,13 @@ export const FormContainer = styled.form`
       padding: 0 0 5px;
       color: ${color.white};
       transition: all 0.3s ease;
+      letter-spacing: 0.03em;
       &:focus {
         border-color: ${color.orange};
+      }
+      &::placeholder {
+        color: ${color.white};
+        font-weight: 800;
       }
     }
   }
