@@ -1,5 +1,4 @@
 import { ShowcaseContainer } from "./ShowcaseStyles";
-
 function Showcase({ images = [] }) {
   return (
     <ShowcaseContainer>

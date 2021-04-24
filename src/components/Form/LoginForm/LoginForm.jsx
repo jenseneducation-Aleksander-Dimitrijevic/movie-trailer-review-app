@@ -14,6 +14,7 @@ export default function LoginForm({ setLogin, login }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Object.values(input).some((input) => input === "")) return;
     console.log(input);
     setInput({ email: "", password: "" });
   };

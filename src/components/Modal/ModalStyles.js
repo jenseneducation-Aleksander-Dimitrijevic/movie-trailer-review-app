@@ -29,7 +29,8 @@ export const ModalContainer = styled.div`
   cursor: pointer;
 
   .content {
-    width: 380px;
+    width: 100%;
+    max-width: 380px;
     cursor: default;
 
     &.show {

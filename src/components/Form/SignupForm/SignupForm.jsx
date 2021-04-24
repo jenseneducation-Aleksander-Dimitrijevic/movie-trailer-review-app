@@ -19,6 +19,7 @@ export default function SignupForm({ setSignup, signup }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Object.values(input).some((input) => input === "")) return;
     console.log(input);
     setInput({ email: "", password: "" });
   };
@@ -58,11 +59,11 @@ export default function SignupForm({ setSignup, signup }) {
       <footer className="account footer">
         <h1 className="account-title">Registrera dig/fortsätt med</h1>
         <section className="icons">
-          <FaGoogle
-            className="icons-logo icons-content icons-primary"
+          <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
+          <FaRegEnvelope
+            className="icons-logo icons-content icons-primary icons-light-theme icons-account"
             onClick={() => setForm(true)}
           />
-          <FaRegEnvelope className="icons-logo icons-content icons-primary icons-light-theme" />
         </section>
       </footer>
     </FormContainer>
