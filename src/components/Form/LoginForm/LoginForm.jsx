@@ -8,13 +8,21 @@ export default function LoginForm({ setLogin, login }) {
     email: "",
     password: "",
   });
+
+  const [error, setError] = useState("");
+
   useEffect(() => {
     !login && setInput({ email: "", password: "" });
   }, [login]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (Object.values(input).some((input) => input === "")) return;
+    if (Object.values(input).some((input) => input === "")) {
+      setTimeout(() => {
+        setError("Incorrect e-mail or password");
+      }, 500);
+      return;
+    }
     console.log(input);
     setInput({ email: "", password: "" });
   };
@@ -50,6 +58,7 @@ export default function LoginForm({ setLogin, login }) {
             placeholder="Password"
           />
         </div>
+        {error && <p className="error-msg">{error}</p>}
         <button className="form-submit">Sign in</button>
       </main>
     </FormContainer>

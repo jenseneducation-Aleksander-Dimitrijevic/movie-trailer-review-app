@@ -19,6 +19,7 @@ export const FormContainer = styled.form`
 
     &.signup {
       align-items: flex-start;
+      margin: 0 0 20px;
       .account-title {
         font-size: 20px;
         padding: 20px 0 20px 24px;
@@ -145,7 +146,6 @@ export const FormContainer = styled.form`
     height: 45px;
     text-transform: uppercase;
     color: ${color.white};
-    margin: 2rem 0 0;
     font-size: 1rem;
     font-weight: 600;
     border: none;
@@ -154,11 +154,32 @@ export const FormContainer = styled.form`
     border-radius: 5px;
     background: ${color.orange};
     transition: all 0.3s ease;
+    margin: 2rem 0 0;
 
     @media screen and (min-width: 1024px) {
       &:hover {
         background: ${color.lightBlue};
       }
     }
+  }
+
+  .form-redirect {
+    background: transparent;
+    color: ${color.skyBlue};
+    font-size: 12px;
+    border: none;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .error-msg {
+    padding: 30px 0 0;
+    color: ${color.orange};
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    font-weight: 600;
   }
 `;

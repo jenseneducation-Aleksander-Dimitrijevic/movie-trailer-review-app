@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
 
-export default function SignupForm({ setSignup, signup }) {
+export default function SignupForm({ setSignup, signup, setLogin }) {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -25,6 +25,11 @@ export default function SignupForm({ setSignup, signup }) {
     setInput({ email: "", password: "", fullName: "" });
   };
 
+  const toggleForm = () => {
+    setSignup(false);
+    setLogin(true);
+  };
+
   return (
     <FormContainer onSubmit={handleSubmit}>
       <CloseButton setSignup={setSignup} signup={signup} />
@@ -36,6 +41,7 @@ export default function SignupForm({ setSignup, signup }) {
           <main className="form-content">
             <div className="form-row">
               <input
+                required
                 type="email"
                 className="form-field"
                 value={input.email}
@@ -45,6 +51,7 @@ export default function SignupForm({ setSignup, signup }) {
             </div>
             <div className="form-row">
               <input
+                required
                 type="password"
                 className="form-field"
                 value={input.password}
@@ -57,15 +64,28 @@ export default function SignupForm({ setSignup, signup }) {
             <div className="form-row">
               <input
                 type="text"
+                required
                 className="form-field"
                 value={input.fullName}
                 onChange={(e) =>
                   setInput({ ...input, fullName: e.target.value })
                 }
-                placeholder="Fullname"
+                placeholder="Full name"
               />
             </div>
-            <button className="form-submit">Create account</button>
+            <button
+              className="form-submit"
+              style={signup ? { margin: "2rem 0 20px" } : null}
+            >
+              Create account
+            </button>
+            <button
+              onClick={toggleForm}
+              type="button"
+              className="form-redirect"
+            >
+              Click here if you already have an account
+            </button>
           </main>
         </div>
       ) : (
