@@ -1,7 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 
-exports.getPopularMovies = router.get("/", async (req, res) => {
+exports.getPopularMovies = router.get("/api/popular", async (req, res) => {
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
@@ -14,10 +14,10 @@ exports.getPopularMovies = router.get("/", async (req, res) => {
 });
 
 
-exports.SearchMovies = router.get("/", async (req, res) => {
+exports.SearchMovies = router.get("/api/search/:keyword", async (req, res) => {
   try {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}?query=${req.params.keyword}`
+      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.API_KEY}&query=${req.params.keyword}`
     );
     const movies = resp.data.results;
     res.status(200).json(movies);
