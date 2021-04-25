@@ -6,8 +6,8 @@ const PORT = process.env.PORT || 4000;
 const { getPopularMovies, SearchMovies } = require("./handlers/movies");
 
 
-app.use("/api/popular", getPopularMovies);
-app.use("/api/search/:keyword", SearchMovies);
+app.use("/", getPopularMovies);
+app.use("/", SearchMovies);
 
 
 app.listen(PORT, () =>
