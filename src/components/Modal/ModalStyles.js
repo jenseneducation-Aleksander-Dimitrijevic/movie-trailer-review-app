@@ -27,6 +27,7 @@ export const ModalContainer = styled.div`
   opacity: 0;
   visibility: hidden;
   cursor: pointer;
+  z-index: 999;
 
   .content {
     width: 100%;

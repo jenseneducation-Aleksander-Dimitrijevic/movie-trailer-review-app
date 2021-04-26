@@ -13,7 +13,9 @@ export default function Modal({ login, setLogin, signup, setSignup }) {
 
   const form =
     (login && <LoginForm setLogin={setLogin} login={login} />) ||
-    (signup && <SignupForm setSignup={setSignup} signup={signup} />);
+    (signup && (
+      <SignupForm setSignup={setSignup} signup={signup} setLogin={setLogin} />
+    ));
 
   return (
     <ModalContainer
