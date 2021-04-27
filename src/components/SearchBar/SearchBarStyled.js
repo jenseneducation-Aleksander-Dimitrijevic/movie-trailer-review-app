@@ -1,6 +1,8 @@
 import styled, { keyframes } from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
+
+
 export const SearchBarContainer = styled.div`
   .searchInput {
     height: 48.5px;

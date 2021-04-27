@@ -1,5 +1,6 @@
 import { SearchInputContainer } from "./SearchBarStyled";
 import { AiFillStar } from "react-icons/ai";
+import Spinner from "../Spinner/Spinner";
 
 export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
   const { isLoading, error, data } = useQuery(["Movies", keyword], () =>
@@ -8,15 +9,15 @@ export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
       : fetch("/api/popular/").then((res) => res.json())
   );
 
-  if (isLoading) return "Loading...";
-
   if (error) return "An error has occurred: " + error.message;
 
   return (
     <SearchInputContainer>
       <section className={toggleSearchBar ? "input-big" : "input-small"}>
         {keyword?.length > 0 ? (
-          <h1>Movies, Series and Actors</h1>
+          <>
+            <h1>Movies, Series and Actors</h1>
+          </>
         ) : (
           <h1>Popular searches</h1>
         )}
@@ -70,9 +71,13 @@ export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
           ))
         ) : (
           <>
-            <h5 className="title-text" style={{ color: "#fff" }}>
-              Unfortunately we couldn't find any titles that matches your search
-            </h5>
+            {isLoading === true && <Spinner color="#f26077" />}
+            {data?.length === 0 && (
+              <h5 className="title-text" style={{ color: "#fff" }}>
+                Unfortunately we couldn't find any titles that matches your
+                search
+              </h5>
+            )}
           </>
         )}
       </section>
