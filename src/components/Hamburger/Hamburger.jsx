@@ -5,7 +5,7 @@ import {
   LoginButton,
   CreateButton,
   HamburgerButtonContainer,
-} from "./NavBarStyled";
+} from "../NavBar/NavBarStyled";
 
 import { AiFillDownCircle } from "react-icons/ai";
 

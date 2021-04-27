@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
-import { Hamburger } from "./Hamburger";
+import { Hamburger } from "../Hamburger/Hamburger";
 
 import { NavBarData } from "./NavBarData";
 import {

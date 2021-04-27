@@ -22,7 +22,7 @@ export const SearchBarContainer = styled.div`
 
   .showButton {
     position: absolute;
-    right: 18em;
+    right: 4em;
     top: 1em;
     height: 25px;
     width: 65px;
@@ -71,8 +71,7 @@ export const SearchInputContainer = styled.div`
     border: none;
     outline: none;
     padding: 2.5em;
-    margin-left: -9.5em;
-    height: 400px;
+    height: 50vh;
     overflow-y: scroll;
     box-shadow: -15px 20px 20px -15px #111;
   }
@@ -129,3 +128,6 @@ export const SearchInputContainer = styled.div`
     border-top-right-radius: 6px;
   }
 `;
+
+export const SearchedDataContainer = styled(SearchInputContainer)`
+`
