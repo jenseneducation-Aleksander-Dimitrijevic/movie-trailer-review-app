@@ -2,6 +2,7 @@ import { FormContainer } from "../FormStyles";
 import { FaGoogle } from "react-icons/fa";
 import CloseButton from "../CloseButton/CloseButton";
 import { useEffect, useState } from "react";
+import Spinner from "../../Spinner/Spinner";
 
 export default function LoginForm({ setLogin, login }) {
   const [input, setInput] = useState({
@@ -10,6 +11,7 @@ export default function LoginForm({ setLogin, login }) {
   });
 
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     !login && setInput({ email: "", password: "" });
@@ -18,12 +20,15 @@ export default function LoginForm({ setLogin, login }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(input).some((input) => input === "")) {
+      setLoading(true);
       setTimeout(() => {
         setError("Incorrect e-mail or password");
+        setLoading(false);
       }, 500);
       return;
     }
     console.log(input);
+    setError("");
     setInput({ email: "", password: "" });
   };
 
@@ -59,7 +64,9 @@ export default function LoginForm({ setLogin, login }) {
           />
         </div>
         {error && <p className="error-msg">{error}</p>}
-        <button className="form-submit">Sign in</button>
+        <button className="form-submit">
+          {loading ? <Spinner center /> : "Sign in"}
+        </button>
       </main>
     </FormContainer>
   );
