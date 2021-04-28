@@ -1,6 +1,6 @@
 import { FormContainer } from "../FormStyles";
-import { FaGoogle, FaRegEnvelope } from "react-icons/fa";
 import CloseButton from "../CloseButton/CloseButton";
+import { FiMail } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
@@ -99,12 +99,21 @@ export default function SignupForm({ setSignup, signup, setLogin }) {
           </header>
           <footer className="account footer">
             <h1 className="account-title">Sign in / continue with</h1>
-            <div className="icons">
-              <FaGoogle className="icons-logo icons-content icons-primary icons-google" />
-              <FaRegEnvelope
-                className="icons-logo icons-content icons-primary icons-light-theme icons-account"
+            <div className="cta-container">
+              <button type="button" className="icon bg-white">
+                <img
+                  className="icon-image"
+                  src={require("../../../assets/icons/icon-google.png").default}
+                  alt="logo"
+                />
+              </button>
+              <button
+                type="button"
+                className="icon bg-white react-icon"
                 onClick={() => setForm(true)}
-              />
+              >
+                <FiMail />
+              </button>
             </div>
             <div className="agreement">
               By using our service, you agree to our Terms and Conditions and
