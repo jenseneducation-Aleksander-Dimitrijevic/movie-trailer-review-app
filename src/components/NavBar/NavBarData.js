@@ -1,12 +1,7 @@
-import { AiFillDownCircle } from 'react-icons/ai'
+import { AiFillDownCircle } from 'react-icons/ai';
+
 
 export const NavBarData = [
-    {
-      title: "Home",
-      path: "/",
-      id: 1,
-      icons: <AiFillDownCircle />
-    },
     {
       title: "Movies",
       path: "/movies",

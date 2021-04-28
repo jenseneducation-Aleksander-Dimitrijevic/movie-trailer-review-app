@@ -35,17 +35,14 @@ export const NavBar = () => {
 
   const buttonRef = useRef(null);
 
-  // useEffect(() => {
-  //   if (buttonRef) {
-  //   }
-  // });
-
   return (
     <NavBarContainer>
-      <span className="watchy">
-        <FaPlayCircle className="watchy__logo" />
-        <h1>Watchy</h1>
-      </span>
+      <NavLink exact to="/">
+        <span className="watchy">
+          <FaPlayCircle className="watchy__logo" />
+          <h1>Watchy</h1>
+        </span>
+      </NavLink>
       {NavBarData.map((n) => (
         <ul key={n.id}>
           <li>
