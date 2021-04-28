@@ -26,7 +26,7 @@ export const SearchBar = () => {
               fontSize: "1.5rem",
               color: "#9daebf",
               position: "absolute",
-              right: "11.5em",
+              right: "4.2em",
               top: "0.5em",
               cursor: "pointer",
             }}
@@ -63,6 +63,7 @@ export const SearchBar = () => {
         >
           Close
         </button>
+
         <SearchInput
           useQuery={useQuery}
           toggleSearchBar={toggleSearchBar}
