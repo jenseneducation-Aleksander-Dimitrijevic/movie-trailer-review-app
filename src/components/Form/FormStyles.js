@@ -37,10 +37,6 @@ export const FormContainer = styled.form`
         }
       }
 
-      .icons {
-        padding: 0;
-      }
-
       .agreement {
         text-align: center;
         font-size: 12px;
@@ -50,36 +46,41 @@ export const FormContainer = styled.form`
         margin: 20px auto;
         width: 90%;
       }
+
+      .cta-container {
+        display: flex;
+        gap: 20px;
+      }
     }
 
     &-title {
       text-align: center;
       color: ${color.white};
       font-size: 14px;
-      padding: 2rem 0;
+      padding: 1.5rem 0 1.5rem;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
-    .icons {
-      display: flex;
-      padding: 0 0 2rem;
-      gap: 20px;
-      &-content {
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-      }
-      &-logo {
-        font-size: 50px;
+    .icon {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      margin: 0 0 2rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+
+      &.react-icon {
+        font-size: 28px;
       }
 
-      &-primary {
-        background: ${color.darkBlue};
+      &-image {
+        display: block;
+        width: 100%;
       }
 
-      &-light-theme {
-        background: ${color.purpleGray};
+      &.bg-white {
+        background: ${color.white};
       }
     }
   }

@@ -1,5 +1,4 @@
 import { FormContainer } from "../FormStyles";
-import { FaGoogle } from "react-icons/fa";
 import CloseButton from "../CloseButton/CloseButton";
 import { useEffect, useState } from "react";
 import Spinner from "../../Spinner/Spinner";
@@ -37,9 +36,13 @@ export default function LoginForm({ setLogin, login }) {
       <CloseButton setLogin={setLogin} />
       <header className="account">
         <h1 className="account-title">SIGN IN / CONTINUE WITH</h1>
-        <div className="icons">
-          <FaGoogle className="icons-logo icons-content icons-primary" />
-        </div>
+        <button type="button" className="icon bg-white">
+          <img
+            className="icon-image"
+            src={require("../../../assets/icons/icon-google.png").default}
+            alt="logo"
+          />
+        </button>
       </header>
       <main className="form-content">
         <header className="form-header">
