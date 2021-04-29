@@ -20,69 +20,86 @@ export const ServicesData = [
     {
         id: 1,
         icon: NetFlix,
+        name: "NetFlix"
     },
     {
         id: 2,
         icon: Disney,
+        name: "Disney+"
     },
     {
         id: 3,
         icon: AppleTvplus,
+        name: "Apple TV+"
     },
     {
         id: 4,
         icon: AmazonPrime,
+        name: "Amazon Prime"
     },
     {
         id: 5,
         icon: Hbo,
+        name: "HBO Nordic"
     },
     {
         id: 6,
         icon: Viaplay,
+        name: "Viaplay"
     },
     {
         id: 7,
         icon: Cmore,
+        name: "C More"
     },
     {
         id: 8,
         icon: Discovery,
+        name: "Discovery+"
     },
     {
         id: 9,
         icon: Mubi,
+        name: "Mubi"
     },
     {
         id: 10,
         icon: Triart,
+        name: "TriArtPlay"
     },
     {
         id: 11,
         icon: ComhemPlay,
+        name: "Comhem Play+"
     },
     {
         id: 13,
         icon: SfKids,
+        name: "SF Kids"
     },
     {
         id: 14,
         icon: AppleTv,
+        name: "Apple Tv"
     },
     {
         id: 15,
         icon: GooglePlay,
+        name: "Google Play"
     },
     {
         id: 16,
         icon: Rakuten,
+        name: "Rakuten TV Free"
     },
     {
         id: 17,
         icon: ViaplayStore,
+        name: "Viaplay Rent & Buy"
     },
     {
         id: 18,
         icon: CuriosityStream,
+        name: "CuriosityStream"
     }
 ]

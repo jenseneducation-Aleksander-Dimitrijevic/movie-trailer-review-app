@@ -5,7 +5,7 @@ display:grid;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding: 17em;
+padding: 13em;
 
 `
 

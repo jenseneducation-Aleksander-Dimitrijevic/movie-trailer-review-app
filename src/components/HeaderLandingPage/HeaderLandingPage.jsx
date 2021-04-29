@@ -4,7 +4,7 @@ import {
   ChooseServiceButton,
 } from "./HeaderLandingPageStyled";
 
-export const HeaderLandingPage = () => {
+export const HeaderLandingPage = ({ servicePopUpVisible }) => {
   return (
     <HeaderLandingPageContainer>
       <h5>Everything in one app</h5>
@@ -12,7 +12,9 @@ export const HeaderLandingPage = () => {
         Find the best <span>from all streamingservices</span>
       </h1>
       <Services />
-      <ChooseServiceButton>Choose a service</ChooseServiceButton>
+      <ChooseServiceButton onClick={() => servicePopUpVisible()}>
+        Choose a service
+      </ChooseServiceButton>
     </HeaderLandingPageContainer>
   );
 };
