@@ -5,11 +5,6 @@ import { ColorsGlobal as color } from "../../styles/Colors";
 export const FooterContainer = styled.footer`
   background: ${color.darkBlue};
   padding: 1.5rem 1rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
 
   @media screen and (min-width: 767px) {
     padding: 2.5rem 2rem;
