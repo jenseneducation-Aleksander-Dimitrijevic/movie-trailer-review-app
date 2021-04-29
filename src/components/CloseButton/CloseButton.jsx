@@ -1,8 +1,8 @@
 import { CloseButtonContainer } from "./CloseButtonStyles";
 
-export default function CloseButton({ setLogin, setSignup, signup }) {
+export default function CloseButton({ setShow }) {
   const closeModal = () => {
-    signup ? setSignup(false) : setLogin(false);
+    setShow(false);
   };
   return (
     <CloseButtonContainer onClick={closeModal}>&times;</CloseButtonContainer>

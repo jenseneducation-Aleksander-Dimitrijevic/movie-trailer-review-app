@@ -1,11 +1,10 @@
 import { FormContainer } from "../FormStyles";
-import CloseButton from "../CloseButton/CloseButton";
 import { FiMail } from "react-icons/fi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
 
-export default function SignupForm({ setSignup, signup, setLogin }) {
+export default function SignupForm({ setLogin, setSignup, signup }) {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -13,10 +12,6 @@ export default function SignupForm({ setSignup, signup, setLogin }) {
   });
 
   const [form, setForm] = useState(false);
-
-  useEffect(() => {
-    !signup && setInput({ email: "", password: "", fullName: "" });
-  }, [signup]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,13 +21,13 @@ export default function SignupForm({ setSignup, signup, setLogin }) {
   };
 
   const toggleForm = () => {
-    setSignup(false);
     setLogin(true);
+    setForm(false);
+    setSignup(false);
   };
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <CloseButton setSignup={setSignup} signup={signup} />
       {form ? (
         <div>
           <header className="account signup">
