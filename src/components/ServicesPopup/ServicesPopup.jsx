@@ -1,18 +1,26 @@
 import {
   ServicesPopUpContainer,
-  ServicesContentContainer,
+  TextContainer,
+  ServicesPopUpContent,
+  CloseButtonContainers,
 } from "./ServicesPopupStyled";
 
 import { ServicesList } from "../ServicesPopup/ServicesList";
 
-export const ServicesPopUp = ({ showServicePopUp, servicePopUpNotVisible }) => {
+export const ServicesPopUp = ({ servicePopUpNotVisible }) => {
   return (
-    <ServicesPopUpContainer onClick={() => servicePopUpNotVisible()}>
-      <div className={`servicescontent ${showServicePopUp && "show"}`}>
-        <ServicesContentContainer>
-          <ServicesList />
-        </ServicesContentContainer>
-      </div>
+    <ServicesPopUpContainer>
+      <ServicesPopUpContent>
+        <TextContainer>
+          <CloseButtonContainers onClick={servicePopUpNotVisible}>
+            &times;
+          </CloseButtonContainers>
+          <h1>
+            My Services <span>What do you want to discover?</span>
+          </h1>
+        </TextContainer>
+        <ServicesList />
+      </ServicesPopUpContent>
     </ServicesPopUpContainer>
   );
 };

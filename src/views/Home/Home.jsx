@@ -13,7 +13,7 @@ export const Home = () => {
     <HomeContainer>
       {showServicePopUp && (
         <ServicesPopUp
-          showServicePopUp={showServicePopUp}
+          servicePopUpVisible={servicePopUpVisible}
           servicePopUpNotVisible={servicePopUpNotVisible}
         />
       )}
