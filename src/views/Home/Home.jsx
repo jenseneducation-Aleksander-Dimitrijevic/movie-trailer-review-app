@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HeaderLandingPage } from "../../components/HeaderLandingPage/HeaderLandingPage";
 import { ServicesPopUp } from "../../components/ServicesPopup/ServicesPopup";
 import { HomeContainer } from "./HomeStyled";
+import { CarouselImages } from "../../components/CarouselImages/CarouselImages";
 
 export const Home = () => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
@@ -11,6 +12,7 @@ export const Home = () => {
 
   return (
     <HomeContainer>
+      <CarouselImages />
       {showServicePopUp && (
         <ServicesPopUp
           servicePopUpVisible={servicePopUpVisible}

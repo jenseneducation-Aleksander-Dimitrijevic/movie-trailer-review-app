@@ -11,7 +11,7 @@ h5 {
 }
 
 h1 {
-    color: ${color.gray};
+    color: ${color.white};
     font-size: 3.3rem;
     text-transform: uppercase;
     span {

@@ -11,7 +11,7 @@ export const HeaderLandingPage = ({ servicePopUpVisible }) => {
       <h1>
         Find the best <span>from all streamingservices</span>
       </h1>
-      <Services />
+      <Services servicePopUpVisible={servicePopUpVisible} />
       <ChooseServiceButton onClick={() => servicePopUpVisible()}>
         Choose a service
       </ChooseServiceButton>
