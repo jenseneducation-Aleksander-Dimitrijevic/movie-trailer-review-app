@@ -9,5 +9,4 @@ z-index: -1;
 `
 
 export const Img = styled.img`
-
 `
