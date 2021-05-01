@@ -10,6 +10,14 @@ export const Home = ({ useQuery }) => {
   const servicePopUpVisible = () => setShowServicePopUp(true);
   const servicePopUpNotVisible = () => setShowServicePopUp(false);
 
+  const { isLoading, error, data } = useQuery(["TopRatedMovies"], () =>
+    fetch("/api/popular/").then((res) => res.json())
+  );
+
+  if (error) return "An error has occurred: " + error.message;
+
+  console.log(data);
+
   return (
     <HomeContainer>
       <CarouselImages />
