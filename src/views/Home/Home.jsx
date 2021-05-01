@@ -4,7 +4,7 @@ import { ServicesPopUp } from "../../components/ServicesPopup/ServicesPopup";
 import { HomeContainer } from "./HomeStyled";
 import { CarouselImages } from "../../components/CarouselImages/CarouselImages";
 
-export const Home = () => {
+export const Home = ({ useQuery }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
 
   const servicePopUpVisible = () => setShowServicePopUp(true);
