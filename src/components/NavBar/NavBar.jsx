@@ -16,7 +16,7 @@ import Modal from "../Modal/ModalForm";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
-export const NavBar = () => {
+export const NavBar = ({ useQuery }) => {
   const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
@@ -89,7 +89,7 @@ export const NavBar = () => {
         </CreateButton>
       </NavBarButtonContainer>
       <section className="searchbar">
-        <SearchBar />
+        <SearchBar useQuery={useQuery} />
       </section>
     </NavBarContainer>
   );
