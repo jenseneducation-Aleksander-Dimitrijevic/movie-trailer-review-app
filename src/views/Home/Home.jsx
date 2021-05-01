@@ -11,16 +11,14 @@ export const Home = ({ useQuery }) => {
   const servicePopUpNotVisible = () => setShowServicePopUp(false);
 
   const { isLoading, error, data } = useQuery(["TopRatedMovies"], () =>
-    fetch("/api/popular/").then((res) => res.json())
+    fetch("/api/movie-trailers/").then((res) => res.json())
   );
 
   if (error) return "An error has occurred: " + error.message;
 
-  console.log(data);
-
   return (
     <HomeContainer>
-      <CarouselImages />
+      {/* <CarouselImages /> */}
       {showServicePopUp && (
         <ServicesPopUp
           servicePopUpVisible={servicePopUpVisible}
