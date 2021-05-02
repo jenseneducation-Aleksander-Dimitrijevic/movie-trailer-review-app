@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
     font-family: 'Montserrat', sans-serif;
+	background: ${color.deepBlue};
+	
 
     ::-webkit-scrollbar-track
 {

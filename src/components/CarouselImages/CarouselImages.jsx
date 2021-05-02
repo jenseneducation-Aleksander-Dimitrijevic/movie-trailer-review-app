@@ -1,7 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CarouselContainer, Img } from "./CarouselStyled";
-import Spinner from "../Spinner/Spinner";
 
 export const CarouselImages = ({ useQuery }) => {
   const { isLoading, error, data } = useQuery(["TopRatedMoviesImages"], () =>
@@ -30,7 +29,7 @@ export const CarouselImages = ({ useQuery }) => {
                 src={`http://image.tmdb.org/t/p/w500/${
                   d?.poster_path || d?.backdrop_path
                 }`}
-                alt="Pictures"
+                alt={d?.poster_path || d?.backdrop_path}
               />
             </div>
           ))}
