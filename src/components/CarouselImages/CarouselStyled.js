@@ -13,4 +13,5 @@ export const Img = styled.img`
 object-fit: cover;
 opacity: 0.3;
 
+
 `

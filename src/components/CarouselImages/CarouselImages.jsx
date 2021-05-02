@@ -26,7 +26,7 @@ export const CarouselImages = ({ useQuery }) => {
           data.map((d) => (
             <div key={d.id}>
               <Img
-                src={`http://image.tmdb.org/t/p/w500/${
+                src={`http://image.tmdb.org/t/p/w1280/${
                   d?.poster_path || d?.backdrop_path
                 }`}
                 alt={d?.poster_path || d?.backdrop_path}
