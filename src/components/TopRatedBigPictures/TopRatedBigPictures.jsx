@@ -1,18 +1,17 @@
 import {
-  TopRatedContainer,
-  TopRatedData,
-  HiddenInfo,
-} from "../TopRated/TopRatedStyled";
+  TopRatedBigPicturesContainer,
+  TopRatedBigPicturesContent,
+} from "./TopRatedBigPicturesStyled";
 
 import { AiFillStar } from "react-icons/ai";
 
-export const TopRated = ({ data }) => {
+export const TopRatedBigPictures = ({ data }) => {
   return (
-    <TopRatedContainer>
+    <TopRatedBigPicturesContainer>
       {data && (
         <>
           {data.map((d) => (
-            <TopRatedData key={d.id}>
+            <TopRatedBigPicturesContent key={d.id}>
               <img
                 src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
                 alt={d?.poster_path || d?.backdrop_path}
@@ -39,10 +38,10 @@ export const TopRated = ({ data }) => {
                   </h5>
                 </HiddenInfo> */}
               </aside>
-            </TopRatedData>
+            </TopRatedBigPicturesContent>
           ))}
         </>
       )}
-    </TopRatedContainer>
+    </TopRatedBigPicturesContainer>
   );
 };

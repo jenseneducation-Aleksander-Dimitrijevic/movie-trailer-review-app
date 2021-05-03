@@ -9,6 +9,7 @@ export const TopRatedContainer = styled.div`
   grid-row-gap: 1em;
   margin-top: 20em;
 `;
+
 export const TopRatedHeader = styled.h1`
   margin-top: 10em;
   text-align: left;
@@ -53,10 +54,4 @@ export const TopRatedData = styled.section`
   }
 `;
 
-export const HiddenInfo = styled.section`
-  visibility: hidden;
-
-  &:hover {
-    visibility: show;
-  }
-`;
+export const HiddenInfo = styled.section``;
