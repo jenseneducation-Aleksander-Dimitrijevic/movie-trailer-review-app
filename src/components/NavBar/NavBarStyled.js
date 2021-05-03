@@ -70,6 +70,8 @@ export const NavBarContainer = styled.div`
     display: flex;
     left: 2em;
     color: ${color.white};
+    cursor:pointer;
+    bottom: 1.2em;
 
     .watchy__logo {
       color: ${color.orange};
@@ -79,7 +81,7 @@ export const NavBarContainer = styled.div`
     h1 {
       text-transform: uppercase;
       font-size: 1.6rem;
-      margin-top: 0.2em;
+      margin-top: 0.1em;
     }
   }
 
@@ -90,8 +92,8 @@ export const NavBarContainer = styled.div`
   ul {
     li {
       list-style: none;
-      margin-right: 3.4em;
-      font-size: 1.09rem;
+      margin-right: 3em;
+      font-size: 1rem;
       font-weight: bold;
       text-align: center;
       a {

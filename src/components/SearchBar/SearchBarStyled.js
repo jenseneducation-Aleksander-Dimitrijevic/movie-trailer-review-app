@@ -20,6 +20,7 @@ export const SearchBarContainer = styled.div`
       color: ${color.grayBlue};
       font-weight: bold;
     }
+
   }
 
   .showButton {
@@ -66,6 +67,8 @@ const dropDownSearchBar = keyframes`
 `;
 
 export const SearchInputContainer = styled.div`
+
+
   .input-big {
     width: 100vw;
     animation: ${dropDownSearchBar} 2s ease-in-out;
@@ -76,6 +79,25 @@ export const SearchInputContainer = styled.div`
     height: 50vh;
     overflow-y: scroll;
     box-shadow: -15px 20px 20px -15px #111;
+    
+
+    ::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+	background-color: ${color.deepBlue};
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: ${color.darkBlue};
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: ${color.skyBlue};
+	border: none;
+}
   }
 
   .input-small {
@@ -132,4 +154,5 @@ export const SearchInputContainer = styled.div`
 `;
 
 export const SearchedDataContainer = styled(SearchInputContainer)`
+
 `

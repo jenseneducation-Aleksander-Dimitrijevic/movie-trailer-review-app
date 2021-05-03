@@ -30,7 +30,7 @@ export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
               key={d.id}
             >
               <img
-                src={`http://image.tmdb.org/t/p/w500/${
+                src={`http://image.tmdb.org/t/p/w1280/${
                   d?.poster_path || d?.backdrop_path
                 }`}
                 alt={d?.poster_path || d?.backdrop_path}
