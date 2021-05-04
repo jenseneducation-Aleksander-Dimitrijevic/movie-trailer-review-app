@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Hamburger } from "../Hamburger/Hamburger";
-
+import LoginForm from "../Form/LoginForm/LoginForm";
+import SignupForm from "../Form/SignupForm/SignupForm";
 import { NavBarData } from "./NavBarData";
 import {
   NavBarContainer,
@@ -20,13 +21,28 @@ export const NavBar = ({ useQuery }) => {
   const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
+  const [show, setShow] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
 
   const hamburgerVisible = () => setShowHamburger(true);
   const hamburgerNotVisible = () => setShowHamburger(false);
-  const showLoginBox = () => setLogin(true);
-  const handleSetLogin = () => setLogin(true);
-  const handleSetSignup = () => setSignup(true);
+  const showLoginBox = () => handleSetLogin(true);
+
+  const handleSetLogin = () => {
+    setLogin(true);
+    setShow(true);
+  };
+  const handleSetSignup = () => {
+    setSignup(true);
+    setShow(true);
+  };
+
+  useEffect(() => {
+    if (!show) {
+      setLogin(false);
+      setSignup(false);
+    }
+  }, [show]);
 
   const arrowTurn = () => {
     buttonRef.current.focus();
@@ -59,12 +75,16 @@ export const NavBar = ({ useQuery }) => {
           </li>
         </ul>
       ))}
-      <Modal
-        login={login}
-        setLogin={setLogin}
-        signup={signup}
-        setSignup={setSignup}
-      />
+      <Modal show={show} setShow={setShow}>
+        {login && <LoginForm />}
+        {signup && (
+          <SignupForm
+            setLogin={setLogin}
+            setSignup={setSignup}
+            signup={signup}
+          />
+        )}
+      </Modal>
       {showHamburger ? (
         <span className="hamburger-icon">
           <AiOutlineClose onClick={() => hamburgerNotVisible()} />

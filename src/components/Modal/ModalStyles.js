@@ -33,6 +33,7 @@ export const ModalContainer = styled.div`
     width: 100%;
     max-width: 380px;
     cursor: default;
+    position: relative;
 
     &.show {
       animation: 0.3s ${slideUp} ease;
