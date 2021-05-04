@@ -1,31 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
-
-const slideUp = keyframes`
-  from {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-`;
-
-const slideDown = keyframes`
-  30% {
-    transform: translateY(-20px);
-    opacity: 1;
-    visibility: visible;
-  }
-  100% {
-    transform: translateY(20px);
-    opacity: 0;
-    visibility: hidden;
-  }
-`;
 
 export const FormContainer = styled.form`
   width: 100%;
@@ -33,17 +7,8 @@ export const FormContainer = styled.form`
   background: ${color.deepBlue};
   position: relative;
 
-  &.show {
-    animation: 0.3s ${slideUp} ease;
-  }
-
-  &.hide {
-    animation: 0.3s ${slideDown} ease;
-  }
-
-  .header {
+  .account {
     width: 100%;
-    height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,24 +16,71 @@ export const FormContainer = styled.form`
     border-radius: 5px 5px 0 0;
     background: ${color.darkGray};
     color: ${color.white};
+
+    &.signup {
+      align-items: flex-start;
+      margin: 0 0 20px;
+      .account-title {
+        font-size: 20px;
+        padding: 20px 0 20px 24px;
+      }
+    }
+
+    &.footer {
+      border-radius: 0 0 5px 5px;
+
+      .account-title {
+        text-transform: initial;
+
+        &-large {
+          font-size: 38px;
+        }
+      }
+
+      .agreement {
+        text-align: center;
+        font-size: 12px;
+        color: ${color.lightBlue};
+        font-weight: 600;
+        line-height: 1.6;
+        margin: 20px auto;
+        width: 90%;
+      }
+
+      .cta-container {
+        display: flex;
+        gap: 20px;
+      }
+    }
+
     &-title {
       text-align: center;
       color: ${color.white};
       font-size: 14px;
+      padding: 1.5rem 0 1.5rem;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
-    .icons {
-      margin: 1.5rem 0 0;
-      &-content {
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    .icon {
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      margin: 0 0 2rem;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+
+      &.react-icon {
+        font-size: 28px;
       }
-      &-google {
-        font-size: 60px;
-        background: ${color.darkBlue};
+
+      &-image {
+        display: block;
+        width: 100%;
+      }
+
+      &.bg-white {
+        background: ${color.white};
       }
     }
   }
@@ -87,8 +99,8 @@ export const FormContainer = styled.form`
 
   .form-row {
     position: relative;
-    &:nth-of-type(1) {
-      margin: 0 0 2rem;
+    &:not(:nth-of-type(1)) {
+      margin: 2rem 0 0;
     }
 
     &.focus {
@@ -117,8 +129,14 @@ export const FormContainer = styled.form`
       padding: 0 0 5px;
       color: ${color.white};
       transition: all 0.3s ease;
+      letter-spacing: 0.03em;
+      font-weight: 800;
       &:focus {
         border-color: ${color.orange};
+      }
+      &::placeholder {
+        color: ${color.white};
+        font-weight: 800;
       }
     }
   }
@@ -129,7 +147,6 @@ export const FormContainer = styled.form`
     height: 45px;
     text-transform: uppercase;
     color: ${color.white};
-    margin: 2rem 0 0;
     font-size: 1rem;
     font-weight: 600;
     border: none;
@@ -138,11 +155,32 @@ export const FormContainer = styled.form`
     border-radius: 5px;
     background: ${color.orange};
     transition: all 0.3s ease;
+    margin: 2rem 0 0;
 
     @media screen and (min-width: 1024px) {
       &:hover {
         background: ${color.lightBlue};
       }
     }
+  }
+
+  .form-redirect {
+    background: transparent;
+    color: ${color.skyBlue};
+    font-size: 12px;
+    border: none;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .error-msg {
+    padding: 30px 0 0;
+    color: ${color.orange};
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    font-weight: 600;
   }
 `;
