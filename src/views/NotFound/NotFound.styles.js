@@ -9,14 +9,20 @@ const slideRight = keyframes`
 `
 
 export const NotFoundContainer = styled.div`
-padding-top: 10em;
+display:flex;
+z-index:-1;
 width: 100%;
+max-width:100%;
+position:relative;
+overflow-x:hidden;
 height:100vh;
-background-image:url('./././assets/svg/cloud.svg');
 text-align:center;
 justify-content:center;
 font-size:42px;
 color:white;
+.content{
+   margin:auto;
+}
 h1{
     font-size: 80px;
     font-weight: uppercase;
@@ -36,8 +42,7 @@ p{
 `
 
 export const Cloud = styled.div`
-
-z-index: 4;
+    margin-top: 3em;
     height: 2rem;
     width: 100%;
     top: 12rem;
@@ -52,13 +57,12 @@ z-index: 4;
 export const Mandown = styled.div `
 background-image: url(${imgBottom});
 
-z-index: 4;
+    z-index: 1;
     height: 10rem;
     width:100%;
+    max-width:100%;
     bottom: 0;
-    color:white;
     position: absolute;
     background-size:cover;
-    /* background-position: center center; */
     background-repeat: no-repeat;
 `
