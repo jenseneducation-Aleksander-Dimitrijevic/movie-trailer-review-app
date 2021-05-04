@@ -29,7 +29,7 @@ export const Home = ({ useQuery }) => {
         />
       )}
       <HeaderLandingPage servicePopUpVisible={servicePopUpVisible} />
-      {/* <TopRatedBigPictures data={data} /> */}
+      <TopRatedBigPictures data={data} />
       <TopRated data={data} />
     </HomeContainer>
   );
