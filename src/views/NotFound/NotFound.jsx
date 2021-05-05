@@ -1,4 +1,4 @@
-import {NotFoundContainer, DivLink, Cloud, Mandown} from './NotFound.styles';
+import {NotFoundContainer, DivLink, Cloud, Mandown} from './NotFoundStyled';
 import {Link} from "react-router-dom";
 
 
