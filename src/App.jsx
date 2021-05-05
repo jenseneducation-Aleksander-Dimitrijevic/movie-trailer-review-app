@@ -9,6 +9,7 @@ import { Series } from "./views/Series/Series";
 import { Kids } from "./views/Kids/Kids";
 import { Documentary } from "./views/Documentary/Documentary";
 import { Footer } from "./components/Footer/Footer";
+import { ShowMovieDetails } from "./views/ShowMovieDetails/ShowMovieDetails";
 import { NotFound } from "./views/NotFound/NotFound";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
@@ -35,6 +36,7 @@ export const App = () => {
             path={AppRoutes.documentary}
             component={() => <Documentary />}
           />
+          <Route path="/showmoviedetails" component={ShowMovieDetails} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />

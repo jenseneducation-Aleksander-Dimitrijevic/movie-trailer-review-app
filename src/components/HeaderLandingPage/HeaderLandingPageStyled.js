@@ -18,6 +18,14 @@ h1 {
         display:block;
     }
 }
+
+ @media screen and (max-width: 768px) {
+  
+  h5, h1 {
+      text-align:start;
+  }
+ }
+
 `
 
 export const ChooseServiceButton = styled.button`

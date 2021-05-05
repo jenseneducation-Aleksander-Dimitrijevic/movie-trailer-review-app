@@ -13,7 +13,7 @@ export const Home = ({ useQuery }) => {
   const servicePopUpVisible = () => setShowServicePopUp(true);
   const servicePopUpNotVisible = () => setShowServicePopUp(false);
 
-  const { isLoading, error, data } = useQuery(["TopRatedMovies"], () =>
+  const { error, data } = useQuery(["TopRatedMovies"], () =>
     fetch("/api/top-rated-movies").then((res) => res.json())
   );
 
@@ -29,7 +29,7 @@ export const Home = ({ useQuery }) => {
         />
       )}
       <HeaderLandingPage servicePopUpVisible={servicePopUpVisible} />
-      {/* <TopRatedBigPictures data={data} /> */}
+      <TopRatedBigPictures useQuery={useQuery} />
       <TopRated data={data} />
     </HomeContainer>
   );
