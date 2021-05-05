@@ -32,7 +32,7 @@ export const TopRatedBigPictures = ({ useQuery }) => {
               idx <= 1 ? (
                 <Link
                   to={{
-                    pathname: `/showmoviedetails/${d?.name || d?.title}`,
+                    pathname: `/show/${d?.name || d?.title}`,
                     data: {
                       d,
                     },

@@ -1,3 +1,4 @@
+import { Link } from "react";
 import { SearchInputContainer } from "./SearchBarStyled";
 import { AiFillStar } from "react-icons/ai";
 import Spinner from "../Spinner/Spinner";

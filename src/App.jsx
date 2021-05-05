@@ -36,7 +36,7 @@ export const App = () => {
             path={AppRoutes.documentary}
             component={() => <Documentary />}
           />
-          <Route path="/showmoviedetails" component={ShowMovieDetails} />
+          <Route path={AppRoutes.show} component={ShowMovieDetails} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
