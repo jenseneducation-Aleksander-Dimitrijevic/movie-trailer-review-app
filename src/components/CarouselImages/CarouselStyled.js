@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ColorsGlobal as color } from '../../styles/Colors'
 
 export const CarouselContainer = styled.div`
 position:absolute;

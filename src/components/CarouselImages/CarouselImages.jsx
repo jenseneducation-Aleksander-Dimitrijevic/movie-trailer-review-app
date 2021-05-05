@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { CarouselContainer, Img } from "./CarouselStyled";
 
 export const CarouselImages = ({ useQuery }) => {
-  const { isLoading, error, data } = useQuery(["TopRatedMoviesImages"], () =>
+  const { error, data } = useQuery(["TopRatedMoviesImages"], () =>
     fetch("/api/popular/").then((res) => res.json())
   );
 

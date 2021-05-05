@@ -7,24 +7,26 @@ export const TopRatedContainer = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-  margin-top: 20em;
+  margin-top: 1em;
 `;
 
 export const TopRatedHeader = styled.h1`
-  margin-top: 10em;
-  text-align: left;
-  font-size: 1.5rem;
-  margin-left: -5em;
-  color: ${color.white};
-  text-transform: uppercase;
-`;
+text-transform: uppercase;
+color: ${color.white};
+text-align:start;
+font-size: 1.8rem;
+
+span {
+    color: ${color.orange};
+}
+`
 
 export const TopRatedData = styled.section`
   text-align: left;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
   img {
-    width: 365px;
+    width: 400px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   }
