@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { HeaderLandingPage } from "../../components/HeaderLandingPage/HeaderLandingPage";
 import { ServicesPopUp } from "../../components/ServicesPopup/ServicesPopup";
