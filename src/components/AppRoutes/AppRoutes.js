@@ -4,4 +4,5 @@ export const AppRoutes = {
   series: "/series",
   kids: "/kids",
   documentary: "/documentary",
+  showmoviedetails: "/showmoviedetails"
 };

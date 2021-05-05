@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   TopRatedBigPicturesContainer,
   TopRatedBigPicturesContent,
@@ -26,37 +28,49 @@ export const TopRatedBigPictures = ({ useQuery }) => {
       <TopRatedBigPicturesContainer>
         {data && (
           <>
-            {data.map((d) => (
-              <TopRatedBigPicturesContent key={d.id}>
-                <ImagesToprated
-                  src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
-                  alt={d?.poster_path || d?.backdrop_path}
-                />
-                <aside>
-                  <h5 className="title-text">
-                    {d?.title || d?.name}{" "}
-                    <span>
-                      <AiFillStar
-                        style={{
-                          color: "yellow",
-                        }}
-                      />{" "}
-                      {d?.vote_average}
-                    </span>
-                  </h5>
-                  <h5 className="overview-text">
-                    <span>
-                      {" "}
-                      {d?.release_date.substr(0, 4) ||
-                        d?.first_air_date.substr(0, 4)}{" "}
-                    </span>
-                    {d?.overview?.length > 200
-                      ? d?.overview.substr(0, 200) + "... Read more"
-                      : d?.overview}
-                  </h5>
-                </aside>
-              </TopRatedBigPicturesContent>
-            ))}
+            {data.map((d, idx) =>
+              idx <= 1 ? (
+                <Link
+                  to={{
+                    pathname: `/showmoviedetails/${d?.name || d?.title}`,
+                    data: {
+                      d,
+                    },
+                  }}
+                  key={d.id}
+                >
+                  <TopRatedBigPicturesContent>
+                    <ImagesToprated
+                      src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
+                      alt={d?.poster_path || d?.backdrop_path}
+                    />
+                    <aside>
+                      <h5 className="title-text">
+                        {d?.title || d?.name}{" "}
+                        <span>
+                          <AiFillStar
+                            style={{
+                              color: "yellow",
+                            }}
+                          />{" "}
+                          {d?.vote_average}
+                        </span>
+                      </h5>
+                      <h5 className="overview-text">
+                        <span>
+                          {" "}
+                          {d?.release_date.substr(0, 4) ||
+                            d?.first_air_date.substr(0, 4)}{" "}
+                        </span>
+                        {d?.overview?.length > 200
+                          ? d?.overview.substr(0, 200) + "... Read more"
+                          : d?.overview}
+                      </h5>
+                    </aside>
+                  </TopRatedBigPicturesContent>
+                </Link>
+              ) : null
+            )}
           </>
         )}
       </TopRatedBigPicturesContainer>

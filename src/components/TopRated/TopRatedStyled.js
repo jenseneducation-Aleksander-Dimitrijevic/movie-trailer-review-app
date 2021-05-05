@@ -7,19 +7,9 @@ export const TopRatedContainer = styled.div`
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 1em;
   grid-row-gap: 1em;
-  margin-top: 1em;
 `;
 
-export const TopRatedHeader = styled.h1`
-text-transform: uppercase;
-color: ${color.white};
-text-align:start;
-font-size: 1.8rem;
 
-span {
-    color: ${color.orange};
-}
-`
 
 export const TopRatedData = styled.section`
   text-align: left;

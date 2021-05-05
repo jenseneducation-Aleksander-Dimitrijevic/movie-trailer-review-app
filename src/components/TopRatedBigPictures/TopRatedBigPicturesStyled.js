@@ -18,6 +18,10 @@ export const ImagesToprated = styled.img`
   max-height: 28em;
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  @media screen and (max-width: 768px) {
+    max-width: 400px;
+  }
 `;
 
 export const TopRatedBigPicturesContainer = styled.div`
@@ -27,6 +31,10 @@ export const TopRatedBigPicturesContainer = styled.div`
   margin-top: 20em;
   grid-column-gap: 0.5em;
   grid-row-gap: 0.3em;
+
+  @media screen and (max-width: 748px) {
+    display: flex;
+  }
 `;
 
 export const TopRatedBigPicturesContent = styled.section`
@@ -64,6 +72,12 @@ export const TopRatedBigPicturesContent = styled.section`
           content: "- ";
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .overview-text {
+      display: none;
     }
   }
 `;
