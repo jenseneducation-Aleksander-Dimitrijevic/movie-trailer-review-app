@@ -3,5 +3,6 @@ export const AppRoutes = {
   movies: "/movies",
   series: "/series",
   kids: "/kids",
+  feed: "/feed",
   documentary: "/documentary",
 };

@@ -10,17 +10,15 @@ export const NotFound = () => {
     <NotFoundContainer>
       <Cloud></Cloud>
       <section className="content">
-      <h1>404</h1>
-      <h2>This page was lost in space</h2>
-      <p>Try using the search bar to find what you're looking for</p>
-      <p>Or check out some of our most popular features:</p>
-      
-      <DivLink>
-      <Link exact to="/">Home </Link>
-      <Link exact to="/">Popular movies </Link>
-      <Link exact to="/">Feed </Link>
-      </DivLink>  
-
+          <h1>404</h1>
+          <h2>This page was lost in space</h2>
+          <p>Try using the search bar to find what you're looking for</p>
+          <p>Or check out some of our most popular features:</p>
+          <DivLink>
+            <Link exact to="/">Home </Link>
+            <Link exact to="/">Popular movies </Link>
+            <Link exact to="/feed">Feed </Link>
+          </DivLink>  
       </section>
       <Mandown></Mandown>
     </NotFoundContainer>
