@@ -1,13 +1,27 @@
-import React from "react";
-import {NotFoundContainer, Cloud, Mandown} from './NotFound.styles';
+import {NotFoundContainer, DivLink, Cloud, Mandown} from './NotFoundStyled';
+import {Link} from "react-router-dom";
+
+
+
 
 export const NotFound = () => {  
   return (
+   
     <NotFoundContainer>
       <Cloud></Cloud>
+      <section className="content">
       <h1>404</h1>
       <h2>This page was lost in space</h2>
-      <p>Eller klicka på några av våra mest populära funktioner</p>
+      <p>Try using the search bar to find what you're looking for</p>
+      <p>Or check out some of our most popular features:</p>
+      
+      <DivLink>
+      <Link exact to="/">Home </Link>
+      <Link exact to="/">Popular movies </Link>
+      <Link exact to="/">Feed </Link>
+      </DivLink>  
+
+      </section>
       <Mandown></Mandown>
     </NotFoundContainer>
   );
