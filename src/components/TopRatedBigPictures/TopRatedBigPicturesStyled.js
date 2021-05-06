@@ -6,18 +6,17 @@ export const HeaderBigPictures = styled.h1`
   color: ${color.white};
   text-align: start;
   font-size: 1.8rem;
-  margin-bottom: -20em;
-
+  padding-bottom: 0.3em;
+  margin-top: 10em;
   span {
     color: ${color.orange};
   }
 `;
 
 export const ImagesToprated = styled.img`
-  max-width: 58em;
-  max-height: 28em;
+  max-width: 800px;
   border-radius: 5px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin-right: 0.5em;
 
   @media screen and (max-width: 768px) {
     max-width: 400px;
@@ -25,13 +24,7 @@ export const ImagesToprated = styled.img`
 `;
 
 export const TopRatedBigPicturesContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-columns: repeat(auto-fill, 4fr);
-  margin-top: 20em;
-  grid-column-gap: 0.5em;
-  grid-row-gap: 0.3em;
-
+  display: flex;
   @media screen and (max-width: 748px) {
     display: flex;
   }
@@ -42,7 +35,7 @@ export const TopRatedBigPicturesContent = styled.section`
     background: transparent;
     position: relative;
     bottom: 6em;
-    padding-left: 2em;
+    padding-left: 1em;
     padding-right: 2em;
     text-align: start;
 
