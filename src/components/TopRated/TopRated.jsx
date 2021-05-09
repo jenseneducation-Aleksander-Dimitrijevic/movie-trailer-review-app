@@ -5,51 +5,67 @@ import {
   HiddenInfo,
 } from "../TopRated/TopRatedStyled";
 
-import { TopRatedCarousel } from "../TopRatedCarousel/TopRatedCarousel";
-
 import { AiFillStar } from "react-icons/ai";
 
 export const TopRated = ({ data }) => {
   return (
-    <>
-      <TopRatedCarousel data={data} AiFillStar={AiFillStar} Link={Link} />
+    <TopRatedContainer>
       {data && (
         <>
           {data.map(
-            (d, idx) =>
+            (item, idx) =>
               idx <= 11 && (
-                <TopRatedData key={d.id}>
-                  <img
-                    src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
-                    alt={d?.poster_path || d?.backdrop_path}
-                  />
-                  <aside>
-                    <h5 className="title-text">{d?.title || d?.name}</h5>
-                    <h5 className="release-text">
-                      {d?.release_date.substr(0, 4) ||
-                        d?.first_air_date.substr(0, 4)}
-                    </h5>
-                    <h5 className="rating-text">
-                      <AiFillStar
-                        style={{
-                          color: "yellow",
-                        }}
-                      />{" "}
-                      {d?.vote_average}
-                    </h5>
-                    {/* <HiddenInfo>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={{
+                    pathname: `/show/${item?.name || item?.title}`,
+                    data: {
+                      item,
+                    },
+                  }}
+                  key={item.id}
+                >
+                  <TopRatedData>
+                    <img
+                      className="hide-img-smaller"
+                      src={`http://image.tmdb.org/t/p/w1280/${item?.backdrop_path}`}
+                      alt={item?.poster_path || item?.backdrop_path}
+                    />
+                    <img
+                      className="hide-img-bigger"
+                      src={`http://image.tmdb.org/t/p/w1280/${item?.poster_path}`}
+                      alt={item?.poster_path || item?.backdrop_path}
+                    />
+                    <aside>
+                      <h5 className="title-text">
+                        {item?.title || item?.name}
+                      </h5>
+                      <h5 className="release-text">
+                        {item?.release_date.substr(0, 4) ||
+                          item?.first_air_date.substr(0, 4)}
+                      </h5>
+                      <h5 className="rating-text">
+                        <AiFillStar
+                          style={{
+                            color: "yellow",
+                          }}
+                        />{" "}
+                        {item?.vote_average}
+                      </h5>
+                      {/* <HiddenInfo>
                   <h5 className="overview-text">
-                    {d?.overview?.length > 200
-                      ? d?.overview.substr(0, 200) + "..."
-                      : d?.overview}
+                    {item?.overview?.length > 200
+                      ? item?.overview.substr(0, 200) + "..."
+                      : item?.overview}
                   </h5>
                 </HiddenInfo> */}
-                  </aside>
-                </TopRatedData>
+                    </aside>
+                  </TopRatedData>
+                </Link>
               )
           )}
         </>
       )}
-    </>
+    </TopRatedContainer>
   );
 };

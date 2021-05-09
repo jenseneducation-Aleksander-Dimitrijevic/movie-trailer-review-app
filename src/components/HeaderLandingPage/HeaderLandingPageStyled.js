@@ -3,6 +3,8 @@ import { ColorsGlobal as color } from '../../styles/Colors'
 
 export const HeaderLandingPageContainer = styled.div`
 
+
+
 h5 {
     color: ${color.skyBlue};
     text-transform:uppercase;
@@ -20,9 +22,23 @@ h1 {
 }
 
  @media screen and (max-width: 768px) {
-  
+    margin-top: 12em;
+
   h5, h1 {
-      text-align:start;
+      text-align:left;
+  }
+
+  h5 {
+      font-size: 0.8rem;
+  }
+
+  h1 {
+      font-size: 1.3rem;
+      letter-spacing:0.02em;
+    line-height: 1.5rem;
+      .streaming-text {
+          display:block;
+      }
   }
  }
 
@@ -47,5 +63,12 @@ transition: all 0.4s ease-in-out;
 
 :hover {
     opacity: 0.7;
+}
+
+@media screen and (max-width: 768px){
+width: 90vw;
+font-size: 1rem;
+font-weight: bold;
+margin-top: 1rem;
 }
 `
