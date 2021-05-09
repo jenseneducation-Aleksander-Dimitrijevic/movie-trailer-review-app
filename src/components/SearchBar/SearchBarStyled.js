@@ -11,16 +11,31 @@ export const SearchBarContainer = styled.div`
     border: none;
     outline: none;
     transition: all 0.4s ease-in-out;
-    padding-left: 6em;
+    padding-left: 5em;
     font-size: 0.9rem;
     font-weight: bold;
     color: ${color.grayBlue};
+    z-index: 99;
 
     &::placeholder {
       color: ${color.grayBlue};
       font-weight: bold;
     }
 
+  }
+    
+      .search-icon {
+    background:transparent;
+    font-size: 1.3rem;
+    color: ${color.grayBlue};
+    position:absolute;
+    left: 2em;
+    top: 0.7em;
+    
+
+    @media screen and (max-width: 768px) {
+      left: 1em;
+    }
   }
 
   .showButton {
@@ -44,11 +59,17 @@ export const SearchBarContainer = styled.div`
     &:hover {
       opacity: 0.8;
     }
+
+    @media screen and (max-width: 768px) {
+    right: 1em;
+  }
   }
 
   .hideButton {
     display: none;
   }
+
+ 
 `;
 
 const dropDownSearchBar = keyframes`
@@ -151,6 +172,11 @@ export const SearchInputContainer = styled.div`
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
   }
+
+@media screen and (max-width: 768px){
+
+}
+
 `;
 
 export const SearchedDataContainer = styled(SearchInputContainer)`
