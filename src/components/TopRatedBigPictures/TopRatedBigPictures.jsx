@@ -28,44 +28,44 @@ export const TopRatedBigPictures = ({ useQuery }) => {
       <TopRatedBigPicturesContainer>
         {data && (
           <>
-            {data.map((d, idx) =>
+            {data.map((item, idx) =>
               idx <= 1 ? (
                 <Link
                   style={{ textDecoration: "none" }}
                   to={{
-                    pathname: `/show/${d?.name || d?.title}`,
+                    pathname: `/show/${item?.name || item?.title}`,
                     data: {
-                      d,
+                      item,
                     },
                   }}
-                  key={d.id}
+                  key={item.id}
                 >
                   <TopRatedBigPicturesContent>
                     <ImagesToprated
-                      src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
-                      alt={d?.poster_path || d?.backdrop_path}
+                      src={`http://image.tmdb.org/t/p/w1280/${item?.backdrop_path}`}
+                      alt={item?.poster_path || item?.backdrop_path}
                     />
                     <aside>
                       <h5 className="title-text">
-                        {d?.title || d?.name}{" "}
+                        {item?.title || item?.name}{" "}
                         <span>
                           <AiFillStar
                             style={{
                               color: "yellow",
                             }}
                           />{" "}
-                          {d?.vote_average}
+                          {item?.vote_average}
                         </span>
                       </h5>
                       <h5 className="overview-text">
                         <span>
                           {" "}
-                          {d?.release_date.substr(0, 4) ||
-                            d?.first_air_date.substr(0, 4)}{" "}
+                          {item?.release_date.substr(0, 4) ||
+                            item?.first_air_date.substr(0, 4)}{" "}
                         </span>
-                        {d?.overview?.length > 200
-                          ? d?.overview.substr(0, 200) + "... Read more"
-                          : d?.overview}
+                        {item?.overview?.length > 200
+                          ? item?.overview.substr(0, 200) + "... Read more"
+                          : item?.overview}
                       </h5>
                     </aside>
                   </TopRatedBigPicturesContent>
