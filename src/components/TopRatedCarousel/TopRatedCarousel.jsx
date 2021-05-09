@@ -15,28 +15,28 @@ export const TopRatedCarousel = ({ data, Link, AiFillStar }) => {
         className="carousel"
       >
         {data &&
-          data.map((d, idx) =>
+          data.map((item, idx) =>
             idx <= 40 ? (
               <Link
                 style={{ textDecoration: "none" }}
                 to={{
-                  pathname: `/show/${d?.name || d?.title}`,
+                  pathname: `/show/${item?.name || item?.title}`,
                   data: {
-                    d,
+                    item,
                   },
                 }}
-                key={d.id}
+                key={item.id}
               >
                 <TopRatedData>
                   <img
-                    src={`http://image.tmdb.org/t/p/w1280/${d?.backdrop_path}`}
-                    alt={d?.poster_path || d?.backdrop_path}
+                    src={`http://image.tmdb.org/t/p/w1280/${item?.backdrop_path}`}
+                    alt={item?.poster_path || item?.backdrop_path}
                   />
                   <aside>
-                    <h5 className="title-text">{d?.title || d?.name}</h5>
+                    <h5 className="title-text">{item?.title || item?.name}</h5>
                     <h5 className="release-text">
-                      {d?.release_date.substr(0, 4) ||
-                        d?.first_air_date.substr(0, 4)}
+                      {item?.release_date.substr(0, 4) ||
+                        item?.first_air_date.substr(0, 4)}
                     </h5>
                     <h5 className="rating-text">
                       <AiFillStar
@@ -44,7 +44,7 @@ export const TopRatedCarousel = ({ data, Link, AiFillStar }) => {
                           color: "yellow",
                         }}
                       />{" "}
-                      {d?.vote_average}
+                      {item?.vote_average}
                     </h5>
                   </aside>
                 </TopRatedData>
