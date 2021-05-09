@@ -1,19 +1,21 @@
 import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
-export const TopRatedContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-`;
+
+
+// export const TopRatedContainer = styled.div`
+// display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: repeat(4, 1fr);
+//   grid-column-gap: 1em;
+//   grid-row-gap: 1em;
+// `;
 
 
 
 export const TopRatedData = styled.section`
   text-align: left;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  
 
   img {
     width: 400px;
