@@ -4,31 +4,41 @@ import { ColorsGlobal as color } from "../../styles/Colors";
 export const HeaderBigPictures = styled.h1`
   text-transform: uppercase;
   color: ${color.white};
-  text-align: start;
+  text-align: left;
   font-size: 1.8rem;
   padding-bottom: 0.3em;
   margin-top: 10em;
   span {
     color: ${color.orange};
   }
+
+  @media screen and (max-width:768px) {
+    margin-top: 2em;
+    font-size: 1.3rem;
+  } 
 `;
 
-export const ImagesToprated = styled.img`
-  max-width: 800px;
-  border-radius: 5px;
-  margin-right: 0.5em;
-
-  @media screen and (max-width: 768px) {
-    max-width: 400px;
-  }
-`;
 
 export const TopRatedBigPicturesContainer = styled.div`
   display: flex;
   @media screen and (max-width: 748px) {
-    display: flex;
+    overflow:scroll hidden;
+    width: 90vw;
+    border-radius: 10px;
+
   }
 `;
+
+export const ImagesToprated = styled.img`
+  max-width: 820px;
+  border-radius: 5px;
+  margin-right: 0.5em;
+
+  @media screen and (max-width: 768px) {
+    width: 400px;
+  }
+`;
+
 
 export const TopRatedBigPicturesContent = styled.section`
   aside {
@@ -68,9 +78,16 @@ export const TopRatedBigPicturesContent = styled.section`
     }
   }
 
+  
+
   @media screen and (max-width: 768px) {
+    
+
+    
     .overview-text {
-      display: none;
+      display:none;
+
+      
     }
   }
 `;
