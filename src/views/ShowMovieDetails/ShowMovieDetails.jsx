@@ -4,21 +4,17 @@ import { useEffect, useState } from "react";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
-  const [currentID, setCurrentID] = useState(location.data.d.id);
 
   const baseURL = "http://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    sessionStorage.setItem("__movieID__", currentID);
-    if (sessionStorage.getItem("__movieID__"))
-      setCurrentID(sessionStorage.getItem("__movieID__"));
     const fetchMovieDetails = async () => {
-      const resp = await fetch(`/api/movies/${currentID}`);
+      const resp = await fetch(`/api/movies/${location.data.d.id}`);
       const data = await resp.json();
       setMovieDetail(data);
     };
     fetchMovieDetails();
-  }, [currentID]);
+  }, [location.data.d.id]);
 
   return (
     <ShowMovieContainer>
