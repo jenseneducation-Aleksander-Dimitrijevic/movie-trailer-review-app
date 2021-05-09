@@ -11,7 +11,7 @@ import { AiFillStar } from "react-icons/ai";
 
 export const TopRated = ({ data }) => {
   return (
-    <TopRatedContainer>
+    <>
       <TopRatedCarousel data={data} AiFillStar={AiFillStar} Link={Link} />
       {data && (
         <>
@@ -50,6 +50,6 @@ export const TopRated = ({ data }) => {
           )}
         </>
       )}
-    </TopRatedContainer>
+    </>
   );
 };
