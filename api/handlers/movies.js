@@ -89,7 +89,6 @@ exports.TvTrailers = router.get("/api/tv-trailers", async (req, res) => {
 });
 
 exports.movieDetails = router.get("/api/movies/:movie_id", async (req, res) => {
-  console.log(req.params.movie_id);
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${process.env.API_KEY}`
