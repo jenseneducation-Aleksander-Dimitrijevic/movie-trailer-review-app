@@ -31,6 +31,7 @@ export const TopRatedBigPictures = ({ useQuery }) => {
             {data.map((d, idx) =>
               idx <= 1 ? (
                 <Link
+                  style={{ textDecoration: "none" }}
                   to={{
                     pathname: `/show/${d?.name || d?.title}`,
                     data: {
