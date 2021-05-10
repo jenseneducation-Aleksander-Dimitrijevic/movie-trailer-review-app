@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
-
   const baseURL = "http://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
@@ -35,9 +34,10 @@ export const ShowMovieDetails = ({ location }) => {
               </span>
             </div>
             <h1 className="movie-details-title">{movieDetail.title}</h1>
-            <span className="movie-details-overview">
+            <span className="movie-details-release">
               {movieDetail.release_date.split("-")[0]}
             </span>
+            <p className="movie-details-overview">{movieDetail.overview}</p>
           </div>
         </>
       )}
