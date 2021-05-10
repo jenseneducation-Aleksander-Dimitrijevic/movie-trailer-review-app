@@ -8,12 +8,12 @@ export const ShowMovieDetails = ({ location }) => {
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
-      const resp = await fetch(`/api/movies/${location.data.d.id}`);
+      const resp = await fetch(`/api/movies/${location.data.item.id}`);
       const data = await resp.json();
       setMovieDetail(data);
     };
     fetchMovieDetails();
-  }, [location.data.d.id]);
+  }, [location.data.item.id]);
 
   return (
     <ShowMovieContainer>
