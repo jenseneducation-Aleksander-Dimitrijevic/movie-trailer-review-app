@@ -1,6 +1,7 @@
 import ShowMovieContainer from "./ShowMovieStyles";
 import { AiFillStar } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import ReviewForm from "./ReviewForm/ReviewForm";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
@@ -39,6 +40,7 @@ export const ShowMovieDetails = ({ location }) => {
             </span>
             <p className="movie-details-overview">{movieDetail.overview}</p>
           </div>
+          <ReviewForm />
         </>
       )}
     </ShowMovieContainer>

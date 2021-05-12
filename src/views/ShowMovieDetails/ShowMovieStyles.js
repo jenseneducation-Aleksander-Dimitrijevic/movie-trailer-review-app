@@ -4,14 +4,14 @@ export default styled.div`
   padding: 110.5px 0 0;
 
   .backdrop-container {
-    box-shadow: inset 0px 0px 50px 5px ${color.deepBlue};
+    box-shadow: inset 0px -39px 36px -21px ${color.deepBlue};
   }
 
   .backdrop-image {
     display: block;
     width: 100%;
-    filter: grayscale(25%);
-    opacity: 0.2;
+    filter: grayscale(15%);
+    opacity: 0.4;
     z-index: -1;
     position: relative;
   }
