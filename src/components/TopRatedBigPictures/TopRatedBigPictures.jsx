@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -13,9 +12,7 @@ import { AiFillStar } from "react-icons/ai";
 import { BiWorld } from "react-icons/bi";
 import { BsPlay } from "react-icons/bs";
 
-export const TopRatedBigPictures = ({ useQuery }) => {
-  const [showTrailer, setShowTrailer] = useState(false);
-
+export const TopRatedBigPictures = ({ useQuery, showTrailerVisible }) => {
   const { error, data } = useQuery(["PopularMovies"], () =>
     fetch("/api/popular").then((res) => res.json())
   );
@@ -43,7 +40,7 @@ export const TopRatedBigPictures = ({ useQuery }) => {
                       state: { data: item },
                     }}
                   >
-                    <SeeTrailerButton>
+                    <SeeTrailerButton onClick={() => showTrailerVisible()}>
                       <span>
                         <BsPlay className="play-icon" /> Trailer
                       </span>

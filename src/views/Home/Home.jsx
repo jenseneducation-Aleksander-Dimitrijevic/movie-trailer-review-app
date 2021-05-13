@@ -8,11 +8,15 @@ import { TopRated } from "../../components/TopRated/TopRated";
 import { TopRatedBigPictures } from "../../components/TopRatedBigPictures/TopRatedBigPictures";
 import { MovieTrailers } from "../../components/MovieTrailers/MovieTrailers";
 
-export const Home = ({ useQuery, location }) => {
+export const Home = ({ useQuery }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
+  const [showTrailer, setShowTrailer] = useState(false);
 
   const servicePopUpVisible = () => setShowServicePopUp(true);
   const servicePopUpNotVisible = () => setShowServicePopUp(false);
+
+  const showTrailerVisible = () => setShowTrailer(true);
+  const showTrailerNotVisible = () => setShowTrailer(false);
 
   const { error, data } = useQuery(["TopRatedMovies"], () =>
     fetch("/api/top-rated-movies").then((res) => res.json())
@@ -30,9 +34,17 @@ export const Home = ({ useQuery, location }) => {
         />
       )}
       <HeaderLandingPage servicePopUpVisible={servicePopUpVisible} />
-      <TopRatedBigPictures useQuery={useQuery} />
+      <TopRatedBigPictures
+        useQuery={useQuery}
+        showTrailerVisible={showTrailerVisible}
+      />
       <TopRated data={data} />
-      <MovieTrailers useQuery={useQuery} location={location} />
+      {showTrailer && (
+        <MovieTrailers
+          useQuery={useQuery}
+          showTrailerNotVisible={showTrailerNotVisible}
+        />
+      )}
     </HomeContainer>
   );
 };
