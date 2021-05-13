@@ -6,8 +6,9 @@ import { HomeContainer } from "./HomeStyled";
 import { CarouselImages } from "../../components/CarouselImages/CarouselImages";
 import { TopRated } from "../../components/TopRated/TopRated";
 import { TopRatedBigPictures } from "../../components/TopRatedBigPictures/TopRatedBigPictures";
+import { MovieTrailers } from "../../components/MovieTrailers/MovieTrailers";
 
-export const Home = ({ useQuery }) => {
+export const Home = ({ useQuery, location }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
 
   const servicePopUpVisible = () => setShowServicePopUp(true);
@@ -31,6 +32,7 @@ export const Home = ({ useQuery }) => {
       <HeaderLandingPage servicePopUpVisible={servicePopUpVisible} />
       <TopRatedBigPictures useQuery={useQuery} />
       <TopRated data={data} />
+      <MovieTrailers useQuery={useQuery} location={location} />
     </HomeContainer>
   );
 };
