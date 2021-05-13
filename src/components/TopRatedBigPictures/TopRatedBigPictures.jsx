@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -5,12 +6,16 @@ import {
   TopRatedBigPicturesContent,
   HeaderBigPictures,
   ImagesToprated,
+  SeeTrailerButton,
 } from "./TopRatedBigPicturesStyled";
 
 import { AiFillStar } from "react-icons/ai";
 import { BiWorld } from "react-icons/bi";
+import { BsPlay } from "react-icons/bs";
 
 export const TopRatedBigPictures = ({ useQuery }) => {
+  const [showTrailer, setShowTrailer] = useState(false);
+
   const { error, data } = useQuery(["PopularMovies"], () =>
     fetch("/api/popular").then((res) => res.json())
   );
@@ -38,9 +43,11 @@ export const TopRatedBigPictures = ({ useQuery }) => {
                       state: { data: item },
                     }}
                   >
-                    <button style={{ position: "absolute", height: "200px" }}>
-                      Click to send data
-                    </button>
+                    <SeeTrailerButton>
+                      <span>
+                        <BsPlay className="play-icon" /> Trailer
+                      </span>
+                    </SeeTrailerButton>
                   </Link>
                   <Link
                     style={{ textDecoration: "none" }}

@@ -12,20 +12,39 @@ export const HeaderBigPictures = styled.h1`
     color: ${color.orange};
   }
 
-  @media screen and (max-width:768px) {
+  @media screen and (max-width: 768px) {
     margin-top: 2em;
     font-size: 1.3rem;
-  } 
+  }
 `;
-
 
 export const TopRatedBigPicturesContainer = styled.div`
   display: flex;
   @media screen and (max-width: 748px) {
-    overflow:scroll hidden;
+    overflow: scroll hidden;
     width: 90vw;
     border-radius: 10px;
+  }
+`;
 
+export const SeeTrailerButton = styled.button`
+  background: transparent;
+  outline: none;
+  border: none;
+  color: ${color.white};
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  span {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    width: 61.5em;
+    padding: 1em;
+    .play-icon {
+      font-size: 1.7rem;
+    }
   }
 `;
 
@@ -38,7 +57,6 @@ export const ImagesToprated = styled.img`
     width: 400px;
   }
 `;
-
 
 export const TopRatedBigPicturesContent = styled.section`
   aside {
@@ -78,16 +96,9 @@ export const TopRatedBigPicturesContent = styled.section`
     }
   }
 
-  
-
   @media screen and (max-width: 768px) {
-    
-
-    
     .overview-text {
-      display:none;
-
-      
+      display: none;
     }
   }
 `;

@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { MovieTrailersContainer } from "./MovieTrailersStyled";
+import {
+  MovieTrailersContainer,
+  MovieTrailersContent,
+} from "./MovieTrailersStyled";
 
 export const MovieTrailers = ({ useQuery }) => {
   const location = useLocation();
@@ -22,13 +25,13 @@ export const MovieTrailers = ({ useQuery }) => {
   return (
     <MovieTrailersContainer>
       {data && (
-        <>
+        <MovieTrailersContent>
           {data.map((item) => (
             <>
               <iframe
                 width="560"
                 height="315"
-                src={`https://www.youtube.com/embed/${item.key}`}
+                src={`https://www.youtube.com/embed/${item?.key}`}
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -36,7 +39,7 @@ export const MovieTrailers = ({ useQuery }) => {
               ></iframe>
             </>
           ))}
-        </>
+        </MovieTrailersContent>
       )}
     </MovieTrailersContainer>
   );
