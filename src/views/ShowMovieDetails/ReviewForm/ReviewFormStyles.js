@@ -1,10 +1,21 @@
 import styled from "styled-components";
 import { ColorsGlobal as color } from "../../../styles/Colors";
 export default styled.form`
-  padding: 1rem;
+  padding: 1.5rem 2rem 2.5rem;
+  margin: 20rem 0 1rem;
   background: ${color.darkBlue};
   color: ${color.white};
   width: 100%;
+
+  @media screen and (min-width: 450px) {
+    margin: 12rem 0 2rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 10rem 0 2rem 4rem;
+    width: 70%;
+    border-radius: 5px;
+  }
 
   h1.review-form-title {
     text-transform: uppercase;

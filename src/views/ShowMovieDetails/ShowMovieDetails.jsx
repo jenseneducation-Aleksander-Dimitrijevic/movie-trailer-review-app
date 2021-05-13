@@ -20,25 +20,35 @@ export const ShowMovieDetails = ({ location }) => {
     <ShowMovieContainer>
       {movieDetail && (
         <>
-          <div className="backdrop-container">
-            <img
-              className="backdrop-image"
-              src={`${baseURL}${movieDetail.backdrop_path}`}
-              alt={movieDetail.original_title}
-            />
-          </div>
-          <div className="movie-details">
-            <div className="movie-details-rating">
-              <AiFillStar className="movie-details-rating-star" />
-              <span className="movie-details-rating-number">
-                {movieDetail.vote_average}
-              </span>
+          <div
+            className="backdrop-container"
+            style={{
+              backgroundImage: `url(${baseURL + movieDetail.backdrop_path})`,
+            }}
+          >
+            <div className="content">
+              <div
+                className="content-image"
+                style={{
+                  backgroundImage: `url(${
+                    baseURL + movieDetail.backdrop_path
+                  })`,
+                }}
+              />
+              <div className="movie-details">
+                <div className="movie-details-rating">
+                  <AiFillStar className="movie-details-rating-star" />
+                  <span className="movie-details-rating-number">
+                    {movieDetail.vote_average}
+                  </span>
+                </div>
+                <h1 className="movie-details-title">{movieDetail.title}</h1>
+                <span className="movie-details-release">
+                  {movieDetail.release_date.split("-")[0]}
+                </span>
+                <p className="movie-details-overview">{movieDetail.overview}</p>
+              </div>
             </div>
-            <h1 className="movie-details-title">{movieDetail.title}</h1>
-            <span className="movie-details-release">
-              {movieDetail.release_date.split("-")[0]}
-            </span>
-            <p className="movie-details-overview">{movieDetail.overview}</p>
           </div>
           <ReviewForm />
         </>
