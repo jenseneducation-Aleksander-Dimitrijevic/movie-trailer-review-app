@@ -32,7 +32,7 @@ export const App = () => {
           <Route path={AppRoutes.movies} component={() => <Movies />} />
           <Route path={AppRoutes.series} component={() => <Series />} />
           <Route path={AppRoutes.kids} component={() => <Kids />} />
-          <Route path={AppRoutes.feed} component={() => <Feed />} />
+          <Route path={AppRoutes.feed} component={() => <Feed useQuery={useQuery} />} />
           <Route
             path={AppRoutes.documentary}
             component={() => <Documentary />}
