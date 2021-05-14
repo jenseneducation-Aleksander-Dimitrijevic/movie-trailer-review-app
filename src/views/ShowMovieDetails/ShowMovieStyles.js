@@ -37,7 +37,7 @@ export default styled.div`
       flex: 0 0 220px;
       border-radius: 5px;
       background: no-repeat center center/cover;
-      box-shadow: 0 0 15px 5px rgba(20, 33, 44, 0.6);
+      box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
 
       @media screen and (min-width: 768px) {
         display: block;
