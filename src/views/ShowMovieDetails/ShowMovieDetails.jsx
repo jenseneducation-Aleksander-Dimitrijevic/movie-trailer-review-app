@@ -2,10 +2,13 @@ import ShowMovieContainer from "./ShowMovieStyles";
 import { AiFillStar } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import ReviewForm from "./ReviewForm/ReviewForm";
+import { useMatchMedia } from "../../helpers/useMatchMedia";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
-  const baseURL = "http://image.tmdb.org/t/p/w500";
+  const baseURL = `http://image.tmdb.org/t/p/${
+    useMatchMedia(768) ? "w1280" : "w500"
+  }`;
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -21,14 +24,14 @@ export const ShowMovieDetails = ({ location }) => {
       {movieDetail && (
         <>
           <div
-            className="backdrop-container"
+            className="show-movie"
             style={{
               backgroundImage: `url(${baseURL + movieDetail.backdrop_path})`,
             }}
           >
-            <div className="content">
+            <div className="show-movie-content">
               <div
-                className="content-image"
+                className="show-movie-backdrop"
                 style={{
                   backgroundImage: `url(${
                     baseURL + movieDetail.backdrop_path
@@ -50,9 +53,9 @@ export const ShowMovieDetails = ({ location }) => {
               </div>
             </div>
           </div>
-          <ReviewForm />
         </>
       )}
+      <ReviewForm />
     </ShowMovieContainer>
   );
 };

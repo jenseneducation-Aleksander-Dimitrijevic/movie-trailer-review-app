@@ -1,74 +1,75 @@
 import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
+
 export default styled.div`
   padding: 110.5px 0 0;
 
-  .backdrop-container {
+  .show-movie {
     width: 100%;
     height: 300px;
-    background: no-repeat center center/cover;
-    display: flex;
+    background: no-repeat top center/cover;
+    box-shadow: inset 0px -250px 250px -10px rgba(20, 33, 44, 0.99);
     position: relative;
+    display: flex;
+
+    @media screen and (min-width: 768px) {
+      height: 500px;
+      box-shadow: inset 0px -350px 200px -10px rgba(20, 33, 44, 0.99);
+    }
+
+    @media screen and (min-width: 1440px) {
+      height: 600px;
+    }
+
     &::before {
       width: 100%;
       height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
+      background: rgba(20, 33, 44, 0.3);
       content: "";
-      background: rgba(20, 33, 44, 0.4);
-      box-shadow: inset 0px -250px 200px -10px rgba(20, 33, 44, 0.99);
+      top: 0;
+      left: 0;
+      position: absolute;
     }
 
-    @media screen and (min-width: 768px) {
-      height: 450px;
-      align-items: center;
-      background-position: top center;
-    }
+    &-backdrop {
+      display: none;
+      height: 350px;
+      flex: 0 0 220px;
+      border-radius: 5px;
+      background: no-repeat center center/cover;
+      box-shadow: 0 0 15px 5px rgba(20, 33, 44, 0.6);
 
-    .content {
-      display: flex;
-      width: 100%;
-      margin: auto;
-      padding: 15rem 0 0;
-      position: relative;
-
-      &-image {
-        display: none;
-      }
       @media screen and (min-width: 768px) {
-        margin: 0;
-        &-image {
-          flex: 0 0 240px;
-          height: 400px;
-          border-radius: 5px;
-          background: no-repeat center center/cover;
-          display: block;
-          box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-        }
-        padding: 15rem 2rem 4rem 4rem;
+        display: block;
+      }
+    }
+
+    &-content {
+      align-self: flex-end;
+      margin: -8rem 0;
+      width: 100%;
+      position: relative;
+      color: ${color.white};
+
+      .movie-details {
+        align-self: flex-end;
+      }
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        margin: auto;
+        padding: 0 2rem;
       }
 
       .movie-details {
         padding: 0 1rem;
 
         @media screen and (min-width: 768px) {
-          display: flex;
-          flex-direction: column;
-          margin: 0 1rem;
-
-          &-rating {
-            margin: auto 0 0;
-          }
-
-          &-overview {
-            max-width: 90%;
-          }
+          padding: 0 2rem;
         }
+
         &-rating {
           display: flex;
-          align-items: center;
-          padding: 5px 0 0;
 
           &-star {
             color: yellow;
@@ -77,8 +78,9 @@ export default styled.div`
 
           &-number {
             color: ${color.lightBlue};
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
+            align-self: flex-end;
           }
         }
         &-title {
