@@ -7,16 +7,15 @@ import {
 
 export const MovieTrailers = ({ showTrailerNotVisible, useQuery }) => {
   const location = useLocation();
-  const dataFromTopRatedBigPictures = location.state?.data;
+  const dataFromTopRated = location.state?.data;
 
   const { isLoading, error, data } = useQuery(
-    ["Trailers", dataFromTopRatedBigPictures],
+    ["Trailers", dataFromTopRated],
     () =>
-      dataFromTopRatedBigPictures
-        ? fetch(`/api/movie-trailers/${dataFromTopRatedBigPictures.id}`).then(
-            (res) => res.json()
-          )
-        : null
+      dataFromTopRated &&
+      fetch(`/api/movie-trailers/${dataFromTopRated?.id}`).then((res) =>
+        res.json()
+      )
   );
 
   console.log(data);
@@ -37,9 +36,9 @@ export const MovieTrailers = ({ showTrailerNotVisible, useQuery }) => {
                   <iframe
                     src={`https://www.youtube.com/embed/${item?.key}`}
                     title="YouTube video player"
-                    frameBorder="0"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullscreen
+                    allowfullscreen
                   ></iframe>
                 </>
               )

@@ -38,7 +38,7 @@ export const Home = ({ useQuery }) => {
         useQuery={useQuery}
         showTrailerVisible={showTrailerVisible}
       />
-      <TopRated data={data} />
+      <TopRated data={data} showTrailerVisible={showTrailerVisible} />
       {showTrailer && (
         <MovieTrailers
           useQuery={useQuery}

@@ -16,6 +16,8 @@ font-size: 2.2rem;
   color: ${color.white};
   width: 35px;
   position: absolute;
+  display:flex;
+  justify-content:space-around;
   margin-top: -0.3em;
   height: 35px;
   border-radius: 50%;

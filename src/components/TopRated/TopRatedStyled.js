@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
-
+import { SeeTrailerButton } from '../TopRatedBigPictures/TopRatedBigPicturesStyled'
 
 
 export const TopRatedContainer = styled.div`
@@ -85,4 +85,39 @@ export const TopRatedData = styled.section`
   }
 `;
 
-export const HiddenInfo = styled.section``;
+export const HiddenInfo = styled.section`
+`;
+
+
+export const SeeTrailerButtonContainer = styled.div`
+display:flex;
+margin-top: 0.3em;
+justify-content:flex-end;
+`
+
+export const SeeTrailerButtons = styled(SeeTrailerButton)`
+position:unset;
+background: ${color.darkBlue};
+color: ${color.grayBlue};
+border-radius: 5px;
+height: 25px;
+width: 65px;
+font-weight:bold;
+transition: all 0.4s ease-in-out;
+
+span {
+  justify-content:center;
+  background: unset;
+  width: unset;
+  padding:unset;
+  .play-icon {
+    display:none;
+  }
+} 
+
+&:hover {
+  opacity: 0.7;
+}
+
+
+`
