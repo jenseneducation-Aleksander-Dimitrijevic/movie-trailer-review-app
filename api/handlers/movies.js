@@ -43,7 +43,7 @@ exports.TopRatedMovies = router.get(
 exports.LatestMovies = router.get("/api/latest", async (req, res) => {
   try {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.API_KEY}`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`
     );
     const movies = resp.data.results;
     res.status(200).json(movies);

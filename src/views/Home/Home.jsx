@@ -8,6 +8,7 @@ import { TopRated } from "../../components/TopRated/TopRated";
 import { TopRatedBigPictures } from "../../components/TopRatedBigPictures/TopRatedBigPictures";
 import { MovieTrailers } from "../../components/MovieTrailers/MovieTrailers";
 import { NewSeries } from "../../components/NewSeries/NewSeries";
+import { LatestMovies } from "../../components/LatestMovies/LatestMovies";
 
 export const Home = ({ useQuery }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
@@ -47,6 +48,10 @@ export const Home = ({ useQuery }) => {
         />
       )}
       <NewSeries useQuery={useQuery} showTrailerVisible={showTrailerVisible} />
+      <LatestMovies
+        useQuery={useQuery}
+        showTrailerVisible={showTrailerVisible}
+      />
     </HomeContainer>
   );
 };
