@@ -1,7 +1,7 @@
 export const FooterLinksData = [
   {
     title: "Om Watchy",
-    path: "/",
+    path: "/about",
     id: 1,
   },
   {
