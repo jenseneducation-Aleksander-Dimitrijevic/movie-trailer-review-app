@@ -64,7 +64,8 @@ exports.LatestSeries = router.get("/api/latest-series", async (req, res) => {
   }
 });
 
-exports.MovieTrailers = router.get("/api/movie-trailers", async (req, res) => {
+
+exports.MovieTrailers = router.get("/api/movie-trailers/:id", async (req, res) => {
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/movie/${req.params.id}/videos?api_key=${process.env.API_KEY}`
@@ -76,7 +77,8 @@ exports.MovieTrailers = router.get("/api/movie-trailers", async (req, res) => {
   }
 });
 
-exports.TvTrailers = router.get("/api/tv-trailers", async (req, res) => {
+
+exports.TvTrailers = router.get("/api/tv-trailers/:id", async (req, res) => {
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/tv/${req.params.id}/videos?api_key=${process.env.API_KEY}`
