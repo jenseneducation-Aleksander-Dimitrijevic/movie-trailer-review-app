@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer/Footer";
 import { ShowMovieDetails } from "./views/ShowMovieDetails/ShowMovieDetails";
 import { NotFound } from "./views/NotFound/NotFound";
 import { Feed } from "./views/Feed/Feed";
+import { About } from "./views/About/About";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
@@ -34,6 +35,7 @@ export const App = () => {
           <Route path={AppRoutes.series} component={() => <Series />} />
           <Route path={AppRoutes.kids} component={() => <Kids />} />
           <Route path={AppRoutes.feed} component={() => <Feed useQuery={useQuery} />} />
+          <Route path={AppRoutes.about} component={() => <About />} />
           <Route
             path={AppRoutes.documentary}
             component={() => <Documentary />}

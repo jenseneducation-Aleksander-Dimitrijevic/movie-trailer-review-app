@@ -45,7 +45,7 @@ export const Cloud = styled.div`
     top:118.5px;
     height: 2rem;
     width: 100%;
-    color:white;
+    color:${color.white};
     position: absolute;
     background-image: url(${img});
     background-position: left;
