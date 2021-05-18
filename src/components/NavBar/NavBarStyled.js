@@ -7,7 +7,7 @@ export const NavLink = styled(Link)``;
 export const NavBarButtonContainer = styled.div`
   position: absolute;
   right: 3em;
-  z-index: 999;
+  
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -34,7 +34,6 @@ export const LoginButton = styled.button`
   background: ${color.darkGray};
   transition: all 0.4s ease-in-out;
   cursor: pointer;
-  z-index: 999;
   margin-right: 8px;
 
   &:hover {
@@ -56,6 +55,8 @@ export const NavBarContainer = styled.div`
   background: ${color.deepBlue};
   position: fixed;
   padding-left: 15em;
+  z-index: 9999;
+
 
   .hamburger-icon {
     position: absolute;
@@ -162,7 +163,7 @@ export const HamburgerList = styled.section`
   position: absolute;
   bottom: 0;
   z-index: 3;
-  height: 70vh;
+  height: 60vh;
   width: 100vw;
   background: ${color.darkBlue};
   box-shadow: -15px 20px 20px -15px #111;

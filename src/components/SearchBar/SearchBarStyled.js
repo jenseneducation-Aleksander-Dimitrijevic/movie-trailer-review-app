@@ -92,6 +92,7 @@ export const SearchInputContainer = styled.div`
     height: 50vh;
     overflow-y: scroll;
     box-shadow: -15px 20px 20px -15px #111;
+    z-index: 9999;
 
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
