@@ -1,8 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { ColorsGlobal as color } from "../../styles/Colors";
 
-
-
 export const SearchBarContainer = styled.div`
   .searchInput {
     height: 48.5px;
@@ -21,17 +19,15 @@ export const SearchBarContainer = styled.div`
       color: ${color.grayBlue};
       font-weight: bold;
     }
-
   }
-    
-      .search-icon {
-    background:transparent;
+
+  .search-icon {
+    background: transparent;
     font-size: 1.3rem;
     color: ${color.grayBlue};
-    position:absolute;
+    position: absolute;
     left: 2em;
     top: 0.7em;
-    
 
     @media screen and (max-width: 768px) {
       left: 1em;
@@ -61,15 +57,13 @@ export const SearchBarContainer = styled.div`
     }
 
     @media screen and (max-width: 768px) {
-    right: 1em;
-  }
+      right: 1em;
+    }
   }
 
   .hideButton {
     display: none;
   }
-
- 
 `;
 
 const dropDownSearchBar = keyframes`
@@ -88,8 +82,6 @@ const dropDownSearchBar = keyframes`
 `;
 
 export const SearchInputContainer = styled.div`
-
-
   .input-big {
     width: 100vw;
     animation: ${dropDownSearchBar} 2s ease-in-out;
@@ -100,25 +92,27 @@ export const SearchInputContainer = styled.div`
     height: 50vh;
     overflow-y: scroll;
     box-shadow: -15px 20px 20px -15px #111;
-    
 
-    ::-webkit-scrollbar-track
-{
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
-	background-color: ${color.deepBlue};
-}
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8);
+      background-color: ${color.deepBlue};
+    }
 
-::-webkit-scrollbar
-{
-	width: 5px;
-	background-color: ${color.darkBlue};
-}
+    ::-webkit-scrollbar {
+      width: 5px;
+      background-color: ${color.darkBlue};
+    }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: ${color.skyBlue};
-	border: none;
-}
+    ::-webkit-scrollbar-thumb {
+      background-color: ${color.skyBlue};
+      border: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 100vh;
+      padding: 2em 1em;
+      display: grid;
+    }
   }
 
   .input-small {
@@ -173,12 +167,30 @@ export const SearchInputContainer = styled.div`
     border-top-right-radius: 6px;
   }
 
-@media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
+    h1 {
+      width: 21rem;
+    }
 
-}
+    aside {
+      margin-left: unset;
 
+      .title-text {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 21.5rem;
+      }
+
+      .overview-text {
+        width: 85vw;
+      }
+    }
+
+    img {
+      display: inline-block;
+    }
+  }
 `;
 
-export const SearchedDataContainer = styled(SearchInputContainer)`
-
-`
+export const SearchedDataContainer = styled(SearchInputContainer)``;

@@ -39,12 +39,15 @@ export const SeeTrailerButton = styled.button`
     display: flex;
     text-align: center;
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
     width: 61.5em;
     padding: 1em;
     .play-icon {
       font-size: 1.7rem;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    display:none;
   }
 `;
 
