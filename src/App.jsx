@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer/Footer";
 import { ShowMovieDetails } from "./views/ShowMovieDetails/ShowMovieDetails";
 import { NotFound } from "./views/NotFound/NotFound";
 import { Feed } from "./views/Feed/Feed";
+
 import { Faq } from "./views/Faq/Faq";
 import { CookiePolicy } from "./views/Cookie/CookiePolicy";
 import { PrivacyPolicy } from "./views/Privacy/PrivacyPolicy";
