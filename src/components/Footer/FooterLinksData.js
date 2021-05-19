@@ -6,7 +6,7 @@ export const FooterLinksData = [
   },
   {
     title: "FAQ",
-    path: "/",
+    path: "/faq",
     id: 2,
   },
   {
@@ -16,17 +16,17 @@ export const FooterLinksData = [
   },
   {
     title: "Cookiepolicy",
-    path: "/",
+    path: "/cookies",
     id: 4,
   },
   {
     title: "Integritetspolicy",
-    path: "/",
+    path: "/policy",
     id: 5,
   },
   {
     title: "Användaravtal",
-    path: "/",
+    path: "/eula",
     id: 6,
   },
   {

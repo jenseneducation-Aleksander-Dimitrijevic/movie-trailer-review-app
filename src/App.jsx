@@ -13,6 +13,10 @@ import { ShowMovieDetails } from "./views/ShowMovieDetails/ShowMovieDetails";
 import { NotFound } from "./views/NotFound/NotFound";
 import { Feed } from "./views/Feed/Feed";
 import { Faq } from "./views/Faq/Faq";
+import { CookiePolicy } from "./views/Cookie/CookiePolicy";
+import { PrivacyPolicy } from "./views/Privacy/PrivacyPolicy";
+import { UserAgreement } from "./views/UserAgreement/UserAgreement";
+
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
@@ -36,6 +40,9 @@ export const App = () => {
           <Route path={AppRoutes.kids} component={() => <Kids />} />
           <Route path={AppRoutes.feed} component={() => <Feed useQuery={useQuery} />} />
           <Route path={AppRoutes.faq} component={() => <Faq />} />
+          <Route path={AppRoutes.cookies} component={() => <CookiePolicy />} />
+          <Route path={AppRoutes.policy} component={() => <PrivacyPolicy />} />
+          <Route path={AppRoutes.eula} component={() => <UserAgreement />} />
           <Route
             path={AppRoutes.documentary}
             component={() => <Documentary />}
