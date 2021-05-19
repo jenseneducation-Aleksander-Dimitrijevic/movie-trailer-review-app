@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { HeaderBigPictures } from '../../components/TopRatedBigPictures/TopRatedBigPicturesStyled';
-import { TopRatedData, TopRatedContainer } from '../../components/TopRated/TopRatedStyled'
+import { TopRatedContainer } from '../../components/TopRated/TopRatedStyled'
 import { ColorsGlobal as color } from '../../styles/Colors'
  
 export const HeaderNewSeries = styled(HeaderBigPictures)`
@@ -9,6 +9,7 @@ margin-top: 2em;
 span {
     margin-left: 10px;
 }
+
 `
 
 export const NewSeriesContainer = styled(TopRatedContainer)`

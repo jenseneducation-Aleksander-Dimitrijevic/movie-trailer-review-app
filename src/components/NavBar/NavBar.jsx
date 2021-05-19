@@ -18,7 +18,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
 export const NavBar = ({ useQuery }) => {
-  const [arrowUp, setArrowUp] = useState(false);
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
   const [show, setShow] = useState(false);
@@ -44,13 +43,6 @@ export const NavBar = ({ useQuery }) => {
     }
   }, [show]);
 
-  const arrowTurn = () => {
-    buttonRef.current.focus();
-    setArrowUp(!arrowUp);
-  };
-
-  const buttonRef = useRef(null);
-
   return (
     <NavBarContainer>
       <NavLink exact to="/">
@@ -65,13 +57,6 @@ export const NavBar = ({ useQuery }) => {
             <NavLink exact to={n.path} activeClassName="active">
               <span>{n.title}</span>
             </NavLink>
-            <span
-              className={arrowUp ? "arrow-up" : "arrow-down"}
-              onClick={() => arrowTurn()}
-              ref={buttonRef}
-            >
-              {n.icons}
-            </span>
           </li>
         </ul>
       ))}
