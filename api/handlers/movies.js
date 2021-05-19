@@ -43,7 +43,7 @@ exports.TopRatedMovies = router.get(
 exports.LatestMovies = router.get("/api/latest", async (req, res) => {
   try {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.API_KEY}`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}`
     );
     const movies = resp.data.results;
     res.status(200).json(movies);
@@ -55,7 +55,7 @@ exports.LatestMovies = router.get("/api/latest", async (req, res) => {
 exports.LatestSeries = router.get("/api/latest-series", async (req, res) => {
   try {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/tv/latest?api_key=${process.env.API_KEY}`
+      `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}`
     );
     const movies = resp.data.results;
     res.status(200).json(movies);
