@@ -9,29 +9,20 @@ export const FooterLinksData = [
     path: "/faq",
     id: 2,
   },
-  {
-    title: "Jobb",
-    path: "/",
-    id: 3,
-  },
+
   {
     title: "Cookiepolicy",
     path: "/cookies",
+    id: 3,
+  },
+  {
+    title: "Privacy policy",
+    path: "/policy",
     id: 4,
   },
   {
-    title: "Integritetspolicy",
-    path: "/policy",
-    id: 5,
-  },
-  {
-    title: "Användaravtal",
+    title: "User agreement",
     path: "/eula",
-    id: 6,
-  },
-  {
-    title: "Hantera dina sekretessinställningar",
-    path: "/",
-    id: 7,
+    id: 5,
   },
 ];
