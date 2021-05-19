@@ -1,7 +1,5 @@
 import {CookieContainer} from '../Cookie/CookiePolicyStyled';
 
-import React from 'react'
-
 export const UserAgreement = () => {
     return (
         <CookieContainer>

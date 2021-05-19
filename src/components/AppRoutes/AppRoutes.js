@@ -6,6 +6,7 @@ export const AppRoutes = {
   feed: "/feed",
   faq:"/faq",
   eula:"/eula",
+  policy:"/policy",
   cookies:"/cookies",
   documentary: "/documentary",
   show: "/show"
