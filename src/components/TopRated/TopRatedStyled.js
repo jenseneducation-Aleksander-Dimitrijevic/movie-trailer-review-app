@@ -21,7 +21,7 @@ export const TopRatedData = styled.section`
   text-align: left;
   
   img {
-    width: 401.5px;
+    max-width: 401.5px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 0 rgba(0,0,0,0.23);
@@ -54,6 +54,7 @@ export const TopRatedData = styled.section`
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-top: -38.1em;
+    max-width: 401.5px;
     box-shadow: 0 0 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
     .title-text {
@@ -120,5 +121,7 @@ span {
   opacity: 0.7;
 }
 
-
+@media screen and (max-width: 768px){
+  display:none;
+}
 `
