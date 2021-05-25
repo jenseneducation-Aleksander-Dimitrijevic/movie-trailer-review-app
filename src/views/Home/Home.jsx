@@ -10,7 +10,7 @@ import { MovieTrailers } from "../../components/MovieTrailers/MovieTrailers";
 import { NewSeries } from "../../components/NewSeries/NewSeries";
 import { LatestMovies } from "../../components/LatestMovies/LatestMovies";
 
-export const Home = ({ useQuery }) => {
+export const Home = ({ useQuery, signup, setSignup }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
 

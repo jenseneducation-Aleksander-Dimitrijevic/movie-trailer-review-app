@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -19,21 +20,27 @@ import { AppRoutes } from "./components/AppRoutes/AppRoutes";
 const queryClient = new QueryClient();
 
 export const App = () => {
+  const [signup, setSignup] = useState(false);
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
         <GlobalStyle />
-        <NavBar useQuery={useQuery} />
+        <NavBar useQuery={useQuery} signup={signup} setSignup={setSignup} />
         <Switch>
           <Route
             exact
             path={AppRoutes.home}
-            component={() => <Home useQuery={useQuery} />}
+            component={() => (
+              <Home signup={signup} setSignup={setSignup} useQuery={useQuery} />
+            )}
           />
           <Route path={AppRoutes.movies} component={() => <Movies />} />
           <Route path={AppRoutes.series} component={() => <Series />} />
           <Route path={AppRoutes.kids} component={() => <Kids />} />
-          <Route path={AppRoutes.feed} component={() => <Feed useQuery={useQuery} />} />
+          <Route
+            path={AppRoutes.feed}
+            component={() => <Feed useQuery={useQuery} />}
+          />
           <Route
             path={AppRoutes.documentary}
             component={() => <Documentary />}
