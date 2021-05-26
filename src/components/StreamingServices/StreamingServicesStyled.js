@@ -20,11 +20,13 @@ width:100%;
 padding: 2em 1em;
 h2{
     color: ${color.lightBlue};
+    padding: 1em 1em;
     text-transform: uppercase;
 }
 h3{
     color : ${color.white};
     text-transform: uppercase;
+    padding: .5em 1em;
 }
 .cardwrapper{
     display: grid;
