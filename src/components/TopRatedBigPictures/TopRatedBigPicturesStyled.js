@@ -20,6 +20,7 @@ export const HeaderBigPictures = styled.h1`
 
 export const TopRatedBigPicturesContainer = styled.div`
   display: flex;
+  
   @media screen and (max-width: 748px) {
     overflow: scroll hidden;
     width: 90vw;
@@ -63,6 +64,7 @@ export const ImagesToprated = styled.img`
 
   @media screen and (max-width: 768px) {
     width: 400px;
+    margin:auto;
   }
 `;
 

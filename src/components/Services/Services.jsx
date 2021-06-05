@@ -24,29 +24,16 @@ const responsive = {
 
 export const Services = ({ servicePopUpVisible }) => {
   return (
-    <>
+    <ServicesContainer>
       {ServicesData.map((s) => (
-        <Carousel
-          swipeable={true}
-          draggable={false}
-          responsive={responsive}
-          infinite={true}
-          autoPlaySpeed={1000}
-          keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          itemClass="carousel-item-padding-40-px"
-        >
-          <IconsContainer key={s.id}>
-            <Icons
-              src={s.icon}
-              alt={s.icon}
-              onClick={() => servicePopUpVisible()}
-            />
-          </IconsContainer>
-        </Carousel>
+        <IconsContainer key={s.id}>
+          <Icons
+            src={s.icon}
+            alt={s.icon}
+            onClick={() => servicePopUpVisible()}
+          />
+        </IconsContainer>
       ))}
-    </>
+    </ServicesContainer>
   );
 };
