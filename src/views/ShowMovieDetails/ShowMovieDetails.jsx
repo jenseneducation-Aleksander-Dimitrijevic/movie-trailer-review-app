@@ -2,10 +2,13 @@ import ShowMovieContainer from "./ShowMovieStyles";
 import { AiFillStar } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import ReviewForm from "./ReviewForm/ReviewForm";
+import { useMatchMedia } from "../../helpers/useMatchMedia";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
-  const baseURL = "http://image.tmdb.org/t/p/w500";
+  const baseURL = `http://image.tmdb.org/t/p/${
+    useMatchMedia(768) ? "w1280" : "w500"
+  }`;
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -20,29 +23,39 @@ export const ShowMovieDetails = ({ location }) => {
     <ShowMovieContainer>
       {movieDetail && (
         <>
-          <div className="backdrop-container">
-            <img
-              className="backdrop-image"
-              src={`${baseURL}${movieDetail.backdrop_path}`}
-              alt={movieDetail.original_title}
-            />
-          </div>
-          <div className="movie-details">
-            <div className="movie-details-rating">
-              <AiFillStar className="movie-details-rating-star" />
-              <span className="movie-details-rating-number">
-                {movieDetail.vote_average}
-              </span>
+          <div
+            className="show-movie"
+            style={{
+              backgroundImage: `url(${baseURL + movieDetail.backdrop_path})`,
+            }}
+          >
+            <div className="show-movie-content">
+              <div
+                className="show-movie-backdrop"
+                style={{
+                  backgroundImage: `url(${
+                    baseURL + movieDetail.backdrop_path
+                  })`,
+                }}
+              />
+              <div className="movie-details">
+                <div className="movie-details-rating">
+                  <AiFillStar className="movie-details-rating-star" />
+                  <span className="movie-details-rating-number">
+                    {movieDetail.vote_average}
+                  </span>
+                </div>
+                <h1 className="movie-details-title">{movieDetail.title}</h1>
+                <span className="movie-details-release">
+                  {movieDetail.release_date.split("-")[0]}
+                </span>
+                <p className="movie-details-overview">{movieDetail.overview}</p>
+              </div>
             </div>
-            <h1 className="movie-details-title">{movieDetail.title}</h1>
-            <span className="movie-details-release">
-              {movieDetail.release_date.split("-")[0]}
-            </span>
-            <p className="movie-details-overview">{movieDetail.overview}</p>
           </div>
-          <ReviewForm />
         </>
       )}
+      <ReviewForm />
     </ShowMovieContainer>
   );
 };

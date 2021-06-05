@@ -40,7 +40,7 @@ export const FooterContainer = styled.footer`
     }
 
     @media screen and (min-width: 1024px) {
-      max-width: 50%;
+      max-width: 70%;
     }
   }
 
