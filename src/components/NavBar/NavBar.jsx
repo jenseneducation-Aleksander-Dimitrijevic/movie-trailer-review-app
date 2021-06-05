@@ -17,9 +17,8 @@ import Modal from "../Modal/ModalForm";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 
-export const NavBar = ({ useQuery }) => {
+export const NavBar = ({ useQuery, signup, setSignup }) => {
   const [login, setLogin] = useState(false);
-  const [signup, setSignup] = useState(false);
   const [show, setShow] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
 
