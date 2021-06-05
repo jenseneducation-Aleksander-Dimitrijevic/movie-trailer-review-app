@@ -29,7 +29,7 @@ box-shadow: inset 0px -39px 36px -21px ${color.deepBlue};
 
 export const Img = styled.img`
 object-fit: cover;
-opacity: 0.3;
+opacity: 0.2;
 
 
 `

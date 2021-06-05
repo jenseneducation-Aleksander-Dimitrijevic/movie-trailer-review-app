@@ -34,7 +34,10 @@ export const App = () => {
               <Home signup={signup} setSignup={setSignup} useQuery={useQuery} />
             )}
           />
-          <Route path={AppRoutes.movies} component={() => <Movies />} />
+          <Route
+            path={AppRoutes.movies}
+            component={() => <Movies useQuery={useQuery} />}
+          />
           <Route path={AppRoutes.series} component={() => <Series />} />
           <Route path={AppRoutes.kids} component={() => <Kids />} />
           <Route
