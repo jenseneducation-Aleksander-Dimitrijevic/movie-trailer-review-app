@@ -4,7 +4,6 @@ import { ColorsGlobal as color } from '../../styles/Colors'
 export const HeaderLandingPageContainer = styled.div`
 
 
-
 h5 {
     color: ${color.skyBlue};
     text-transform:uppercase;
@@ -25,7 +24,7 @@ h1 {
     margin-top: 12em;
 
   h5, h1 {
-      text-align:left;
+      text-align:center;
   }
 
   h5 {

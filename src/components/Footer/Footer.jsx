@@ -8,11 +8,7 @@ export const Footer = () => {
       <header className="header">
         <h1 className="title">Om Watchy</h1>
         <h2 className="sub-title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-          excepturi odio sapiente labore nobis fugiat, itaque sunt perspiciatis
-          voluptatibus totam. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Nisi excepturi odio sapiente labore nobis fugiat, itaque sunt
-          perspiciatis voluptatibus totam.
+        Our mission is to give everyone a voice and show them the world. We believe that everyone deserves to have a voice, and that the world is a better place when we listen, share and build community through our stories. Our values are based on four essential freedoms that define who we are.
         </h2>
       </header>
       <div className="links">
@@ -31,36 +27,7 @@ export const Footer = () => {
             </li>
           ))}
         </ul>
-        <ul className="list">
-          <li className="list-title">Watchy</li>
-          {FooterLinksData.map((link) => (
-            <li className="list-item" key={link.id}>
-              <NavLink
-                exact
-                to={link.path}
-                activeClassName="active"
-                className="list-link"
-              >
-                <span>{link.title}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-        <ul className="list">
-          <li className="list-title">Watchy</li>
-          {FooterLinksData.map((link) => (
-            <li className="list-item" key={link.id}>
-              <NavLink
-                exact
-                to={link.path}
-                activeClassName="active"
-                className="list-link"
-              >
-                <span>{link.title}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        
       </div>
       <div className="lower">
         <p className="copy">

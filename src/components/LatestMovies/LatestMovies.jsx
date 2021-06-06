@@ -2,25 +2,24 @@ import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
+import { HeaderLatestMovies, LatestMoviesData } from "./LatestMoviesStyled";
 import {
-  TopRatedContainer,
-  TopRatedData,
-  HiddenInfo,
-  SeeTrailerButtons,
   SeeTrailerButtonContainer,
+  SeeTrailerButtons,
 } from "../TopRated/TopRatedStyled";
 
 import { AiFillStar } from "react-icons/ai";
 import { BsPlay } from "react-icons/bs";
+import { BiMovie } from "react-icons/bi";
 
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 6,
+    items: 8,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 2,
+    items: 3,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -32,9 +31,21 @@ const responsive = {
   },
 };
 
-export const TopRated = ({ data, showTrailerVisible }) => {
+export const LatestMovies = ({ useQuery, showTrailerVisible }) => {
+  const { error, data } = useQuery(["LatestMovies"], () =>
+    fetch("/api/latest").then((res) => res.json())
+  );
+
+  if (error) return "An error has occurred: " + error.message;
+
   return (
     <>
+      <HeaderLatestMovies>
+        Latest Movies
+        <span>
+          <BiMovie />
+        </span>
+      </HeaderLatestMovies>
       {data && (
         <Carousel
           swipeable={true}
@@ -50,7 +61,7 @@ export const TopRated = ({ data, showTrailerVisible }) => {
         >
           {data.map(
             (item, idx) =>
-              idx <= 11 && (
+              idx <= 30 && (
                 <>
                   <Link
                     style={{ textDecoration: "none" }}
@@ -62,13 +73,24 @@ export const TopRated = ({ data, showTrailerVisible }) => {
                     }}
                     key={item.id}
                   >
-                    <TopRatedData>
+                    <LatestMoviesData>
+                      <img
+                        className="hide-img-bigger"
+                        src={`http://image.tmdb.org/t/p/w1280/${item?.poster_path}`}
+                        alt={item?.poster_path || item?.backdrop_path}
+                      />
                       <aside>
-                        <img
-                          className="hide-img-smaller"
-                          src={`http://image.tmdb.org/t/p/w1280/${item?.backdrop_path}`}
-                          alt={item?.poster_path || item?.backdrop_path}
-                        />
+                        <h5 className="title-text">
+                          {item?.title || item?.name}
+                        </h5>
+                        <h5 className="rating-text">
+                          <AiFillStar
+                            style={{
+                              color: "yellow",
+                            }}
+                          />{" "}
+                          {item?.vote_average}
+                        </h5>
                       </aside>
                       <SeeTrailerButtonContainer>
                         <Link
@@ -87,7 +109,7 @@ export const TopRated = ({ data, showTrailerVisible }) => {
                           </SeeTrailerButtons>
                         </Link>
                       </SeeTrailerButtonContainer>
-                    </TopRatedData>
+                    </LatestMoviesData>
                   </Link>
                 </>
               )

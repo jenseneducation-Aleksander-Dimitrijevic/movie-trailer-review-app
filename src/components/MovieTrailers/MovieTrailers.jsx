@@ -5,9 +5,19 @@ import {
   CloseButtonContainer,
 } from "./MovieTrailersStyled";
 
+import YouTube from "react-youtube";
+
 export const MovieTrailers = ({ showTrailerNotVisible, useQuery }) => {
   const location = useLocation();
   const dataFromTopRated = location.state?.data;
+
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
 
   const { isLoading, error, data } = useQuery(
     ["Trailers", dataFromTopRated],
@@ -17,8 +27,6 @@ export const MovieTrailers = ({ showTrailerNotVisible, useQuery }) => {
         res.json()
       )
   );
-
-  console.log(data);
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -33,13 +41,7 @@ export const MovieTrailers = ({ showTrailerNotVisible, useQuery }) => {
                   <CloseButtonContainer onClick={() => showTrailerNotVisible()}>
                     &times;
                   </CloseButtonContainer>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${item?.key}`}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+                  <YouTube videoId={`${item?.key}`} opts={opts} />;
                 </>
               )
           )}

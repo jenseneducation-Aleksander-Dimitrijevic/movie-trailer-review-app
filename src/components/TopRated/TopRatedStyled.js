@@ -18,42 +18,35 @@ gap:1rem;
 
 
 export const TopRatedData = styled.section`
-  text-align: left;
-  
+  display:grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media screen and (max-width: 768px) {
+
+    display: none;
+  } 
+
+
   img {
-    width: 401.5px;
+    max-width: 401.5px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 0 0 rgba(0,0,0,0.23);
 
-    @media screen and (max-width: 768px) {
-      width: 150px;
+    /* @media screen and (max-width: 768px) {
+      width: 150px; */
     }
-  }
-
-.hide-img-smaller {
-  @media screen and (max-width: 768px) {
-    display:none;
-  }
-}
-
-.hide-img-bigger {
-  visibility:hidden;
-}
-
-@media screen and (max-width:768px) {
-  .hide-img-bigger {
-    visibility: visible;
-  }
-}
+ 
 
 
   aside {
-    height: 90px;
+    height: 180px;
     background: ${color.darkBlue};
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    margin-top: -38.1em;
+    max-width: 401.5px;
     box-shadow: 0 0 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
     .title-text {
@@ -120,5 +113,7 @@ span {
   opacity: 0.7;
 }
 
-
+@media screen and (max-width: 768px){
+  display:none;
+}
 `

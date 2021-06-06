@@ -1,37 +1,28 @@
 export const FooterLinksData = [
   {
-    title: "Om Watchy",
-    path: "/",
+    title: "About Watchy",
+    path: "/about",
     id: 1,
   },
   {
     title: "FAQ",
-    path: "/",
+    path: "/faq",
     id: 2,
   },
+
   {
-    title: "Jobb",
-    path: "/",
+    title: "Cookiepolicy",
+    path: "/cookies",
     id: 3,
   },
   {
-    title: "Cookiepolicy",
-    path: "/",
+    title: "Privacy policy",
+    path: "/policy",
     id: 4,
   },
   {
-    title: "Integritetspolicy",
-    path: "/",
+    title: "User agreement",
+    path: "/eula",
     id: 5,
-  },
-  {
-    title: "Användaravtal",
-    path: "/",
-    id: 6,
-  },
-  {
-    title: "Hantera dina sekretessinställningar",
-    path: "/",
-    id: 7,
   },
 ];
