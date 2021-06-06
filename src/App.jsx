@@ -44,7 +44,10 @@ export const App = () => {
             path={AppRoutes.movies}
             component={() => <Movies useQuery={useQuery} />}
           />
-          <Route path={AppRoutes.series} component={() => <Series />} />
+          <Route
+            path={AppRoutes.series}
+            component={() => <Series useQuery={useQuery} />}
+          />
           <Route path={AppRoutes.kids} component={() => <Kids />} />
           <Route
             path={AppRoutes.feed}
