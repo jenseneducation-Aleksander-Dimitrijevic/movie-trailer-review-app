@@ -12,8 +12,7 @@ import { LatestMovies } from "../../components/LatestMovies/LatestMovies";
 import { StreamingServices } from "../../components/StreamingServices/StreamingServices";
 
 
-export const Home = ({ useQuery, }) => {
-  
+export const Home = ({ useQuery, signup, setSignup }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
 

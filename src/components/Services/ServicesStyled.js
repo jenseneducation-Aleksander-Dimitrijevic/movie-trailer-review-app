@@ -3,16 +3,16 @@ import styled from 'styled-components';
 export const ServicesContainer = styled.div`
 display:flex;
 justify-content:center;
-
+align-items: center;
 @media screen and (max-width: 768px) {
     overflow:scroll hidden;
-    width: 90vw;
+    width: 100vw;
 
 }
 `
 export const IconsContainer = styled.section`
 margin-top: 1em;
-
+display: flex;
 
 `
 

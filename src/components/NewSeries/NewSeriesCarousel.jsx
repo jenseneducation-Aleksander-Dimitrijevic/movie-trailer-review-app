@@ -1,38 +1,38 @@
-import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import { Link } from "react-router-dom";
 import {
-  TopRatedContainer,
-  TopRatedData,
-  HiddenInfo,
-  SeeTrailerButtons,
+  NewSeriesContainerCarousel,
+  HeaderNewSeries,
+  NewSeriesData,
+} from "./NewSeriesStyled";
+import {
   SeeTrailerButtonContainer,
+  SeeTrailerButtons,
 } from "../TopRated/TopRatedStyled";
-
+import { BsFilm, BsPlay } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
-import { BsPlay } from "react-icons/bs";
 
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 6,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 2,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
+export const NewSeriesCarousel = ({ data, showTrailerVisible }) => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 8,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
 
-export const TopRated = ({ data, showTrailerVisible }) => {
   return (
     <>
       {data && (
@@ -50,7 +50,7 @@ export const TopRated = ({ data, showTrailerVisible }) => {
         >
           {data.map(
             (item, idx) =>
-              idx <= 11 && (
+              idx <= 30 && (
                 <>
                   <Link
                     style={{ textDecoration: "none" }}
@@ -62,13 +62,24 @@ export const TopRated = ({ data, showTrailerVisible }) => {
                     }}
                     key={item.id}
                   >
-                    <TopRatedData>
+                    <NewSeriesData>
+                      <img
+                        className="hide-img-bigger"
+                        src={`http://image.tmdb.org/t/p/w1280/${item?.poster_path}`}
+                        alt={item?.poster_path || item?.backdrop_path}
+                      />
                       <aside>
-                        <img
-                          className="hide-img-smaller"
-                          src={`http://image.tmdb.org/t/p/w1280/${item?.backdrop_path}`}
-                          alt={item?.poster_path || item?.backdrop_path}
-                        />
+                        <h5 className="title-text">
+                          {item?.title || item?.name}
+                        </h5>
+                        <h5 className="rating-text">
+                          <AiFillStar
+                            style={{
+                              color: "yellow",
+                            }}
+                          />{" "}
+                          {item?.vote_average}
+                        </h5>
                       </aside>
                       <SeeTrailerButtonContainer>
                         <Link
@@ -87,7 +98,7 @@ export const TopRated = ({ data, showTrailerVisible }) => {
                           </SeeTrailerButtons>
                         </Link>
                       </SeeTrailerButtonContainer>
-                    </TopRatedData>
+                    </NewSeriesData>
                   </Link>
                 </>
               )

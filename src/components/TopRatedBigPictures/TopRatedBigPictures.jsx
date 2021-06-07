@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 import {
   TopRatedBigPicturesContainer,
@@ -11,6 +13,25 @@ import {
 import { AiFillStar } from "react-icons/ai";
 import { BiWorld } from "react-icons/bi";
 import { BsPlay } from "react-icons/bs";
+
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 3,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 export const TopRatedBigPictures = ({ useQuery, showTrailerVisible }) => {
   const { error, data } = useQuery(["PopularMovies"], () =>
@@ -27,11 +48,22 @@ export const TopRatedBigPictures = ({ useQuery, showTrailerVisible }) => {
           <BiWorld />
         </span>
       </HeaderBigPictures>
-      <TopRatedBigPicturesContainer>
+      <>
         {data && (
-          <>
+          <Carousel
+            swipeable={true}
+            draggable={false}
+            responsive={responsive}
+            infinite={true}
+            autoPlaySpeed={1000}
+            keyBoardControl={true}
+            customTransition="all .5"
+            transitionDuration={500}
+            containerClass="carousel-container"
+            itemClass="carousel-item-padding-40-px"
+          >
             {data.map((item, idx) =>
-              idx <= 1 ? (
+              idx <= 20 ? (
                 <>
                   <Link
                     style={{ textDecoration: "none" }}
@@ -89,9 +121,9 @@ export const TopRatedBigPictures = ({ useQuery, showTrailerVisible }) => {
                 </>
               ) : null
             )}
-          </>
+          </Carousel>
         )}
-      </TopRatedBigPicturesContainer>
+      </>
     </>
   );
 };

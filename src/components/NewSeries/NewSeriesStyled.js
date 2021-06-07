@@ -4,7 +4,7 @@ import { TopRatedContainer } from '../../components/TopRated/TopRatedStyled'
 import { ColorsGlobal as color } from '../../styles/Colors'
  
 export const HeaderNewSeries = styled(HeaderBigPictures)`
-text-align:left;
+text-align:center;
 margin-top: 2em;
 span {
     margin-left: 10px;
@@ -16,11 +16,16 @@ export const NewSeriesContainer = styled(TopRatedContainer)`
 display: flex;
 justify-content:center;
 grid-template-columns:unset;
+gap: 2em; 
 `
 
+
 export const NewSeriesData = styled.div`
-
-
+display:grid;
+justify-content: center;
+align-items: center;
+text-align: center;
+text-align: center;
 img {
     width: 265px;
     border-top-right-radius: 5px;
