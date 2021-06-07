@@ -31,7 +31,7 @@ export const CloseButtonContainers = styled.button`
   color: ${color.white};
   width: 35px;
   position: absolute;
-  margin-left: 10.3em;
+  margin-left: 7.9em;
   margin-top: -0.3em;
   height: 35px;
   margin-right: 2em;
@@ -54,8 +54,8 @@ export const CloseButtonContainers = styled.button`
 `;
 
 export const ServicesPopUpContent = styled.section`
-  max-width: 390px;
-  max-height: 50em;
+  max-width: 310px;
+  max-height: 40em;
   overflow-y: scroll;
   overflow-x: hidden;
   cursor: default;
@@ -81,6 +81,8 @@ export const ServicesPopUpContent = styled.section`
     background-color: ${color.skyBlue};
     border: none;
   }
+
+  
 `;
 
 export const TextContainer = styled.aside`
@@ -90,7 +92,7 @@ export const TextContainer = styled.aside`
   padding: unset;
   position: fixed;
   overflow-y: unset;
-  width: 390px;
+  width: 310px;
   margin-top: -1em;
   margin-left: -1em;
   border-top-left-radius: 5px;
