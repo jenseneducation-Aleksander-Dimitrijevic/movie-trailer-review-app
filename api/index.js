@@ -2,6 +2,7 @@ require("dotenv/config");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4000;
+const cookieParser = require("cookie-parser");
 
 const {
   getPopularMovies,
@@ -14,9 +15,10 @@ const {
   movieDetails,
 } = require("./handlers/movies");
 
-const { signup } = require("./handlers/users");
+const { signup, login, auth } = require("./handlers/users");
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/", getPopularMovies);
 app.use("/", SearchMovies);
@@ -28,6 +30,8 @@ app.use("/", TvTrailers);
 app.use("/", movieDetails);
 
 app.use("/", signup);
+app.use("/", login);
+app.use("/", auth);
 
 app.listen(PORT, () =>
   console.log(`Server up and running on port: ${PORT}. Happy coding! =)`)
