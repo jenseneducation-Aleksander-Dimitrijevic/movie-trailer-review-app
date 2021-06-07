@@ -16,6 +16,8 @@ const {
 
 const { signup } = require("./handlers/users");
 
+app.use(express.json());
+
 app.use("/", getPopularMovies);
 app.use("/", SearchMovies);
 app.use("/", TopRatedMovies);

@@ -60,9 +60,10 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
         </ul>
       ))}
       <Modal show={show} setShow={setShow}>
-        {login && <LoginForm />}
+        {login && <LoginForm useQuery={useQuery} />}
         {signup && (
           <SignupForm
+            useQuery={useQuery}
             setLogin={setLogin}
             setSignup={setSignup}
             signup={signup}

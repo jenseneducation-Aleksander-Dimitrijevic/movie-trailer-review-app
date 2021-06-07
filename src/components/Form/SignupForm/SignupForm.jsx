@@ -4,7 +4,7 @@ import { useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
 
-export default function SignupForm({ setLogin, setSignup, signup }) {
+export default function SignupForm({ setLogin, setSignup, signup, useQuery }) {
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -13,10 +13,24 @@ export default function SignupForm({ setLogin, setSignup, signup }) {
 
   const [form, setForm] = useState(false);
 
-  const handleSubmit = (e) => {
+  // const { error, data } = useQuery("signup", () => signupUser);
+
+  // console.log(data);
+
+  // if (error) return "An error has occurred: " + error.message;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (Object.values(input).some((input) => input === "")) return;
-    console.log(input);
+    const resp = await fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(input),
+    });
+    const data = await resp.json();
+    console.log(data);
     setInput({ email: "", password: "", fullName: "" });
   };
 
