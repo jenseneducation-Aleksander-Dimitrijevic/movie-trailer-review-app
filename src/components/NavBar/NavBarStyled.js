@@ -7,6 +7,7 @@ export const NavLink = styled(Link)``;
 export const NavBarButtonContainer = styled.div`
   position: absolute;
   right: 3em;
+  
 
   @media screen and (max-width: 768px) {
     display: none;
@@ -54,10 +55,12 @@ export const NavBarContainer = styled.div`
   background: ${color.deepBlue};
   position: fixed;
   padding-left: 15em;
+  z-index: 9999;
+
 
   .hamburger-icon {
     position: absolute;
-    right: 1.5em;
+    right: 1em;
     color: ${color.white};
     font-size: 1.3rem;
     @media screen and (min-width: 768px) {
@@ -83,6 +86,11 @@ export const NavBarContainer = styled.div`
       font-size: 1.6rem;
       margin-top: 0.1em;
     }
+
+    @media screen and (max-width: 768px) {
+      left:1em;
+    }
+
   }
 
   .active {
@@ -155,7 +163,7 @@ export const HamburgerList = styled.section`
   position: absolute;
   bottom: 0;
   z-index: 3;
-  height: 70vh;
+  height: 60vh;
   width: 100vw;
   background: ${color.darkBlue};
   box-shadow: -15px 20px 20px -15px #111;

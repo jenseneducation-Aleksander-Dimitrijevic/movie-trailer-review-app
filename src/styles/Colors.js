@@ -10,4 +10,5 @@ export const ColorsGlobal = {
   skyBlue: "#a0cef0;",
   purpleGray: "#576d84;",
   white: "#fff;",
+  red:"#f26077"
 };

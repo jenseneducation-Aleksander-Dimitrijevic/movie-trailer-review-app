@@ -30,24 +30,15 @@ export const SearchBar = ({ useQuery }) => {
           className={toggleSearchBar ? "showButton" : "hideButton"}
         />
       )}
-      <VscSearch
-        style={{
-          background: "transparent",
-          fontSize: "1.3rem",
-          color: "#9daebf",
-          position: "absolute",
-          left: "2em",
-          top: "0.7em",
-        }}
-      />
+      <VscSearch className="search-icon" />
       <input
         className="searchInput"
         type="text"
         value={keyword}
-        placeholder="Search for all movies, actors, reviews etc."
+        placeholder="Search across all streaming services"
         onFocus={(e) => (e.target.placeholder = "")}
         onBlur={(e) =>
-          (e.target.placeholder = "Search for all movies, actors, reviews etc.")
+          (e.target.placeholder = "Search all across streaming services")
         }
         onChange={(e) => setKeyword(e.target.value)}
         onClick={() => searchBarBig()}
