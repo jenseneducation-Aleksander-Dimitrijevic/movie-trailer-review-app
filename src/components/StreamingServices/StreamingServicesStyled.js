@@ -46,7 +46,7 @@ h3{
     }
 
     @media screen and (min-width: 1024px){
-        width: 60%;
+        width: 100%;
     }
 }
 
