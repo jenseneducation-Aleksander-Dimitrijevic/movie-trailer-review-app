@@ -3,11 +3,6 @@ import { CarouselImages } from "../../components/CarouselImages/CarouselImages";
 import { MoviesCarousel } from "./MoviesCarousel";
 
 export const Movies = ({ useQuery }) => {
-  const { error, data } = useQuery(["TopRatedMovies"], () =>
-    fetch("/api/popular").then((res) => res.json())
-  );
-
-  if (error) return "An error has occurred: " + error.message;
   return (
     <MoviesContainer>
       <CarouselImages useQuery={useQuery} />

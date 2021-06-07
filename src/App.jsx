@@ -44,8 +44,14 @@ export const App = () => {
             path={AppRoutes.movies}
             component={() => <Movies useQuery={useQuery} />}
           />
-          <Route path={AppRoutes.series} component={() => <Series />} />
-          <Route path={AppRoutes.kids} component={() => <Kids />} />
+          <Route
+            path={AppRoutes.series}
+            component={() => <Series useQuery={useQuery} />}
+          />
+          <Route
+            path={AppRoutes.kids}
+            component={() => <Kids useQuery={useQuery} />}
+          />
           <Route
             path={AppRoutes.feed}
             component={() => <Feed useQuery={useQuery} />}
@@ -60,7 +66,7 @@ export const App = () => {
 
           <Route
             path={AppRoutes.documentary}
-            component={() => <Documentary />}
+            component={() => <Documentary useQuery={useQuery} />}
           />
           <Route path={AppRoutes.show} component={ShowMovieDetails} />
           <Route path="*" component={NotFound} />
