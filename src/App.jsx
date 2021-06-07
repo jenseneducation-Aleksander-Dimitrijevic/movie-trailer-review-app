@@ -66,7 +66,7 @@ export const App = () => {
 
           <Route
             path={AppRoutes.documentary}
-            component={() => <Documentary />}
+            component={() => <Documentary useQuery={useQuery} />}
           />
           <Route path={AppRoutes.show} component={ShowMovieDetails} />
           <Route path="*" component={NotFound} />
