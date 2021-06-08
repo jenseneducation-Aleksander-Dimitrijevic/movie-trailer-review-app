@@ -92,6 +92,7 @@ width:100%;
 align-items:center;
 span{
     align-self:center;
+    padding: 0 1.5em;
 }
 img{
     align-self:center;
