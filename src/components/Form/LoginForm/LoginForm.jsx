@@ -12,6 +12,7 @@ export default function LoginForm({ login }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     if (Object.values(input).some((input) => input === "")) {
       setLoading(true);
       setTimeout(() => {
@@ -20,7 +21,18 @@ export default function LoginForm({ login }) {
       }, 500);
       return;
     }
-    console.log(input);
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(input),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        sessionStorage.setItem("__user__", JSON.stringify(data));
+        window.location.reload();
+      });
     setError("");
     setInput({ email: "", password: "" });
   };
