@@ -5,6 +5,7 @@ import { MoviesCarousel } from "./MoviesCarousel";
 export const Movies = ({ useQuery }) => {
   return (
     <MoviesContainer>
+      <div className="container">
       <CarouselImages useQuery={useQuery} />
       <HeaderMovies>
         <h1>stream movies online</h1>
@@ -16,6 +17,7 @@ export const Movies = ({ useQuery }) => {
         </p>
       </HeaderMovies>
       <MoviesCarousel useQuery={useQuery} />
+      </div>
     </MoviesContainer>
   );
 };

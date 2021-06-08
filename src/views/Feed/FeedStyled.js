@@ -14,7 +14,6 @@ color:white;
     flex-direction:row;
     width:100%;
     height:auto;
-
     padding-bottom:2em;
 }
 

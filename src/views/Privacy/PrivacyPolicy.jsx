@@ -1,10 +1,14 @@
 import {CookieContainer} from '../Cookie/CookiePolicyStyled';
+import {useEffect} from 'react'
+
 
 
 export const PrivacyPolicy = () => {
+    useEffect(() => window.scrollTo(0,0), [])
     return (
         <CookieContainer>
-            <section className="container">
+            <section className="container" >  
+            
             <h1>Privacy Policy</h1>
             <p>Effective date: February 15, 2021</p>
             <p>Watchy AB ("us", "we", or "our") operates the Watchy website and the Watchy mobile application (the "Service").</p>
