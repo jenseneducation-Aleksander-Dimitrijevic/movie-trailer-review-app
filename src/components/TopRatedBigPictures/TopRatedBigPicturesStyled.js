@@ -110,5 +110,12 @@ export const TopRatedBigPicturesContent = styled.section`
     .overview-text {
       display: none;
     }
+
+    .title-text{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
   }
 `;
