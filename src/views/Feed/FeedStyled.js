@@ -14,7 +14,6 @@ color:white;
     flex-direction:row;
     width:100%;
     height:auto;
-
     padding-bottom:2em;
 }
 
@@ -93,6 +92,7 @@ width:100%;
 align-items:center;
 span{
     align-self:center;
+    padding: 0 1.5em;
 }
 img{
     align-self:center;
