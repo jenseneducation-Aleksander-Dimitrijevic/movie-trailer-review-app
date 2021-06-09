@@ -14,15 +14,20 @@ flex-direction:column;
 width:100%;
 padding: 5em 1em;
 h1{
-    padding:0 1em;
+    padding:0 .5em;
     color:${color.white};
     text-transform:uppercase;
+	@media screen and (min-width: 768px){
+		padding:0 1em;
+	}
 }
-
 .faqs {
 	width: 100%;
     margin: 0 auto;
-	padding: 1em;
+	@media screen and (min-width: 768px){
+	padding: 1em .5em;
+		margin: 0 auto;
+	}
 }
 
 .faqs .faq {

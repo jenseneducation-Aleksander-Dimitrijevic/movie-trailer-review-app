@@ -21,6 +21,10 @@ font-size:42px;
 color:white;
 .content{
    margin:auto;
+   padding: 0 .5em;
+   @media screen and (min-width: 768px){
+       padding:0;
+   }
 }
 h1{
     font-size: 80px;

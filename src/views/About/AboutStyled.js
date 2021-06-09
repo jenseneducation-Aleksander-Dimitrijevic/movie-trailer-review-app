@@ -25,9 +25,6 @@ export const AboutContainer = styled.div`
         font-size:20px;
         padding: 2em 0;
     }
-    h4{
-        padding:.2em.0%;
-    }
     ul{
         padding: 1em 2em;
     }
@@ -40,50 +37,66 @@ export const AboutContainer = styled.div`
 }
 `
 export const Cards = styled.div`
-padding: 2em 1em;
-display:flex;
-width:100%;
-flex-direction:row;
-justify-content:space-between;
-margin:auto;
+    padding: 2em 0;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    align-items:left;
+    @media screen and (min-width: 768px){
+        width:100%;
+        flex-direction: row;
+        justify-content:space-between;
+}
 `
 export const CreatorCard = styled.div`
-display: flex;
-flex-direction:column;
-align-items:center;
-transition: transform 1s;
-transform-style: preserve-3d;
-&:hover{
-    transform: rotateY(360deg);
-}
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    padding-top: 1em;
 
-h4,a{
-    font-size:12px;
-    color:${color.lightBlue};
-    margin:auto; 
-    
-}
-a{
-    cursor: pointer;
-    text-decoration:none;
+    @media screen and (min-width: 768px){
+        align-items:center;
+        flex-direction: column;
     &:hover{
-        opacity: 0.5;
-        color:${color.white};
-        text-decoration:underline;
+        transform: rotateY(360deg);
+    }
+    }
+
+    h4{
+        font-size:12px;
+    
+        padding: 0 1em;
+        @media screen and (min-width: 768px){
+            margin:auto;  
+        }
         
     }
-}
-img{
-width:6em;
-border-radius:50%;
-z-index:-1;
+    a{  
+        font-size:12px;
+        cursor: pointer;
+        color:${color.lightBlue};
+        text-decoration:none;
+        padding: 0 1em;
+        &:hover{
+            opacity: 0.5;
+            color:${color.white};
+            text-decoration:underline;
+            
+        }
+    }
+    img{
+        width:6em;
+        border-radius:50%;
+        z-index:-1;
 
-}
+    }
 
-`
-export const Box = styled.div`
-display:flex;
-padding:.1em 0;
-flex-direction:column;
-align-content:center;
-`
+    `
+    export const Box = styled.div`
+        display:flex;
+        padding:.1em 0;
+        flex-direction:column;
+        align-content:center;
+    `
