@@ -46,8 +46,10 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("__user__");
-    history.push("/");
-    window.location.reload();
+    fetch("/api/logout").then(() => {
+      history.push("/");
+      window.location.reload();
+    });
   };
 
   return (
