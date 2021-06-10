@@ -3,7 +3,9 @@ import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const ShowcaseContainer = styled.div`
   text-align: center;
-  width: 100%;
+  width: 70%;
+  margin:auto;
+  height: 50vh;
 
   .header {
     padding: 3rem 10px 0;
@@ -21,7 +23,7 @@ export const ShowcaseContainer = styled.div`
   }
 
   .carousel {
-    margin: 2rem 0;
+    margin: -0.5rem 0;
     padding: 0 20px;
     &:active {
       cursor: grabbing;
