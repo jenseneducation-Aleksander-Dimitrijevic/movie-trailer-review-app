@@ -13,10 +13,6 @@ export const ShowMovieDetails = ({ location }) => {
   const [signup, setSignup] = useState(false);
   const [login, setLogin] = useState(false);
 
-  useEffect(() => {
-    if (show === false) setSignup(false) && setLogin(false);
-  }, [show]);
-
   const baseURL = `http://image.tmdb.org/t/p/${
     useMatchMedia(768) ? "w1280" : "w500"
   }`;
@@ -75,7 +71,7 @@ export const ShowMovieDetails = ({ location }) => {
             setLogin={setLogin}
           />
         ) : (
-          <LoginForm />
+          login && <LoginForm />
         )}
       </ModalForm>
     </ShowMovieContainer>

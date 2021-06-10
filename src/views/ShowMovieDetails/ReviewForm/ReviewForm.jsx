@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ReviewFormContainer from "./ReviewFormStyles";
 
-export default function ReviewForm() {
+export default function ReviewForm({ setSignup, setShow }) {
   const [review, setReview] = useState("");
+  const inputRef = useRef();
+
   const handleReview = () => {
     if (!sessionStorage.getItem("__user__")) {
-      alert("You got to sign in to post a review.");
+      inputRef.current.blur();
+      setSignup(true);
+      setShow(true);
       return;
     }
   };
@@ -22,6 +26,7 @@ export default function ReviewForm() {
         className="review-form-input"
         placeholder="Comment/tag a friend"
         value={review}
+        ref={inputRef}
         onClick={handleReview}
         onChange={(e) => setReview(e.target.value)}
       />
