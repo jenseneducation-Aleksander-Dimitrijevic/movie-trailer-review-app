@@ -29,6 +29,12 @@ export default styled.article`
       font-size: 14px;
       font-style: italic;
     }
+
+    &-createdAt {
+      font-size: 11px;
+      margin: 10px 0 0;
+      font-style: italic;
+    }
   }
 
   @media screen and (min-width: 768px) {

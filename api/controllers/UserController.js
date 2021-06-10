@@ -65,6 +65,7 @@ exports.review = async (req, res) => {
     email: user.email,
     userID: user._id,
     review: req.body.input,
+    createdAt: new Date().toLocaleDateString(),
   });
   newReview
     .save()
@@ -76,7 +77,7 @@ exports.review = async (req, res) => {
     });
 };
 
-exports.getAllReviews = async (req, res) => {
+exports.getUserReviews = async (req, res) => {
   try {
     const reviews = await Review.find({ email: req.user.email });
     res.status(200).json(reviews);

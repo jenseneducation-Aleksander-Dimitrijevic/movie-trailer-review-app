@@ -25,6 +25,7 @@ export default function Reviews() {
             <div className="review-content">
               <h1 className="review-title">{item.fullName}</h1>
               <p className="review-text">{item.review}</p>
+              <p className="review-createdAt">{item.createdAt}</p>
             </div>
           </div>
         ))}

@@ -20,6 +20,10 @@ const schema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  createdAt: {
+    type: Date,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Review", schema);

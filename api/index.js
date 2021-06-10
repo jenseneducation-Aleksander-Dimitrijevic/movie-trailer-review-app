@@ -20,7 +20,7 @@ const {
   login,
   auth,
   review,
-  getAllReviews,
+  getUserReviews,
 } = require("./handlers/users");
 
 app.use(express.json());
@@ -39,7 +39,7 @@ app.use("/", signup);
 app.use("/", login);
 app.use("/", auth);
 app.use("/", review);
-app.use("/", getAllReviews);
+app.use("/", getUserReviews);
 
 app.listen(PORT, () =>
   console.log(`Server up and running on port: ${PORT}. Happy coding! =)`)
