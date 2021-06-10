@@ -26,7 +26,7 @@ exports.signup = async (req, res) => {
   user
     .save()
     .then(() => {
-      res.json({ message: "success" });
+      res.json({ user: { name: user.fullName, email: user.email } });
     })
     .catch((err) => {
       res
@@ -52,11 +52,20 @@ exports.login = async (req, res) => {
   };
 
   res.cookie("auth", token, options);
-  res.status(200).json({ user: { name: user.fullName, email: user.email } });
+  try {
+    res.status(200).json({ user: { name: user.fullName, email: user.email } });
+  } catch (error) {
+    res.status(400).json({ error: "Something went wrong" });
+  }
 };
 
 exports.auth = (req, res) => {
   res.status(200).json(req.user);
+};
+
+exports.logout = (req, res) => {
+  res.clearCookie("auth");
+  res.end();
 };
 
 exports.review = async (req, res) => {
