@@ -50,7 +50,9 @@ exports.login = async (req, res) => {
   };
 
   res.cookie("auth", token, options);
-  res.status(200).json({ message: "Success" });
+  res
+    .status(200)
+    .json({ user: { fullName: user.fullName, email: user.email } });
 };
 
 exports.auth = (req, res) => {
