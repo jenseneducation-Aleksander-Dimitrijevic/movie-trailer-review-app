@@ -22,6 +22,7 @@ import { About } from "./views/About/About";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { AppRoutes } from "./components/AppRoutes/AppRoutes";
+import UseScrollToTop from './components/ScrollToTop/ScrollToTop'
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ export const App = () => {
     <QueryClientProvider client={queryClient}>
       <Router>
         <GlobalStyle />
+        <UseScrollToTop />
         <NavBar useQuery={useQuery} signup={signup} setSignup={setSignup} />
         <Switch>
           <Route
@@ -70,7 +72,7 @@ export const App = () => {
           />
           <Route path={AppRoutes.show} component={ShowMovieDetails} />
           <Route path="*" component={NotFound} />
-        </Switch>
+        </Switch>       
         <Footer />
       </Router>
       <ReactQueryDevtools initialIsOpen={false} />

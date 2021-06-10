@@ -5,6 +5,7 @@ export const CarouselContainer = styled.div`
 position:absolute;
 top:0;
 left:0;
+right: 0;
 z-index: -1;
 clip-path: inset(0 0 65% 0);
 box-shadow: inset 0px -39px 36px -21px ${color.deepBlue};

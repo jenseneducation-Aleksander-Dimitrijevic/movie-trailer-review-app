@@ -1,10 +1,14 @@
 import {CookieContainer} from '../Cookie/CookiePolicyStyled';
+import {useEffect} from 'react'
+
 
 
 export const PrivacyPolicy = () => {
+    useEffect(() => window.scrollTo(0,0), [])
     return (
         <CookieContainer>
-            <section className="container">
+            <section className="container" >  
+            
             <h1>Privacy Policy</h1>
             <p>Effective date: February 15, 2021</p>
             <p>Watchy AB ("us", "we", or "our") operates the Watchy website and the Watchy mobile application (the "Service").</p>
@@ -84,7 +88,7 @@ export const PrivacyPolicy = () => {
             </ul>
             <h1>Security of data</h1>
             <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
-            <h1>"D not track" signals</h1>
+            <h1>"Do not track" signals</h1>
             <p>We do not support Do Not Track ("DNT"). Do Not Track is a preference you can set in the preferences of settings of your web browser to inform websites that you do not want to be tracked.</p>
             <h1>Your rights</h1>
             <p>Watchy AB aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data</p>
