@@ -15,7 +15,6 @@ box-shadow: inset 0px -39px 36px -21px ${color.deepBlue};
 }
 
 .carousel {
-
     &:active {
       cursor: grabbing;
     }

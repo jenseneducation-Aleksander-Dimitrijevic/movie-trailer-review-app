@@ -55,7 +55,7 @@ export const CloseButtonContainers = styled.button`
 
 export const ServicesPopUpContent = styled.section`
   max-width: 310px;
-  max-height: 40em;
+  max-height: 25em;
   overflow-y: scroll;
   overflow-x: hidden;
   cursor: default;
@@ -63,7 +63,7 @@ export const ServicesPopUpContent = styled.section`
   background: ${color.deepBlue};
   animation: 0.3s ${slideUp} ease-in-out;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 25vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px 10px 0px 5px;
   padding: 1em;

@@ -32,6 +32,7 @@ export default styled.form`
     outline: none;
     letter-spacing: 0.02em;
     font-weight: 500;
+    color: ${color.white};
     font-family: "Montserrat", sans-serif;
     &::placeholder {
       color: ${color.lightBlue};

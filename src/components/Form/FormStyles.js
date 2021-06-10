@@ -3,6 +3,7 @@ import { ColorsGlobal as color } from "../../styles/Colors";
 
 export const FormContainer = styled.form`
   width: 100%;
+
   border-radius: 5px;
   background: ${color.deepBlue};
   position: relative;
@@ -28,6 +29,7 @@ export const FormContainer = styled.form`
 
     &.footer {
       border-radius: 0 0 5px 5px;
+      padding-top: 3em;
 
       .account-title {
         text-transform: initial;

@@ -9,7 +9,7 @@ export const NavBarButtonContainer = styled.div`
   right: 3em;
   
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 971px) {
     display: none;
   }
 `;
@@ -63,7 +63,7 @@ export const NavBarContainer = styled.div`
     right: 1em;
     color: ${color.white};
     font-size: 1.3rem;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 972px) {
       display: none;
     }
   }
