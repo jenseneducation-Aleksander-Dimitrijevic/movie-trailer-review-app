@@ -89,9 +89,9 @@ exports.review = async (req, res) => {
     });
 };
 
-exports.getUserReviews = async (req, res) => {
+exports.getReviews = async (req, res) => {
   try {
-    const reviews = await Review.find({ email: req.user.email });
+    const reviews = await Review.find();
     res.status(200).json(reviews);
   } catch (error) {
     res.status(500).json({ error: error });

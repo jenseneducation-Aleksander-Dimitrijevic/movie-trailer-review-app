@@ -20,6 +20,8 @@ const {
   login,
   auth,
   review,
+  logout,
+  getReviews,
   getUserReviews,
   logout,
 } = require("./handlers/users");
@@ -40,6 +42,7 @@ app.use("/", signup);
 app.use("/", login);
 app.use("/", auth);
 app.use("/", review);
+app.use("/", getReviews);
 app.use("/", getUserReviews);
 app.use("/", logout);
 

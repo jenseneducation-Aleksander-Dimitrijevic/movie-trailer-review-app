@@ -4,6 +4,7 @@ import placeholder from "../../../assets/portrait/placeholder.png";
 
 export default function Reviews({ movieID }) {
   const [reviews, setReviews] = useState([]);
+
   useEffect(() => {
     let isSubscribed = true;
     const fetchReviews = async () => {
@@ -11,11 +12,11 @@ export default function Reviews({ movieID }) {
       const data = await resp.json();
       isSubscribed && setReviews(data);
     };
-    fetchReviews();
+    isSubscribed && fetchReviews();
     return () => {
       isSubscribed = false;
     };
-  });
+  }, [reviews]);
 
   return (
     <ReviewsContainer>
