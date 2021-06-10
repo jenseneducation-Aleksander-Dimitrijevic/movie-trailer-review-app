@@ -9,6 +9,7 @@ export default styled.article`
     margin: 0 0 10px;
     display: flex;
     align-items: center;
+    border-radius: 5px;
 
     &-thumbnail {
       height: 50px;

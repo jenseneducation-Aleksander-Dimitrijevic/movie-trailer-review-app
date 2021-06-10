@@ -3,8 +3,10 @@ import { FiMail } from "react-icons/fi";
 import { useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
+import { useHistory } from "react-router";
 
 export default function SignupForm({ setLogin, setSignup, signup }) {
+  const history = useHistory();
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -25,8 +27,11 @@ export default function SignupForm({ setLogin, setSignup, signup }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        sessionStorage.setItem("__user__", JSON.stringify(data));
-        window.location.reload();
+        if (data.user) {
+          sessionStorage.setItem("__user__", JSON.stringify(data.user));
+          history.push("/");
+          window.location.reload();
+        }
       });
 
     setInput({ email: "", password: "", fullName: "" });

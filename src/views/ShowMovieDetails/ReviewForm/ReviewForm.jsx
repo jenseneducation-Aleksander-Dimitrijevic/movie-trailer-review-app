@@ -25,7 +25,6 @@ export default function ReviewForm({ setSignup, setShow, movieID }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setReview({ ...review, input: "" });
       });
   };

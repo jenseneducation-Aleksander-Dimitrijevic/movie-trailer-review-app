@@ -15,14 +15,14 @@ export default function Reviews({ movieID }) {
     return () => {
       isSubscribed = false;
     };
-  }, [reviews]);
+  });
 
   return (
     <ReviewsContainer>
-      {reviews.length
+      {reviews
         ? reviews.map(
             (item) =>
-              movieID === item.movieID && (
+              movieID === parseInt(item.movieID) && (
                 <div className="review" key={item._id}>
                   <img
                     src={placeholder}

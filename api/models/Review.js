@@ -24,6 +24,10 @@ const schema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  movieID: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Review", schema);

@@ -29,7 +29,9 @@ exports.signup = async (req, res) => {
       res.json({ message: "success" });
     })
     .catch((err) => {
-      res.status(500).json({ error: err });
+      res
+        .status(500)
+        .json({ user: { name: user.fullName, email: user.email } });
     });
 };
 
@@ -50,9 +52,7 @@ exports.login = async (req, res) => {
   };
 
   res.cookie("auth", token, options);
-  res
-    .status(200)
-    .json({ user: { fullName: user.fullName, email: user.email } });
+  res.status(200).json({ user: { name: user.fullName, email: user.email } });
 };
 
 exports.auth = (req, res) => {

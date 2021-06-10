@@ -34,10 +34,11 @@ export default function LoginForm() {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        if (data.user)
+        if (data.user) {
           sessionStorage.setItem("__user__", JSON.stringify(data.user));
-        history.push("/");
-        // window.location.reload();
+          history.push("/");
+          window.location.reload();
+        }
         setInput({ email: "", password: "" });
       });
   };
