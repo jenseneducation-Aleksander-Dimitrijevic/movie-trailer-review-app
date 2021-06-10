@@ -70,7 +70,7 @@ exports.review = async (req, res) => {
   newReview
     .save()
     .then(() => {
-      res.status(201).json(newReview);
+      res.status(201).json({ message: "Success" });
     })
     .catch((err) => {
       res.status(500).json({ error: err });

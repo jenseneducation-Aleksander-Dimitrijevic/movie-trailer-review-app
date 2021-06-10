@@ -5,18 +5,23 @@ import placeholder from "../../../assets/portrait/placeholder.png";
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
+    let isSubscribed = true;
     const fetchReviews = async () => {
       const resp = await fetch("/api/reviews");
       const data = await resp.json();
-      setReviews(data);
+      isSubscribed && setReviews(data);
     };
     fetchReviews();
-  }, []);
+    return () => {
+      isSubscribed = false;
+    };
+  }, [reviews]);
+
   return (
     <ReviewsContainer>
       {reviews.length &&
         reviews.map((item) => (
-          <div className="review">
+          <div className="review" key={item._id}>
             <img
               src={placeholder}
               alt="thumbnail"
