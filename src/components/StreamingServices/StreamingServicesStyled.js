@@ -32,21 +32,21 @@ h3{
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 1.5em;
-    margin: .5em 0 1.5em;
     margin: 1em auto;
-    padding: 1.5em;
+    padding:0 1.5em;
     
     @media screen and (min-width: 768px){
     grid-template-columns: repeat(4, minmax(100px, 1fr));
-    gap: 1.5em;
-    margin: 1em auto;
     max-width: 100%;
+    padding:0;
   
  
     }
 
     @media screen and (min-width: 1024px){
-        width: 60%;
+
+        width: 100%;
+
     }
 }
 
