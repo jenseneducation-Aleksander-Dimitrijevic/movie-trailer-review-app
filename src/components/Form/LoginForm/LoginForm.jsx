@@ -1,14 +1,16 @@
 import { FormContainer } from "../FormStyles";
 import { useState } from "react";
 import Spinner from "../../Spinner/Spinner";
+import { useHistory } from "react-router-dom";
 
-export default function LoginForm({ login }) {
+export default function LoginForm() {
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ export default function LoginForm({ login }) {
       .then((res) => res.json())
       .then((data) => {
         sessionStorage.setItem("__user__", JSON.stringify(data));
+        history.push("/");
         window.location.reload();
       });
     setError("");

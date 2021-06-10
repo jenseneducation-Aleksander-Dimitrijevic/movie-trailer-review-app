@@ -3,9 +3,20 @@ import { AiFillStar } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import ReviewForm from "./ReviewForm/ReviewForm";
 import { useMatchMedia } from "../../helpers/useMatchMedia";
+import ModalForm from "../../components/Modal/ModalForm";
+import SignupForm from "../../components/Form/SignupForm/SignupForm";
+import LoginForm from "../../components/Form/LoginForm/LoginForm";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
+  const [show, setShow] = useState(false);
+  const [signup, setSignup] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  useEffect(() => {
+    if (show === false) setSignup(false) && setLogin(false);
+  }, [show]);
+
   const baseURL = `http://image.tmdb.org/t/p/${
     useMatchMedia(768) ? "w1280" : "w500"
   }`;
@@ -55,7 +66,18 @@ export const ShowMovieDetails = ({ location }) => {
           </div>
         </>
       )}
-      <ReviewForm />
+      <ReviewForm show={show} setShow={setShow} setSignup={setSignup} />
+      <ModalForm show={show} setShow={setShow}>
+        {signup ? (
+          <SignupForm
+            signup={signup}
+            setSignup={setSignup}
+            setLogin={setLogin}
+          />
+        ) : (
+          <LoginForm />
+        )}
+      </ModalForm>
     </ShowMovieContainer>
   );
 };

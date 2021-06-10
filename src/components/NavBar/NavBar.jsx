@@ -16,12 +16,14 @@ import Modal from "../Modal/ModalForm";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useHistory } from "react-router";
 
 export const NavBar = ({ useQuery, signup, setSignup }) => {
   const [login, setLogin] = useState(false);
   const [show, setShow] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (sessionStorage.getItem("__user__")) setLoggedIn(true);
@@ -42,15 +44,9 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("__user__");
+    history.push("/");
     window.location.reload();
   };
-
-  useEffect(() => {
-    if (!show) {
-      setLogin(false);
-      setSignup(false);
-    }
-  }, [show]);
 
   return (
     <NavBarContainer>
