@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { ColorsGlobal as color } from '../../styles/Colors'
 
 export const MoviesContainer = styled.div`
-height: 100%;
-padding-top: 25em;
-padding-bottom: 2em;
+padding-top: 15em;
+
 
 @media screen and (max-width: 768px) {
     padding-top:5em;
