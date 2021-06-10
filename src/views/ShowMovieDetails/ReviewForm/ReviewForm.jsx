@@ -1,18 +1,32 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ReviewFormContainer from "./ReviewFormStyles";
 
-export default function ReviewForm() {
-  const [review, setReview] = useState("");
+export default function ReviewForm({ setSignup, setShow, movieID }) {
+  const [review, setReview] = useState({
+    input: "",
+  });
+  const inputRef = useRef();
+
   const handleReview = () => {
     if (!sessionStorage.getItem("__user__")) {
-      alert("You got to sign in to post a review.");
+      inputRef.current.blur();
+      setSignup(true);
+      setShow(true);
       return;
     }
   };
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     if (!review) return;
-    console.log("submitted");
+    fetch("/api/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ review: review.input, movieID }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setReview({ ...review, input: "" });
+      });
   };
   return (
     <ReviewFormContainer onSubmit={handleReviewSubmit}>
@@ -21,9 +35,10 @@ export default function ReviewForm() {
         type="text"
         className="review-form-input"
         placeholder="Comment/tag a friend"
-        value={review}
+        value={review.input}
+        ref={inputRef}
         onClick={handleReview}
-        onChange={(e) => setReview(e.target.value)}
+        onChange={(e) => setReview({ ...review, input: e.target.value })}
       />
     </ReviewFormContainer>
   );

@@ -1,17 +1,20 @@
 import { FormContainer } from "../FormStyles";
 import { useState } from "react";
 import Spinner from "../../Spinner/Spinner";
+import { useHistory } from "react-router-dom";
 
-export default function LoginForm({ login }) {
+export default function LoginForm() {
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
     if (Object.values(input).some((input) => input === "")) {
       setLoading(true);
       setTimeout(() => {
@@ -20,9 +23,24 @@ export default function LoginForm({ login }) {
       }, 500);
       return;
     }
-    console.log(input);
-    setError("");
-    setInput({ email: "", password: "" });
+    setLoading(true);
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(input),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        if (data.user) {
+          sessionStorage.setItem("__user__", JSON.stringify(data.user));
+          history.push("/");
+          window.location.reload();
+        }
+        setInput({ email: "", password: "" });
+      });
   };
 
   return (

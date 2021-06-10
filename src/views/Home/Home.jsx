@@ -11,8 +11,7 @@ import { NewSeries } from "../../components/NewSeries/NewSeries";
 import { LatestMovies } from "../../components/LatestMovies/LatestMovies";
 import { StreamingServices } from "../../components/StreamingServices/StreamingServices";
 
-
-export const Home = ({ useQuery, signup, setSignup }) => {
+export const Home = ({ useQuery }) => {
   const [showServicePopUp, setShowServicePopUp] = useState(false);
   const [showTrailer, setShowTrailer] = useState(false);
 
@@ -54,7 +53,7 @@ export const Home = ({ useQuery, signup, setSignup }) => {
         useQuery={useQuery}
         showTrailerVisible={showTrailerVisible}
       />
-      <StreamingServices/>
+      <StreamingServices />
     </HomeContainer>
   );
 };

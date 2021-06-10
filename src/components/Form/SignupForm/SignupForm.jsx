@@ -3,8 +3,10 @@ import { FiMail } from "react-icons/fi";
 import { useState } from "react";
 import Showcase from "../../Showcase/Showcase";
 import { images } from "./ImageData";
+import { useHistory } from "react-router";
 
 export default function SignupForm({ setLogin, setSignup, signup }) {
+  const history = useHistory();
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -16,7 +18,22 @@ export default function SignupForm({ setLogin, setSignup, signup }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(input).some((input) => input === "")) return;
-    console.log(input);
+    fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(input),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.user) {
+          sessionStorage.setItem("__user__", JSON.stringify(data.user));
+          history.push("/");
+          window.location.reload();
+        }
+      });
+
     setInput({ email: "", password: "", fullName: "" });
   };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Hamburger } from "../Hamburger/Hamburger";
 import LoginForm from "../Form/LoginForm/LoginForm";
@@ -16,11 +16,18 @@ import Modal from "../Modal/ModalForm";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useHistory } from "react-router";
 
 export const NavBar = ({ useQuery, signup, setSignup }) => {
   const [login, setLogin] = useState(false);
   const [show, setShow] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (sessionStorage.getItem("__user__")) setLoggedIn(true);
+  }, []);
 
   const hamburgerVisible = () => setShowHamburger(true);
   const hamburgerNotVisible = () => setShowHamburger(false);
@@ -28,19 +35,20 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
 
   const handleSetLogin = () => {
     setLogin(true);
+    setSignup(false);
     setShow(true);
   };
   const handleSetSignup = () => {
     setSignup(true);
+    setLogin(false);
     setShow(true);
   };
 
-  useEffect(() => {
-    if (!show) {
-      setLogin(false);
-      setSignup(false);
-    }
-  }, [show]);
+  const handleLogout = () => {
+    sessionStorage.removeItem("__user__");
+    history.push("/");
+    window.location.reload();
+  };
 
   return (
     <NavBarContainer>
@@ -60,9 +68,10 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
         </ul>
       ))}
       <Modal show={show} setShow={setShow}>
-        {login && <LoginForm />}
+        {login && <LoginForm useQuery={useQuery} />}
         {signup && (
           <SignupForm
+            useQuery={useQuery}
             setLogin={setLogin}
             setSignup={setSignup}
             signup={signup}
@@ -87,10 +96,16 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
         />
       )}
       <NavBarButtonContainer>
-        <LoginButton onClick={() => handleSetLogin()}>Log in</LoginButton>
-        <CreateButton onClick={() => handleSetSignup()}>
-          Create a free account
-        </CreateButton>
+        {loggedIn ? (
+          <CreateButton onClick={() => handleLogout()}>Log out</CreateButton>
+        ) : (
+          <>
+            <LoginButton onClick={() => handleSetLogin()}>Log in</LoginButton>
+            <CreateButton onClick={() => handleSetSignup()}>
+              Create a free account
+            </CreateButton>
+          </>
+        )}
       </NavBarButtonContainer>
       <section className="searchbar">
         <SearchBar useQuery={useQuery} />
