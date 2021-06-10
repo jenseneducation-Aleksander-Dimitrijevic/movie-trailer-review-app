@@ -2,7 +2,9 @@ import { useState, useRef } from "react";
 import ReviewFormContainer from "./ReviewFormStyles";
 
 export default function ReviewForm({ setSignup, setShow }) {
-  const [review, setReview] = useState("");
+  const [review, setReview] = useState({
+    input: "",
+  });
   const inputRef = useRef();
 
   const handleReview = () => {
@@ -16,7 +18,13 @@ export default function ReviewForm({ setSignup, setShow }) {
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     if (!review) return;
-    console.log("submitted");
+    fetch("/api/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <ReviewFormContainer onSubmit={handleReviewSubmit}>
@@ -25,10 +33,10 @@ export default function ReviewForm({ setSignup, setShow }) {
         type="text"
         className="review-form-input"
         placeholder="Comment/tag a friend"
-        value={review}
+        value={review.input}
         ref={inputRef}
         onClick={handleReview}
-        onChange={(e) => setReview(e.target.value)}
+        onChange={(e) => setReview({ ...review, input: e.target.value })}
       />
     </ReviewFormContainer>
   );

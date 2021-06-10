@@ -6,6 +6,7 @@ import { useMatchMedia } from "../../helpers/useMatchMedia";
 import ModalForm from "../../components/Modal/ModalForm";
 import SignupForm from "../../components/Form/SignupForm/SignupForm";
 import LoginForm from "../../components/Form/LoginForm/LoginForm";
+import Reviews from "./Reviews/Reviews";
 
 export const ShowMovieDetails = ({ location }) => {
   const [movieDetail, setMovieDetail] = useState(null);
@@ -63,6 +64,7 @@ export const ShowMovieDetails = ({ location }) => {
         </>
       )}
       <ReviewForm show={show} setShow={setShow} setSignup={setSignup} />
+      <Reviews />
       <ModalForm show={show} setShow={setShow}>
         {signup ? (
           <SignupForm

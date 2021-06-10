@@ -15,7 +15,13 @@ const {
   movieDetails,
 } = require("./handlers/movies");
 
-const { signup, login, auth } = require("./handlers/users");
+const {
+  signup,
+  login,
+  auth,
+  review,
+  getAllReviews,
+} = require("./handlers/users");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -32,6 +38,8 @@ app.use("/", movieDetails);
 app.use("/", signup);
 app.use("/", login);
 app.use("/", auth);
+app.use("/", review);
+app.use("/", getAllReviews);
 
 app.listen(PORT, () =>
   console.log(`Server up and running on port: ${PORT}. Happy coding! =)`)
