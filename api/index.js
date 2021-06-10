@@ -20,8 +20,8 @@ const {
   login,
   auth,
   review,
-  getUserReviews,
   logout,
+  getReviews,
 } = require("./handlers/users");
 
 app.use(express.json());
@@ -40,7 +40,7 @@ app.use("/", signup);
 app.use("/", login);
 app.use("/", auth);
 app.use("/", review);
-app.use("/", getUserReviews);
+app.use("/", getReviews);
 app.use("/", logout);
 
 app.listen(PORT, () =>
