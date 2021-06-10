@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import ReviewFormContainer from "./ReviewFormStyles";
 
-export default function ReviewForm({ setSignup, setShow }) {
+export default function ReviewForm({ setSignup, setShow, movieID }) {
   const [review, setReview] = useState({
     input: "",
   });
@@ -21,10 +21,11 @@ export default function ReviewForm({ setSignup, setShow }) {
     fetch("/api/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(review),
+      body: JSON.stringify({ review: review.input, movieID }),
     })
       .then((res) => res.json())
-      .then(() => {
+      .then((data) => {
+        console.log(data);
         setReview({ ...review, input: "" });
       });
   };

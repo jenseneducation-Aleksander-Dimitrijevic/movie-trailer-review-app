@@ -26,7 +26,7 @@ exports.signup = async (req, res) => {
   user
     .save()
     .then(() => {
-      res.redirect("/api/auth");
+      res.json({ message: "success" });
     })
     .catch((err) => {
       res.status(500).json({ error: err });
@@ -37,6 +37,9 @@ exports.login = async (req, res) => {
   if (Object.values(req.body).some((input) => input === "")) return;
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).json({ error: "Something went wrong" });
+  const passwordMatch = await bcrypt.compare(req.body.password, user.password);
+  if (!passwordMatch)
+    return res.status(400).json({ error: "Something went wrong" });
 
   const jwtPayload = { fullName: user.fullName, email: user.email };
   const token = jwt.sign(jwtPayload, process.env.SECRET);
@@ -46,11 +49,8 @@ exports.login = async (req, res) => {
     httpOnly: true,
   };
 
-  const cookie = res.cookie("auth", token, options);
-
-  if (cookie) {
-    res.redirect("/api/auth");
-  }
+  res.cookie("auth", token, options);
+  res.status(200).json({ message: "Success" });
 };
 
 exports.auth = (req, res) => {
@@ -58,19 +58,20 @@ exports.auth = (req, res) => {
 };
 
 exports.review = async (req, res) => {
-  if (req.body.input === "") return;
+  if (req.body.review === "" || req.body.movieID === null) return;
   const user = await User.findOne({ email: req.user.email });
   const newReview = new Review({
     fullName: user.fullName,
     email: user.email,
     userID: user._id,
-    review: req.body.input,
+    movieID: req.body.movieID,
+    review: req.body.review,
     createdAt: new Date().toLocaleDateString(),
   });
   newReview
     .save()
     .then(() => {
-      res.status(201).json({ message: "Success" });
+      res.status(201).json(newReview);
     })
     .catch((err) => {
       res.status(500).json({ error: err });

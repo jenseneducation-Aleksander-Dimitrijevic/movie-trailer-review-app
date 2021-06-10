@@ -23,6 +23,7 @@ export default function LoginForm() {
       }, 500);
       return;
     }
+    setLoading(true);
     fetch("/api/login", {
       method: "POST",
       headers: {
@@ -32,12 +33,12 @@ export default function LoginForm() {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         sessionStorage.setItem("__user__", JSON.stringify(data));
         history.push("/");
-        window.location.reload();
+        // window.location.reload();
+        setInput({ email: "", password: "" });
       });
-    setError("");
-    setInput({ email: "", password: "" });
   };
 
   return (

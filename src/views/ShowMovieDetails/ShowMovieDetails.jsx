@@ -63,8 +63,13 @@ export const ShowMovieDetails = ({ location }) => {
           </div>
         </>
       )}
-      <ReviewForm show={show} setShow={setShow} setSignup={setSignup} />
-      <Reviews />
+      <ReviewForm
+        show={show}
+        setShow={setShow}
+        setSignup={setSignup}
+        movieID={location.data.item.id}
+      />
+      <Reviews movieID={location.data.item.id} />
       <ModalForm show={show} setShow={setShow}>
         {signup ? (
           <SignupForm
