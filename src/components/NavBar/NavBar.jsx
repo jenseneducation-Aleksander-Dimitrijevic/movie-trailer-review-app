@@ -35,10 +35,12 @@ export const NavBar = ({ useQuery, signup, setSignup }) => {
 
   const handleSetLogin = () => {
     setLogin(true);
+    setSignup(false);
     setShow(true);
   };
   const handleSetSignup = () => {
     setSignup(true);
+    setLogin(false);
     setShow(true);
   };
 
