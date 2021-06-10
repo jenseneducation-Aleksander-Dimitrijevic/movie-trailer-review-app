@@ -19,7 +19,7 @@ export default function Reviews({ movieID }) {
 
   return (
     <ReviewsContainer>
-      {reviews
+      {reviews.length
         ? reviews.map(
             (item) =>
               movieID === parseInt(item.movieID) && (
