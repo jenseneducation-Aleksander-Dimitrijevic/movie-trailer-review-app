@@ -22,8 +22,6 @@ const {
   review,
   logout,
   getReviews,
-  getUserReviews,
-  logout,
 } = require("./handlers/users");
 
 app.use(express.json());
@@ -43,7 +41,6 @@ app.use("/", login);
 app.use("/", auth);
 app.use("/", review);
 app.use("/", getReviews);
-app.use("/", getUserReviews);
 app.use("/", logout);
 
 app.listen(PORT, () =>
