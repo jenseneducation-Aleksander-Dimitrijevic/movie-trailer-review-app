@@ -22,7 +22,6 @@ const {
   review,
   logout,
   getReviews,
-
 } = require("./handlers/users");
 
 app.use(express.json());
