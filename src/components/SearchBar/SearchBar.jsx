@@ -50,6 +50,7 @@ export const SearchBar = ({ useQuery }) => {
         Close
       </button>
       <SearchInput
+        searchBarSmall={searchBarSmall}
         useQuery={useQuery}
         toggleSearchBar={toggleSearchBar}
         keyword={keyword}

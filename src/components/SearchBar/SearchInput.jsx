@@ -3,7 +3,12 @@ import { SearchInputContainer } from "./SearchBarStyled";
 import { AiFillStar } from "react-icons/ai";
 import Spinner from "../Spinner/Spinner";
 
-export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
+export const SearchInput = ({
+  useQuery,
+  toggleSearchBar,
+  keyword,
+  searchBarSmall,
+}) => {
   const { isLoading, error, data } = useQuery(["Movies", keyword], () =>
     keyword?.length > 0
       ? fetch(`/api/search/${keyword}`).then((res) => res.json())
@@ -25,6 +30,7 @@ export const SearchInput = ({ useQuery, toggleSearchBar, keyword }) => {
         {data?.length > 0 ? (
           data.map((item) => (
             <Link
+              onClick={() => searchBarSmall()}
               style={{ textDecoration: "none" }}
               to={{
                 pathname: `/show/${item?.name || item?.title}`,

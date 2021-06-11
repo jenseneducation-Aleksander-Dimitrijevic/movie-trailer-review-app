@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReviewsContainer from "./ReviewStyles";
 import placeholder from "../../../assets/portrait/placeholder.png";
+import moment from "moment";
 
 export default function Reviews({ movieID }) {
   const [reviews, setReviews] = useState([]);
@@ -33,7 +34,9 @@ export default function Reviews({ movieID }) {
                   <div className="review-content">
                     <h1 className="review-title">{item.fullName}</h1>
                     <p className="review-text">{item.review}</p>
-                    <p className="review-createdAt">{item.createdAt}</p>
+                    <p className="review-createdAt">
+                      {moment(item.createdAt).format("MMM DD h:mm A")}
+                    </p>
                   </div>
                 </div>
               )
